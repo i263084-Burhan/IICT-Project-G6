@@ -21,8 +21,8 @@ const STORAGE_KEYS = {
   ORDERS: 'notesAndNoir_orders'
 };
 
-const FREE_SHIPPING_THRESHOLD = 20000;
-const STANDARD_SHIPPING_FEE = 500;
+const FREE_SHIPPING_THRESHOLD = 75;
+const STANDARD_SHIPPING_FEE = 10;
 
 /**
  * Fallback inline SVG placeholder data URI used automatically if an image
@@ -46,7 +46,7 @@ const FRAGRANCE_CATALOG = [
     id: 'noir-essence',
     name: 'Noir Essence',
     size: '100 ml',
-    price: 24000,
+    price: 95,
     notes: 'Jasmine, Smoked Amber, Cedarwood',
     image: '../images/hero-bestsellers-noir.jpg'
   },
@@ -54,7 +54,7 @@ const FRAGRANCE_CATALOG = [
     id: 'royal-essence',
     name: 'Royal Essence',
     size: '100 ml',
-    price: 22500,
+    price: 88,
     notes: 'Lavender, Bergamot, Royal Iris',
     image: '../images/bestsellers/royal-essence.jpg'
   },
@@ -62,7 +62,7 @@ const FRAGRANCE_CATALOG = [
     id: 'midnight-oud',
     name: 'Midnight Oud',
     size: '100 ml',
-    price: 26000,
+    price: 115,
     notes: 'Black Oud, Saffron, Smoked Leather',
     image: '../images/bestsellers/midnight-oud.svg'
   },
@@ -70,7 +70,7 @@ const FRAGRANCE_CATALOG = [
     id: 'amber-touch',
     name: 'Amber Touch',
     size: '50 ml',
-    price: 16500,
+    price: 65,
     notes: 'Warm Amber, Madagascar Vanilla, Tonka',
     image: '../images/bestsellers/amber-touch.jpg'
   },
@@ -78,7 +78,7 @@ const FRAGRANCE_CATALOG = [
     id: 'velvet-musk',
     name: 'Velvet Musk',
     size: '100 ml',
-    price: 19000,
+    price: 72,
     notes: 'White Musk, Sandalwood, Cashmere',
     image: '../images/bestsellers/velvet-musk.jpg'
   },
@@ -86,7 +86,7 @@ const FRAGRANCE_CATALOG = [
     id: 'blush-bloom',
     name: 'Blush Bloom',
     size: '50 ml',
-    price: 14500,
+    price: 58,
     notes: 'Damask Rose, Peony, Pink Pepper',
     image: '../images/bestsellers/blush-bloom.jpg'
   },
@@ -94,7 +94,7 @@ const FRAGRANCE_CATALOG = [
     id: 'ocean-breeze',
     name: 'Ocean Breeze',
     size: '100 ml',
-    price: 17500,
+    price: 68,
     notes: 'Sea Salt, Neroli, White Driftwood',
     image: '../images/bestsellers/ocean-breeze.jpg'
   }
@@ -104,7 +104,7 @@ const DEFAULT_CART_ITEM = {
   id: 'noir-essence',
   name: 'Noir Essence',
   size: '100 ml',
-  price: 24000,
+  price: 95,
   quantity: 1,
   image: '../images/hero-bestsellers-noir.jpg'
 };
@@ -125,7 +125,10 @@ const state = {
    ========================================================================== */
 
 function formatCurrency(amount) {
-  return `Rs. ${Number(amount || 0).toLocaleString('en-US')}`;
+  return `$${Number(amount || 0).toLocaleString('en-US', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })}`;
 }
 
 function readJsonStorage(key, fallback) {
@@ -187,9 +190,15 @@ function initializeState() {
     state.cart = [{ ...DEFAULT_CART_ITEM }];
     writeJsonStorage(STORAGE_KEYS.CART, state.cart);
   } else if (Array.isArray(storedCart)) {
-    state.cart = storedCart.filter(
-      (item) => item && typeof item.id === 'string' && Number(item.quantity) > 0
-    );
+    state.cart = storedCart
+      .filter((item) => item && typeof item.id === 'string' && Number(item.quantity) > 0)
+      .map((item) => {
+        const catalogItem = FRAGRANCE_CATALOG.find((p) => p.id === item.id);
+        return catalogItem
+          ? { ...item, price: catalogItem.price, name: catalogItem.name, size: catalogItem.size }
+          : item;
+      });
+    saveCart();
   } else {
     state.cart = [];
   }
@@ -702,7 +711,7 @@ function handleFormSubmit(event) {
         ? `Credit / Debit Card (ending in ${cardDigits.slice(-4) || '****'})`
         : paymentMethod === 'cod'
         ? 'Cash on Delivery'
-        : 'Bank Transfer (Meezan Bank)',
+        : 'Bank Transfer (Chase USD)',
     items: state.cart.map((item) => ({ ...item })),
     subtotal,
     shipping,
