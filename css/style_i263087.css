@@ -622,6 +622,32 @@ svg {
   transform: scale(1.04);
 }
 
+.bottle-photo--falcon {
+  object-position: center 14%;
+  transform: scale(1.02);
+}
+
+.bottle-photo--obsidian {
+  object-position: center 42%;
+  transform: scale(1.04);
+}
+
+.bottle-photo--ruby {
+  object-position: center 18%;
+  transform: scale(1.04);
+}
+
+.bottle-photo--honey {
+  object-position: center 22%;
+  transform: scale(1.04);
+}
+
+.bottle-photo--pink-blend {
+  object-position: center 18%;
+  transform: scale(1.06);
+  filter: brightness(0.85) contrast(1.06) saturate(0.92);
+}
+
 .bottle-photo--story {
   object-position: center 18%;
   transform: scale(1.05);
@@ -893,7 +919,8 @@ svg {
   transform: scale(1.13);
 }
 
-.product-card:hover .bottle-photo--light-blend {
+.product-card:hover .bottle-photo--light-blend,
+.product-card:hover .bottle-photo--pink-blend {
   transform: scale(1.11);
 }
 
