@@ -10,6 +10,7 @@
 
   /**
    * Shared luxury perfume catalog (12 fragrances across Men, Women, Unisex, and Kids).
+   * Uses all 10 real bottle photos (images/3.png through images/12.jpeg).
    * Image paths are stored relative to project root and resolved dynamically for subpages.
    */
   const NN_CATALOG = [
@@ -22,8 +23,10 @@
       badge: 'Bestseller',
       notes: 'Smoky Agarwood • Black Amber • Roasted Tonka',
       image: 'images/4.png',
+      imageClass: 'bottle-photo--amber',
       hasThirdPartyBrand: false,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: false
     },
     {
       id: 'nn-02',
@@ -34,8 +37,10 @@
       badge: 'Iconic',
       notes: 'Damask Rose • Golden Saffron • Cashmere Musk',
       image: 'images/7.png',
+      imageClass: 'bottle-photo--light-blend',
       hasThirdPartyBrand: true,
-      lightBackground: true
+      lightBackground: true,
+      giftSet: false
     },
     {
       id: 'nn-03',
@@ -46,8 +51,10 @@
       badge: 'Unisex',
       notes: 'Calabrian Bergamot • Black Pepper • Cedarwood',
       image: 'images/3.png',
+      imageClass: 'bottle-photo--blue',
       hasThirdPartyBrand: true,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: false
     },
     {
       id: 'nn-04',
@@ -58,8 +65,10 @@
       badge: 'Reserve',
       notes: 'Red Saffron • Incense Resin • Smoked Vetiver',
       image: 'images/8.png',
+      imageClass: 'bottle-photo--saffron',
       hasThirdPartyBrand: false,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: false
     },
     {
       id: 'nn-05',
@@ -70,8 +79,10 @@
       badge: 'Signature',
       notes: 'Black Cardamom • Aged Oud • Smoked Leather',
       image: 'images/6.png',
+      imageClass: 'bottle-photo--falcon',
       hasThirdPartyBrand: true,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: true
     },
     {
       id: 'nn-06',
@@ -82,8 +93,10 @@
       badge: 'Atelier',
       notes: 'Madagascar Vanilla • Warm Amber • White Orchid',
       image: 'images/5.png',
+      imageClass: 'bottle-photo--story',
       hasThirdPartyBrand: true,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: true
     },
     {
       id: 'nn-07',
@@ -93,9 +106,11 @@
       size: '100 ml',
       badge: 'Nocturne',
       notes: 'Atlas Cedar • Vetiver Root • Mineral Musk',
-      image: 'images/3.png',
-      hasThirdPartyBrand: true,
-      lightBackground: false
+      image: 'images/10.png',
+      imageClass: 'bottle-photo--obsidian',
+      hasThirdPartyBrand: false,
+      lightBackground: false,
+      giftSet: false
     },
     {
       id: 'nn-08',
@@ -105,9 +120,11 @@
       size: '100 ml',
       badge: 'Limited',
       notes: 'Midnight Rose • Pink Pepper • Creamy Sandalwood',
-      image: 'images/8.png',
-      hasThirdPartyBrand: false,
-      lightBackground: false
+      image: 'images/12.jpeg',
+      imageClass: 'bottle-photo--ruby',
+      hasThirdPartyBrand: true,
+      lightBackground: false,
+      giftSet: true
     },
     {
       id: 'nn-09',
@@ -117,9 +134,11 @@
       size: '100 ml',
       badge: 'Extrait',
       notes: 'Wildflower Honey • Benzoin Resin • Roasted Almond',
-      image: 'images/4.png',
-      hasThirdPartyBrand: false,
-      lightBackground: false
+      image: 'images/9.jpeg',
+      imageClass: 'bottle-photo--honey',
+      hasThirdPartyBrand: true,
+      lightBackground: false,
+      giftSet: true
     },
     {
       id: 'nn-10',
@@ -129,9 +148,11 @@
       size: '50 ml',
       badge: 'Gentle',
       notes: 'Sweet Mandarin • Orange Blossom • Cotton Musk',
-      image: 'images/7.png',
+      image: 'images/11.jpeg',
+      imageClass: 'bottle-photo--pink-blend',
       hasThirdPartyBrand: true,
-      lightBackground: true
+      lightBackground: true,
+      giftSet: false
     },
     {
       id: 'nn-11',
@@ -141,9 +162,11 @@
       size: '50 ml',
       badge: 'Alcohol-Free',
       notes: 'White Peach • Chamomile Mist • Soft Vanilla',
-      image: 'images/5.png',
+      image: 'images/7.png',
+      imageClass: 'bottle-photo--light-blend',
       hasThirdPartyBrand: true,
-      lightBackground: false
+      lightBackground: true,
+      giftSet: false
     },
     {
       id: 'nn-12',
@@ -153,13 +176,15 @@
       size: '50 ml',
       badge: 'Soft Mist',
       notes: 'Crisp Pear • Neroli Blossom • Clean Cedar',
-      image: 'images/6.png',
+      image: 'images/9.jpeg',
+      imageClass: 'bottle-photo--honey',
       hasThirdPartyBrand: true,
-      lightBackground: false
+      lightBackground: false,
+      giftSet: false
     }
   ];
 
-  const getRootPrefix = () => (window.location.pathname.includes('/pages/') ? '../' : '');
+  const getRootPrefix = () => (/\/pages(\/|\\)/i.test(window.location.pathname) ? '../' : '');
 
   const resolveAssetPath = (relativePath) => {
     if (!relativePath) return `${getRootPrefix()}images/4.png`;
@@ -457,6 +482,275 @@
     resolveAssetPath
   };
 
+  const initShopAllCatalog = () => {
+    const gridEl = document.getElementById('shopCatalogGrid');
+    if (!gridEl) return;
+
+    const filterButtons = Array.from(document.querySelectorAll('.filter-pill[data-category]'));
+    const searchInput = document.getElementById('catalogSearchInput');
+    const searchClearBtn = document.getElementById('catalogSearchClear');
+    const sortSelect = document.getElementById('catalogSortSelect');
+    const resultCountEl = document.getElementById('catalogResultCount');
+    const emptyStateEl = document.getElementById('catalogEmptyState');
+    const resetBtn = document.getElementById('resetFiltersBtn');
+    const headerSearchInput = document.getElementById('headerSearchInput');
+
+    const VALID_CATEGORIES = new Set(['all', 'men', 'women', 'unisex', 'kids', 'gift-sets']);
+    const CATEGORY_LABELS = {
+      all: 'All',
+      men: 'Men',
+      women: 'Women',
+      unisex: 'Unisex',
+      kids: 'Kids',
+      'gift-sets': 'Gift Sets'
+    };
+
+    const state = {
+      category: 'all',
+      search: '',
+      sort: 'featured'
+    };
+
+    const readUrlParams = () => {
+      const params = new URLSearchParams(window.location.search);
+      const rawCategory = (params.get('category') || '').trim().toLowerCase();
+      const rawSearch = (params.get('search') || '').trim();
+
+      if (VALID_CATEGORIES.has(rawCategory)) {
+        state.category = rawCategory;
+      }
+      if (rawSearch) {
+        state.search = rawSearch;
+      }
+    };
+
+    const syncControlsFromState = () => {
+      filterButtons.forEach((btn) => {
+        const btnCat = (btn.getAttribute('data-category') || 'all').toLowerCase();
+        const isActive = btnCat === state.category;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+
+      if (searchInput && searchInput.value !== state.search) {
+        searchInput.value = state.search;
+      }
+      if (headerSearchInput && headerSearchInput.value !== state.search) {
+        headerSearchInput.value = state.search;
+      }
+      if (searchClearBtn) {
+        searchClearBtn.hidden = !state.search.trim();
+      }
+      if (sortSelect && sortSelect.value !== state.sort) {
+        sortSelect.value = state.sort;
+      }
+    };
+
+    const syncUrlFromState = () => {
+      try {
+        const url = new URL(window.location.href);
+        if (state.category && state.category !== 'all') {
+          url.searchParams.set('category', state.category);
+        } else {
+          url.searchParams.delete('category');
+        }
+        if (state.search.trim()) {
+          url.searchParams.set('search', state.search.trim());
+        } else {
+          url.searchParams.delete('search');
+        }
+        window.history.replaceState({}, '', url.toString());
+      } catch {
+        // Ignore history API restrictions on file:// origins if any
+      }
+    };
+
+    const formatProductTitleHtml = (name) =>
+      escapeHtml(name).replace(/&amp;/g, '<span class="std-amp">&amp;</span>');
+
+    const renderCard = (item) => {
+      const mediaClasses = ['product-media'];
+      if (item.lightBackground) mediaClasses.push('product-media--light-blend');
+
+      const imgClasses = ['bottle-photo', 'bottle-photo--card'];
+      if (item.imageClass) imgClasses.push(item.imageClass);
+
+      const vignetteClass = item.lightBackground
+        ? 'bottle-vignette bottle-vignette--strong'
+        : 'bottle-vignette';
+
+      const overlayHtml = item.hasThirdPartyBrand
+        ? `
+          <div class="bottle-brand-mask" aria-hidden="true">
+            <div class="bottle-brand-plaque bottle-brand-plaque--compact">
+              <span class="plaque-name">Notes <span class="std-amp">&amp;</span> Noir</span>
+            </div>
+          </div>
+        `
+        : '<div class="bottle-bottom-fade" aria-hidden="true"></div>';
+
+      return `
+        <article class="product-card" data-product-id="${escapeHtml(item.id)}" data-category="${escapeHtml(item.category.toLowerCase())}">
+          <div class="${mediaClasses.join(' ')}">
+            <span class="product-badge">${escapeHtml(item.category)}</span>
+            <img
+              src="${escapeHtml(resolveAssetPath(item.image))}"
+              alt="${escapeHtml(item.name)} Perfume Bottle"
+              class="${imgClasses.join(' ')}"
+              loading="lazy"
+            />
+            <div class="${vignetteClass}" aria-hidden="true"></div>
+            ${overlayHtml}
+          </div>
+          <div class="product-body">
+            <div class="product-meta-row">
+              <span class="product-edition">${escapeHtml(item.badge)}</span>
+              <span class="product-size">${escapeHtml(item.size)}</span>
+            </div>
+            <h2 class="product-title">${formatProductTitleHtml(item.name)}</h2>
+            <p class="product-notes">${escapeHtml(item.notes)}</p>
+            <div class="product-footer">
+              <span class="product-price">${formatMoney(item.price)}</span>
+              <button
+                type="button"
+                class="btn-add-cart"
+                data-id="${escapeHtml(item.id)}"
+                data-product="${escapeHtml(item.name)}"
+                data-price="${escapeHtml(item.price)}"
+                data-image="${escapeHtml(item.image)}"
+              >Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      `;
+    };
+
+    const getFilteredCatalog = () => {
+      const query = state.search.trim().toLowerCase();
+
+      const filtered = NN_CATALOG.filter((item) => {
+        if (state.category === 'gift-sets') {
+          if (!item.giftSet) return false;
+        } else if (state.category !== 'all') {
+          if (item.category.toLowerCase() !== state.category) return false;
+        }
+
+        if (!query) return true;
+        const searchable = `${item.name} ${item.notes} ${item.category} ${item.badge}`.toLowerCase();
+        return searchable.includes(query);
+      });
+
+      if (state.sort === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (state.sort === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (state.sort === 'name-asc') {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return filtered;
+    };
+
+    const renderCatalog = () => {
+      syncControlsFromState();
+      const items = getFilteredCatalog();
+      const count = items.length;
+      const noun = count === 1 ? 'fragrance' : 'fragrances';
+      const activeParts = [];
+
+      if (state.category !== 'all') {
+        activeParts.push(`in ${CATEGORY_LABELS[state.category] || state.category}`);
+      }
+      if (state.search.trim()) {
+        activeParts.push(`matching "${state.search.trim()}"`);
+      }
+
+      if (resultCountEl) {
+        resultCountEl.textContent = activeParts.length
+          ? `Showing ${count} ${noun} ${activeParts.join(' ')}`
+          : `Showing ${count} ${noun}`;
+      }
+
+      // Show/hide the gold "Reset Filters" top-bar button
+      if (resetBtn) {
+        resetBtn.hidden = !(state.category !== 'all' || state.search.trim() !== '');
+      }
+
+      if (!count) {
+        gridEl.innerHTML = '';
+        gridEl.hidden = true;
+        if (emptyStateEl) emptyStateEl.hidden = false;
+        return;
+      }
+
+      if (emptyStateEl) emptyStateEl.hidden = true;
+      gridEl.hidden = false;
+      gridEl.innerHTML = items.map(renderCard).join('');
+    };
+
+    const resetAllFilters = () => {
+      state.category = 'all';
+      state.search = '';
+      state.sort = 'featured';
+      syncUrlFromState();
+      renderCatalog();
+    };
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        state.category = (btn.getAttribute('data-category') || 'all').toLowerCase();
+        syncUrlFromState();
+        renderCatalog();
+      });
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        state.search = searchInput.value;
+        syncUrlFromState();
+        renderCatalog();
+      });
+    }
+
+    if (searchClearBtn) {
+      searchClearBtn.addEventListener('click', () => {
+        state.search = '';
+        syncUrlFromState();
+        renderCatalog();
+        if (searchInput) searchInput.focus();
+      });
+    }
+
+    if (sortSelect) {
+      sortSelect.addEventListener('change', () => {
+        state.sort = sortSelect.value;
+        renderCatalog();
+      });
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', resetAllFilters);
+    }
+
+    // Also wire the empty-state inline reset button in shop-all.html
+    const emptyResetBtn = document.getElementById('emptyResetBtn');
+    if (emptyResetBtn) {
+      emptyResetBtn.addEventListener('click', resetAllFilters);
+    }
+
+    // Live-sync header search when user is already on Shop All
+    if (headerSearchInput) {
+      headerSearchInput.addEventListener('input', () => {
+        state.search = headerSearchInput.value;
+        syncUrlFromState();
+        renderCatalog();
+      });
+    }
+
+    readUrlParams();
+    renderCatalog();
+  };
+
   document.addEventListener('DOMContentLoaded', () => {
     const searchForm = document.getElementById('headerSearchForm');
     const searchInput = document.getElementById('headerSearchInput');
@@ -467,6 +761,7 @@
 
     updateCartBadge();
     ensureCartDrawer();
+    initShopAllCatalog();
 
     // Event delegation supports both static cards and dynamically rendered catalog cards
     document.addEventListener('click', (event) => {
@@ -507,15 +802,25 @@
       }
     });
 
-    // Header search redirect on Enter or form submit
+    // Header search redirect on Enter or form submit (or live-filter on Shop All)
     const submitHeaderSearch = () => {
       if (!searchInput) return;
       const query = searchInput.value.trim();
+      const shopGrid = document.getElementById('shopCatalogGrid');
+      if (shopGrid) {
+        const catalogSearch = document.getElementById('catalogSearchInput');
+        if (catalogSearch) {
+          catalogSearch.value = query;
+          catalogSearch.dispatchEvent(new Event('input', { bubbles: true }));
+          catalogSearch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
       if (!query) {
         showToast('Enter a scent or note to search Notes & Noir.');
         return;
       }
-      const targetPage = window.location.pathname.includes('/pages/')
+      const targetPage = /\/pages(\/|\\)/i.test(window.location.pathname)
         ? 'shop-all.html'
         : 'pages/shop-all.html';
       window.location.href = `${targetPage}?search=${encodeURIComponent(query)}`;
