@@ -76,7 +76,10 @@
     return items.map(function (item) {
       const prod = products.find(function (p) { return p.id === item.id; });
       const variant = prod && prod.variants.find(function (v) { return v.size === item.size; });
-      return variant ? Object.assign({}, item, { unitPrice: variant.price }) : item;
+      const price = (item.unitPrice && Number(item.unitPrice) < 500)
+        ? item.unitPrice
+        : (variant ? variant.price : (item.id === "rose-mist" ? 22 : 45));
+      return Object.assign({}, item, { unitPrice: price });
     });
   }
 
@@ -387,6 +390,7 @@
       '<div class="d-flex justify-content-between fw-semibold mb-3"><span>Total</span><span>' +
       formatPrice(orderTotal) +
       "</span></div>" +
+      '<a href="' + getPageHref("shopping-bag.html") + '" class="btn btn-outline-dark btn-sm rounded-pill w-100 mb-2">View Full Shopping Bag</a>' +
       '<button type="button" id="nn-checkout-btn" class="nn-btn-primary w-100 mb-2">Proceed to Checkout</button>' +
       '<button type="button" id="nn-clear-cart-btn" class="btn btn-link btn-sm text-muted w-100 text-decoration-none">Clear Bag</button>' +
       "</div>";
