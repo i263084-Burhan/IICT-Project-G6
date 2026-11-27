@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your luxury fragrance order securely at Notes & Noir Fragrances.">
+  <title>Checkout — Notes &amp; Noir Fragrances</title>
+
+  <!-- Google Fonts: Playfair Display (Luxury Serif) & Plus Jakarta Sans (Clean UI Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Roll-number suffixed Stylesheet -->
+  <link rel="stylesheet" href="../css/checkout_i263083.css">
+</head>
+<body>
+  <!-- Skip Link for Keyboard Accessibility -->
+  <a class="skip-link" href="#main-content">Skip to main checkout content</a>
+
+  <!-- =========================================================
+       SITE HEADER (Utility Announcement Bar + Main Navigation)
+       ========================================================= -->
+  <header class="site-header">
+    <!-- Top Announcement & Utility Bar -->
+    <div class="utility-bar">
+      <div class="container utility-bar__inner">
+        <p class="utility-bar__promo">
+          <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13" rx="1"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+          <span>Free shipping on orders over Rs. 20,000</span>
+        </p>
+
+        <div class="utility-bar__actions" role="region" aria-label="Store utilities">
+          <button type="button" class="utility-btn" id="open-search-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="search-overlay">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Search</span>
+          </button>
+
+          <button type="button" class="utility-btn" id="open-account-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="account-modal">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Account</span>
+          </button>
+
+          <button type="button" class="utility-btn" id="open-wishlist-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="wishlist-modal">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Wishlist (<span id="header-wishlist-count">0</span>)</span>
+          </button>
+
+          <a href="#order-summary-card" class="utility-btn utility-btn--cart" id="header-cart-link" aria-label="View Cart in Order Summary">
+            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span>Cart (<span id="header-cart-count">1</span>)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container main-nav__inner">
+        <a href="../index.html" class="brand-logo" aria-label="Notes and Noir Fragrances Home">
+          <span class="brand-logo__title">Notes &amp; Noir</span>
+          <span class="brand-logo__subtitle">FRAGRANCES</span>
+        </a>
+
+        <button type="button" class="nav-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav-menu">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <ul class="nav-links" id="primary-nav-menu">
+          <li class="nav-links__item">
+            <a href="../index.html" class="nav-links__link">Home</a>
+          </li>
+          <li class="nav-links__item nav-links__item--dropdown">
+            <button type="button" class="nav-links__link nav-links__dropdown-btn" id="shop-dropdown-btn" aria-expanded="false" aria-controls="shop-dropdown-menu">
+              <span>Shop</span>
+              <svg class="icon icon--xs nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="dropdown-menu" id="shop-dropdown-menu" hidden>
+              <a href="shop.html" class="dropdown-menu__link">All Fragrances</a>
+              <a href="shop.html#bestsellers" class="dropdown-menu__link">Signature Bestsellers</a>
+              <a href="shop.html#oud-amber" class="dropdown-menu__link">Oud &amp; Amber Collection</a>
+              <a href="shop.html#floral-musk" class="dropdown-menu__link">Floral &amp; Velvet Musk</a>
+              <button type="button" class="dropdown-menu__link dropdown-menu__action" id="dropdown-quick-browse">Quick Add to Bag</button>
+            </div>
+          </li>
+          <li class="nav-links__item">
+            <a href="about.html" class="nav-links__link">About</a>
+          </li>
+          <li class="nav-links__item">
+            <a href="blog.html" class="nav-links__link">Blog</a>
+          </li>
+          <li class="nav-links__item">
+            <a href="contact.html" class="nav-links__link">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================
+       SEARCH OVERLAY (Live Catalog Filter)
+       ========================================================= -->
+  <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-overlay-title" hidden>
+    <div class="search-overlay__backdrop" data-close-overlay="search-overlay"></div>
+    <div class="search-overlay__panel">
+      <div class="container">
+        <div class="search-overlay__header">
+          <h2 id="search-overlay-title" class="sr-only">Search Fragrances</h2>
+          <div class="search-input-wrap">
+            <svg class="icon icon--md search-input-wrap__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="search" id="catalog-search-input" class="search-overlay__input" placeholder="Search Noir Essence, Oud, Amber, Floral..." autocomplete="off" aria-label="Search Notes and Noir fragrances">
+          </div>
+          <button type="button" class="icon-close-btn" id="close-search-btn" aria-label="Close search overlay">
+            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <div class="search-results" id="search-results" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       HERO BANNER
+       ========================================================= -->
+  <section class="checkout-hero" aria-labelledby="checkout-hero-title">
+    <img
+      src="../images/hero-bestsellers-noir.jpg"
+      alt="Notes and Noir Fragrances amber glass perfume bottle resting on dark luxury silk with white jasmine blossoms"
+      class="checkout-hero__bg"
+      id="hero-banner-img"
+    >
+    <div class="checkout-hero__scrim" aria-hidden="true"></div>
+    <div class="container checkout-hero__content">
+      <h1 id="checkout-hero-title" class="checkout-hero__title">Checkout</h1>
+      <p class="checkout-hero__subtitle">Complete your order with elegance.</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       MAIN CHECKOUT WORKSPACE (60% / 40% Two-Column Grid)
+       ========================================================= -->
+  <main id="main-content" class="checkout-main">
+    <div class="container">
+      <!-- Live region for screen-reader announcements -->
+      <div id="checkout-status-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+      <div class="checkout-grid">
+        <!-- LEFT COLUMN: Shipping Information & Payment Card -->
+        <section class="checkout-card checkout-card--form" aria-labelledby="shipping-heading">
+          <h2 id="shipping-heading" class="card-heading">Shipping Information</h2>
+
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                class="form-input"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required
+                aria-describedby="fullName-error"
+              >
+              <p id="fullName-error" class="form-error" role="alert"></p>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+                aria-describedby="email-error"
+              >
+              <p id="email-error" class="form-error" role="alert"></p>
+            </div>
+
+            <!-- Street Address -->
+            <div class="form-group">
+              <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                class="form-input"
+                placeholder="Enter your address"
+                autocomplete="street-address"
+                required
+                aria-describedby="address-error"
+              >
+              <p id="address-error" class="form-error" role="alert"></p>
+            </div>
+
+            <!-- City & Postal Code Two-Column Row -->
+            <div class="form-row form-row--two">
+              <div class="form-group">
+                <label for="city" class="form-label">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  class="form-input"
+                  placeholder="City"
+                  autocomplete="address-level2"
+                  required
+                  aria-describedby="city-error"
+                >
+                <p id="city-error" class="form-error" role="alert"></p>
+              </div>
+
+              <div class="form-group">
+                <label for="postalCode" class="form-label">Postal Code</label>
+                <input
+                  type="text"
+                  id="postalCode"
+                  name="postalCode"
+                  class="form-input"
+                  placeholder="12345"
+                  inputmode="numeric"
+                  maxlength="5"
+                  autocomplete="postal-code"
+                  required
+                  aria-describedby="postalCode-error"
+                >
+                <p id="postalCode-error" class="form-error" role="alert"></p>
+              </div>
+            </div>
+
+            <!-- Payment Method Section -->
+            <fieldset class="payment-fieldset">
+              <legend class="card-subheading">Payment Method</legend>
+
+              <div class="payment-options" role="radiogroup" aria-label="Choose a payment method">
+                <!-- Option 1: Credit / Debit Card -->
+                <div class="payment-option is-selected" data-payment-option="card">
+                  <label class="payment-option__label" for="payment-card">
+                    <span class="payment-option__left">
+                      <input
+                        type="radio"
+                        id="payment-card"
+                        name="paymentMethod"
+                        value="card"
+                        class="payment-radio"
+                        checked
+                        aria-expanded="true"
+                        aria-controls="drawer-card"
+                      >
+                      <span class="payment-radio-ui" aria-hidden="true"></span>
+                      <span class="payment-option__title">Credit / Debit Card</span>
+                    </span>
+
+                    <span class="card-badges" aria-label="Accepted cards: Visa, Mastercard, American Express">
+                      <!-- VISA SVG Badge -->
+                      <svg class="card-badge" viewBox="0 0 44 26" role="img" aria-label="VISA">
+                        <rect width="44" height="26" rx="4" fill="#FFFFFF" stroke="#DCD4C8"/>
+                        <text x="22" y="17" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="10.5" font-weight="700" font-style="italic" fill="#1A1F71">VISA</text>
+                      </svg>
+                      <!-- Mastercard SVG Badge -->
+                      <svg class="card-badge" viewBox="0 0 44 26" role="img" aria-label="Mastercard">
+                        <rect width="44" height="26" rx="4" fill="#FFFFFF" stroke="#DCD4C8"/>
+                        <circle cx="17.5" cy="13" r="6.5" fill="#EB001B"/>
+                        <circle cx="26.5" cy="13" r="6.5" fill="#F79E1B" fill-opacity="0.9"/>
+                      </svg>
+                      <!-- AMEX SVG Badge -->
+                      <svg class="card-badge" viewBox="0 0 44 26" role="img" aria-label="AMEX">
+                        <rect width="44" height="26" rx="4" fill="#2E77BC"/>
+                        <text x="22" y="16.5" text-anchor="middle" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.4" fill="#FFFFFF">AMEX</text>
+                      </svg>
+                    </span>
+                  </label>
+
+                  <!-- Dynamic Accordion Drawer: Credit / Debit Card -->
+                  <div class="payment-drawer is-open" id="drawer-card">
+                    <div class="payment-drawer__inner">
+                      <div class="form-group">
+                        <label for="cardNumber" class="form-label">Card Number</label>
+                        <input
+                          type="text"
+                          id="cardNumber"
+                          name="cardNumber"
+                          class="form-input"
+                          placeholder="1234 5678 9012 3456"
+                          inputmode="numeric"
+                          maxlength="19"
+                          autocomplete="cc-number"
+                          aria-describedby="cardNumber-error"
+                        >
+                        <p id="cardNumber-error" class="form-error" role="alert"></p>
+                      </div>
+
+                      <div class="form-row form-row--two">
+                        <div class="form-group">
+                          <label for="cardExpiry" class="form-label">Expiry Date</label>
+                          <input
+                            type="text"
+                            id="cardExpiry"
+                            name="cardExpiry"
+                            class="form-input"
+                            placeholder="MM/YY"
+                            inputmode="numeric"
+                            maxlength="5"
+                            autocomplete="cc-exp"
+                            aria-describedby="cardExpiry-error"
+                          >
+                          <p id="cardExpiry-error" class="form-error" role="alert"></p>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="cardCvv" class="form-label">CVV</label>
+                          <input
+                            type="password"
+                            id="cardCvv"
+                            name="cardCvv"
+                            class="form-input"
+                            placeholder="123"
+                            inputmode="numeric"
+                            maxlength="4"
+                            autocomplete="cc-csc"
+                            aria-describedby="cardCvv-error"
+                          >
+                          <p id="cardCvv-error" class="form-error" role="alert"></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Option 2: Cash on Delivery -->
+                <div class="payment-option" data-payment-option="cod">
+                  <label class="payment-option__label" for="payment-cod">
+                    <span class="payment-option__left">
+                      <input
+                        type="radio"
+                        id="payment-cod"
+                        name="paymentMethod"
+                        value="cod"
+                        class="payment-radio"
+                        aria-expanded="false"
+                        aria-controls="drawer-cod"
+                      >
+                      <span class="payment-radio-ui" aria-hidden="true"></span>
+                      <span class="payment-option__title">Cash on Delivery</span>
+                    </span>
+                  </label>
+
+                  <div class="payment-drawer" id="drawer-cod" hidden>
+                    <div class="payment-drawer__inner">
+                      <p class="payment-note">
+                        Pay in cash when your fragrance parcel arrives at your doorstep. Our courier will verify your Order ID before handing over the package.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Option 3: Bank Transfer -->
+                <div class="payment-option" data-payment-option="bank">
+                  <label class="payment-option__label" for="payment-bank">
+                    <span class="payment-option__left">
+                      <input
+                        type="radio"
+                        id="payment-bank"
+                        name="paymentMethod"
+                        value="bank"
+                        class="payment-radio"
+                        aria-expanded="false"
+                        aria-controls="drawer-bank"
+                      >
+                      <span class="payment-radio-ui" aria-hidden="true"></span>
+                      <span class="payment-option__title">Bank Transfer</span>
+                    </span>
+                  </label>
+
+                  <div class="payment-drawer" id="drawer-bank" hidden>
+                    <div class="payment-drawer__inner">
+                      <div class="bank-details">
+                        <p class="bank-details__row"><span>Bank:</span> <strong>Meezan Bank Limited</strong></p>
+                        <p class="bank-details__row"><span>Account Title:</span> <strong>Notes &amp; Noir Fragrances</strong></p>
+                        <p class="bank-details__row">
+                          <span>IBAN:</span>
+                          <strong id="bank-iban-text">PK36MEZN0002810104928371</strong>
+                          <button type="button" class="copy-iban-btn" id="copy-iban-btn" aria-label="Copy IBAN to clipboard">Copy</button>
+                        </p>
+                        <p class="payment-note">Please use your generated Order ID as the transfer reference. Orders ship as soon as payment is verified.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <button type="submit" id="place-order-btn" class="btn-primary btn-place-order">
+              Place Order
+            </button>
+          </form>
+        </section>
+
+        <!-- RIGHT COLUMN: Order Summary Card + Trust Badge -->
+        <aside class="summary-column" aria-labelledby="summary-heading">
+          <div class="checkout-card checkout-card--summary" id="order-summary-card">
+            <h2 id="summary-heading" class="card-heading">Order Summary</h2>
+
+            <!-- Dynamically Rendered Cart Items Container -->
+            <div id="order-items" class="order-items" aria-live="polite"></div>
+
+            <!-- Pricing Breakdown -->
+            <div class="summary-breakdown" id="summary-breakdown">
+              <div class="summary-row">
+                <span class="summary-row__label">Subtotal</span>
+                <span class="summary-row__value" id="summary-subtotal">Rs. 24,000</span>
+              </div>
+              <div class="summary-row">
+                <span class="summary-row__label">Shipping</span>
+                <span class="summary-row__value" id="summary-shipping">Rs. 0</span>
+              </div>
+              <p class="shipping-hint" id="shipping-hint"></p>
+              <div class="summary-row summary-row--total">
+                <span class="summary-row__label">Total</span>
+                <span class="summary-row__value" id="summary-total">Rs. 24,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secure Checkout Badge -->
+          <div class="security-badge">
+            <svg class="icon icon--sm security-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+            <span>Secure &amp; Encrypted Checkout</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================
+       ORDER CONFIRMATION MODAL
+       ========================================================= -->
+  <div class="modal" id="order-confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="confirmation-modal-title" hidden>
+    <div class="modal__backdrop" data-close-modal="order-confirmation-modal"></div>
+    <div class="modal__dialog modal__dialog--confirmation">
+      <div class="modal__header">
+        <div class="confirmation-emblem" aria-hidden="true">
+          <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <h2 id="confirmation-modal-title" class="modal__title">Order Confirmed</h2>
+        <p class="modal__subtitle">Thank you for choosing Notes &amp; Noir Fragrances.</p>
+      </div>
+
+      <div class="modal__body" id="confirmation-modal-body">
+        <!-- Populated dynamically via JS -->
+      </div>
+
+      <div class="modal__footer">
+        <button type="button" class="btn-primary btn-continue-shopping" id="continue-shopping-btn">
+          Continue Shopping
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       WISHLIST & ACCOUNT (ORDER HISTORY) MODALS
+       ========================================================= -->
+  <div class="modal" id="wishlist-modal" role="dialog" aria-modal="true" aria-labelledby="wishlist-modal-title" hidden>
+    <div class="modal__backdrop" data-close-modal="wishlist-modal"></div>
+    <div class="modal__dialog">
+      <div class="modal__header modal__header--row">
+        <h2 id="wishlist-modal-title" class="modal__title">Your Wishlist</h2>
+        <button type="button" class="icon-close-btn icon-close-btn--dark" data-close-modal="wishlist-modal" aria-label="Close wishlist">
+          <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body" id="wishlist-modal-body"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-modal-title" hidden>
+    <div class="modal__backdrop" data-close-modal="account-modal"></div>
+    <div class="modal__dialog">
+      <div class="modal__header modal__header--row">
+        <h2 id="account-modal-title" class="modal__title">Saved Orders &amp; Account</h2>
+        <button type="button" class="icon-close-btn icon-close-btn--dark" data-close-modal="account-modal" aria-label="Close account panel">
+          <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body" id="account-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SITE FOOTER (4 Columns)
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Column 1: Brand & AI Image Disclosure -->
+        <div class="footer-col footer-col--brand">
+          <div class="brand-logo brand-logo--footer">
+            <span class="brand-logo__title">Notes &amp; Noir</span>
+            <span class="brand-logo__subtitle">FRAGRANCES</span>
+          </div>
+          <p class="footer-tagline">More than a fragrance. A feeling.</p>
+          <p class="footer-disclosure">Images on this website were generated using AI tools.</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-list">
+            <li><a href="../index.html" class="footer-link">Home</a></li>
+            <li><a href="shop.html" class="footer-link">Shop</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="blog.html" class="footer-link">Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Customer Care -->
+        <div class="footer-col">
+          <h3 class="footer-heading">Customer Care</h3>
+          <ul class="footer-list">
+            <li><a href="contact.html#faq" class="footer-link">FAQs</a></li>
+            <li><a href="contact.html#shipping" class="footer-link">Shipping</a></li>
+            <li><a href="contact.html#returns" class="footer-link">Returns</a></li>
+            <li><button type="button" class="footer-link footer-link--btn" id="footer-track-order-btn">Track Order</button></li>
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Follow Us & Copyright -->
+        <div class="footer-col footer-col--social">
+          <div>
+            <h3 class="footer-heading">Follow Us</h3>
+            <div class="social-links">
+              <a href="#instagram" class="social-link" aria-label="Follow Notes and Noir on Instagram">
+                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a href="#tiktok" class="social-link" aria-label="Follow Notes and Noir on TikTok">
+                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+              </a>
+              <a href="#youtube" class="social-link" aria-label="Subscribe to Notes and Noir on YouTube">
+                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+              <a href="#pinterest" class="social-link" aria-label="Follow Notes and Noir on Pinterest">
+                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M8.5 14.5c-.5-2 .5-4.5 2.5-5.5 2.2-1.1 5 .2 5 2.8 0 2.2-1.5 3.7-3.2 3.7-.9 0-1.6-.6-1.4-1.5l.7-3"></path>
+                  <line x1="10.5" y1="15" x2="9" y2="20"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <p class="footer-copyright">&copy; 2026 Notes &amp; Noir. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Roll-number suffixed Vanilla JavaScript -->
+  <script src="../js/checkout_i263083.js"></script>
+</body>
+</html>
