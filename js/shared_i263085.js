@@ -53,6 +53,9 @@
   }
 
   function formatPrice(amount) {
+    if (typeof amount === "number" && amount >= 500) {
+      return "Rs. " + amount.toLocaleString("en-US");
+    }
     const prefix = (global.NN_CONFIG && global.NN_CONFIG.CURRENCY_SYMBOL) || "$";
     return prefix + Number(amount || 0).toLocaleString("en-US");
   }
@@ -76,7 +79,9 @@
     return items.map(function (item) {
       const prod = products.find(function (p) { return p.id === item.id; });
       const variant = prod && prod.variants.find(function (v) { return v.size === item.size; });
-      return variant ? Object.assign({}, item, { unitPrice: variant.price }) : item;
+      return (variant && (typeof item.unitPrice === "undefined" || item.unitPrice === null))
+        ? Object.assign({}, item, { unitPrice: variant.price })
+        : item;
     });
   }
 
@@ -387,6 +392,7 @@
       '<div class="d-flex justify-content-between fw-semibold mb-3"><span>Total</span><span>' +
       formatPrice(orderTotal) +
       "</span></div>" +
+      '<a href="' + getPageHref("shopping-bag.html") + '" class="btn btn-outline-dark btn-sm rounded-pill w-100 mb-2">View Full Shopping Bag</a>' +
       '<button type="button" id="nn-checkout-btn" class="nn-btn-primary w-100 mb-2">Proceed to Checkout</button>' +
       '<button type="button" id="nn-clear-cart-btn" class="btn btn-link btn-sm text-muted w-100 text-decoration-none">Clear Bag</button>' +
       "</div>";

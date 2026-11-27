@@ -149,6 +149,47 @@
       ]
     },
     {
+      id: "rose-mist",
+      name: "Rose Mist",
+      title: "Rose Mist",
+      subtitle: "Eau de Parfum",
+      category: "Floral & Musk",
+      family: "Floral",
+      familyTags: "Floral • Fresh • Elegant",
+      occasion: ["daily", "cozy", "outdoor"],
+      price: 22,
+      pricePKR: "Rs. 4,200",
+      image: "images/rose-mist-main.svg",
+      description:
+        "A delicate floral infusion of crisp pink petals, morning dew, and tender white woods.",
+      shortDescription:
+        "A delicate floral infusion of crisp pink petals, morning dew, and tender white woods.",
+      editorialDescription:
+        "Rose Mist embodies morning clarity in an English rose garden—dew-kissed petals, sheer peony, and soft white woods.",
+      editorialTagline: "FRESH. LUMINOUS. ETHEREAL.",
+      concentration: "18% Eau de Parfum",
+      longevity: "7–9 Hours",
+      sillage: "Soft & Enveloping",
+      stockLimit: 10,
+      variants: [
+        { size: "50 ml", price: 22, pricePKR: "Rs. 4,200" },
+        { size: "100 ml", price: 38, pricePKR: "Rs. 7,200" }
+      ],
+      gallery: [
+        {
+          src: "images/rose-mist-main.svg",
+          alt: "Rose Mist 50 ml delicate blush perfume bottle",
+          label: "Rose Mist bottle"
+        }
+      ],
+      notes: {
+        top: ["Morning Dew", "Lychee", "Pink Pepper"],
+        heart: ["Petal Rose", "Peony", "Magnolia"],
+        base: ["White Cedar", "Soft Musk", "Ambrette"]
+      },
+      reviews: []
+    },
+    {
       id: "amber-solstice",
       name: "Amber Solstice",
       title: "Amber Solstice",
