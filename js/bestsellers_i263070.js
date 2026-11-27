@@ -1,5 +1,5 @@
 /**
- * Notes & Noir Fragrances — Bestsellers Page (bestsellers_i263084.js)
+ * Notes & Noir Fragrances — Bestsellers Page (bestsellers_i263070.js)
  * Dynamically renders the 6 bestseller product cards from a JS data array,
  * wires Add to Cart to localStorage, updates header Cart (X) & free-shipping
  * progress in real time, and provides brief button & screen-reader feedback.
@@ -232,7 +232,7 @@
       return;
     }
 
-    // Fallback if shared_i263084.js was not loaded
+    // Fallback if shared_i263070.js was not loaded
     try {
       const raw = window.localStorage.getItem(CART_STORAGE_KEY);
       const cart = raw ? JSON.parse(raw) : [];
