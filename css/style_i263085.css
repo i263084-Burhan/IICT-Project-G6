@@ -1,0 +1,958 @@
+/* ==========================================================================
+   Notes & Noir Fragrances — Master Stylesheet (style_i263085.css)
+   Palette:
+     - Deep Obsidian Black: #14110F
+     - Warm Ivory / Cream:  #FAF6F0
+     - Charcoal Text:       #1A1715
+     - Muted Secondary:     #5C554F
+     - Soft Warm Taupe:     #DCD4C8
+     - Crisp White:         #FFFFFF
+   ========================================================================== */
+
+:root {
+  --nn-obsidian: #14110F;
+  --nn-cream: #FAF6F0;
+  --nn-cream-soft: #F3ECE2;
+  --nn-charcoal: #1A1715;
+  --nn-muted: #5C554F;
+  --nn-taupe: #DCD4C8;
+  --nn-white: #FFFFFF;
+  --nn-gold: #B69B74;
+  --nn-danger: #9B2C2C;
+  --nn-success: #2C5E3B;
+
+  --nn-font-serif: 'Cormorant Garamond', Georgia, serif;
+  --nn-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --nn-radius-sm: 6px;
+  --nn-radius-md: 8px;
+  --nn-radius-lg: 12px;
+  --nn-transition: 0.22s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--nn-cream);
+  color: var(--nn-charcoal);
+  font-family: var(--nn-font-sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, .nn-serif {
+  font-family: var(--nn-font-serif);
+  color: var(--nn-charcoal);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--nn-transition), opacity var(--nn-transition);
+}
+
+a:hover {
+  color: var(--nn-muted);
+}
+
+/* Accessible focus rings */
+:focus-visible {
+  outline: 2px solid var(--nn-obsidian);
+  outline-offset: 3px;
+}
+
+.bg-obsidian :focus-visible,
+.nn-topbar :focus-visible,
+.nn-footer :focus-visible {
+  outline-color: var(--nn-white);
+}
+
+/* Skip link */
+.nn-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--nn-obsidian);
+  color: var(--nn-white);
+  padding: 0.65rem 1.25rem;
+  z-index: 2000;
+  font-size: 0.875rem;
+}
+
+.nn-skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   1. Top Announcement & Utility Bar
+   -------------------------------------------------------------------------- */
+.nn-topbar {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+  font-size: 0.8rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nn-topbar-promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.02em;
+}
+
+.nn-topbar-utils {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nn-util-btn {
+  background: transparent;
+  border: 0;
+  color: var(--nn-white);
+  padding: 0.15rem 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity var(--nn-transition);
+}
+
+.nn-util-btn:hover {
+  color: var(--nn-taupe);
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Navbar
+   -------------------------------------------------------------------------- */
+.nn-navbar {
+  background-color: var(--nn-cream);
+  border-bottom: 1px solid var(--nn-taupe);
+  padding: 0.85rem 0;
+}
+
+.nn-brand {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.nn-brand-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--nn-charcoal);
+  letter-spacing: 0.02em;
+}
+
+.nn-brand-sub {
+  font-family: var(--nn-font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--nn-muted);
+  margin-top: 0.2rem;
+}
+
+.nn-navbar .nav-link {
+  font-family: var(--nn-font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--nn-charcoal);
+  padding: 0.5rem 1.05rem !important;
+  position: relative;
+}
+
+.nn-navbar .nav-link:hover,
+.nn-navbar .nav-link.active {
+  color: var(--nn-obsidian);
+  font-weight: 500;
+}
+
+.nn-navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 1.05rem;
+  right: 1.05rem;
+  bottom: 0.2rem;
+  height: 1.5px;
+  background-color: var(--nn-obsidian);
+}
+
+.nn-navbar .dropdown-menu {
+  background-color: var(--nn-cream);
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  box-shadow: 0 12px 30px rgba(20, 17, 15, 0.08);
+  padding: 0.5rem 0;
+}
+
+.nn-navbar .dropdown-item {
+  font-size: 0.875rem;
+  color: var(--nn-charcoal);
+  padding: 0.5rem 1.25rem;
+}
+
+.nn-navbar .dropdown-item:hover,
+.nn-navbar .dropdown-item:focus {
+  background-color: var(--nn-cream-soft);
+  color: var(--nn-obsidian);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--nn-taupe);
+  padding: 0.4rem 0.65rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px var(--nn-obsidian);
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero Banner (~180px - 220px height)
+   -------------------------------------------------------------------------- */
+.nn-hero-banner {
+  position: relative;
+  min-height: 196px;
+  display: flex;
+  align-items: center;
+  background-color: #EDE1D0;
+  background-image: linear-gradient(95deg, rgba(246, 239, 229, 0.92) 0%, rgba(237, 225, 208, 0.72) 55%, rgba(228, 212, 190, 0.45) 100%),
+    url("../images/hero-silk-floral.svg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--nn-taupe);
+  padding: 2.25rem 0;
+}
+
+.nn-hero-banner-lg {
+  min-height: 440px;
+  padding: 4rem 0;
+}
+
+.nn-hero-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--nn-charcoal);
+  margin-bottom: 0.35rem;
+}
+
+.nn-hero-subtitle {
+  font-size: 1rem;
+  color: var(--nn-muted);
+  margin-bottom: 1rem;
+}
+
+.nn-hero-accent {
+  width: 56px;
+  height: 2px;
+  background-color: var(--nn-obsidian);
+}
+
+/* --------------------------------------------------------------------------
+   4. Product Details Main Section (Gallery + Info Controls)
+   -------------------------------------------------------------------------- */
+.nn-product-section {
+  padding: 3rem 0 2.5rem;
+}
+
+.nn-gallery-wrap {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.nn-thumbs-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 82px;
+  flex-shrink: 0;
+}
+
+.nn-thumb-btn {
+  padding: 0;
+  border: 1.5px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  background-color: var(--nn-white);
+  overflow: hidden;
+  width: 82px;
+  height: 82px;
+  cursor: pointer;
+  transition: border-color var(--nn-transition), transform var(--nn-transition), box-shadow var(--nn-transition);
+}
+
+.nn-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nn-thumb-btn:hover {
+  border-color: var(--nn-muted);
+}
+
+.nn-thumb-btn.active {
+  border-color: var(--nn-obsidian);
+  border-width: 2px;
+  box-shadow: 0 4px 12px rgba(20, 17, 15, 0.12);
+}
+
+.nn-main-image-card {
+  flex: 1;
+  border-radius: var(--nn-radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--nn-taupe);
+  background-color: var(--nn-cream-soft);
+  aspect-ratio: 5 / 6;
+  max-height: 540px;
+}
+
+.nn-main-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.25s ease;
+}
+
+.nn-product-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(2.1rem, 3.6vw, 2.85rem);
+  font-weight: 600;
+  color: var(--nn-charcoal);
+  margin-bottom: 0.3rem;
+  line-height: 1.15;
+}
+
+.nn-product-family {
+  font-size: 0.92rem;
+  color: var(--nn-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.nn-rating-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  color: var(--nn-muted);
+  margin-bottom: 0.75rem;
+}
+
+.nn-stars {
+  color: var(--nn-obsidian);
+  letter-spacing: 0.08em;
+}
+
+.nn-product-price {
+  font-family: var(--nn-font-sans);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--nn-charcoal);
+  margin-bottom: 0.25rem;
+}
+
+.nn-line-total {
+  font-size: 0.85rem;
+  color: var(--nn-muted);
+  min-height: 1.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.nn-product-short-desc {
+  color: var(--nn-muted);
+  font-size: 0.96rem;
+  max-width: 48ch;
+  margin-bottom: 1.25rem;
+}
+
+.nn-divider {
+  border: 0;
+  border-top: 1px solid var(--nn-taupe);
+  margin: 1.25rem 0;
+}
+
+.nn-control-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+  flex-wrap: wrap;
+}
+
+.nn-control-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--nn-charcoal);
+  min-width: 48px;
+}
+
+/* Size Pill Toggle */
+.nn-size-group {
+  display: inline-flex;
+  gap: 0.6rem;
+}
+
+.nn-size-btn {
+  padding: 0.48rem 1.25rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--nn-obsidian);
+  background-color: transparent;
+  color: var(--nn-obsidian);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--nn-transition);
+}
+
+.nn-size-btn:hover {
+  background-color: rgba(20, 17, 15, 0.06);
+}
+
+.nn-size-btn.active {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+}
+
+/* Quantity Stepper */
+.nn-qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--nn-taupe);
+  border-radius: 999px;
+  background-color: var(--nn-white);
+  overflow: hidden;
+}
+
+.nn-qty-btn {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  background: transparent;
+  color: var(--nn-charcoal);
+  font-size: 1.05rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--nn-transition);
+}
+
+.nn-qty-btn:hover:not(:disabled) {
+  background-color: var(--nn-cream-soft);
+}
+
+.nn-qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nn-qty-value {
+  min-width: 40px;
+  text-align: center;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--nn-charcoal);
+  border-left: 1px solid var(--nn-taupe);
+  border-right: 1px solid var(--nn-taupe);
+  line-height: 38px;
+}
+
+.nn-inline-notice {
+  font-size: 0.82rem;
+  color: var(--nn-danger);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  min-height: 1.2rem;
+}
+
+/* Action CTA Pills */
+.nn-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.nn-btn-primary {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+  border: 1.5px solid var(--nn-obsidian);
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  transition: background-color var(--nn-transition), transform var(--nn-transition);
+}
+
+.nn-btn-primary:hover {
+  background-color: #2B2521;
+  border-color: #2B2521;
+  color: var(--nn-white);
+}
+
+.nn-btn-outline {
+  background-color: transparent;
+  color: var(--nn-obsidian);
+  border: 1.5px solid var(--nn-obsidian);
+  border-radius: 999px;
+  padding: 0.8rem 1.65rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all var(--nn-transition);
+}
+
+.nn-btn-outline:hover {
+  background-color: rgba(20, 17, 15, 0.06);
+  color: var(--nn-obsidian);
+}
+
+.nn-btn-outline.saved {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+}
+
+.nn-shipping-banner {
+  margin-top: 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  background-color: var(--nn-white);
+  font-size: 0.84rem;
+  color: var(--nn-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. Bottom Tabbed Information Panel
+   -------------------------------------------------------------------------- */
+.nn-tabs-section {
+  padding: 1rem 0 4rem;
+}
+
+.nn-tablist {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--nn-taupe);
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.nn-tab-btn {
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 0.15rem;
+  font-family: var(--nn-font-sans);
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: var(--nn-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: -1px;
+  transition: color var(--nn-transition), border-color var(--nn-transition);
+}
+
+.nn-tab-btn:hover {
+  color: var(--nn-charcoal);
+}
+
+.nn-tab-btn[aria-selected="true"] {
+  color: var(--nn-obsidian);
+  border-bottom-color: var(--nn-obsidian);
+}
+
+.nn-tab-card {
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  background-color: rgba(255, 255, 255, 0.55);
+  padding: 2rem 2.25rem;
+}
+
+.nn-editorial-tagline {
+  font-family: var(--nn-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--nn-charcoal);
+  white-space: nowrap;
+}
+
+.nn-note-tier-card {
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  background-color: var(--nn-white);
+  padding: 1.35rem;
+  height: 100%;
+}
+
+.nn-note-tier-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--nn-muted);
+  margin-bottom: 0.35rem;
+}
+
+.nn-note-tier-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.nn-note-pill {
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--nn-taupe);
+  background-color: var(--nn-cream);
+  font-size: 0.82rem;
+  margin: 0.2rem 0.25rem 0.2rem 0;
+}
+
+/* Reviews */
+.nn-review-card {
+  border-bottom: 1px solid var(--nn-taupe);
+  padding: 1.15rem 0;
+}
+
+.nn-review-card:last-child {
+  border-bottom: 0;
+}
+
+.nn-star-picker {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.nn-star-pick-btn {
+  background: transparent;
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-sm);
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+  color: var(--nn-muted);
+  cursor: pointer;
+  transition: all var(--nn-transition);
+}
+
+.nn-star-pick-btn.active {
+  background-color: var(--nn-obsidian);
+  border-color: var(--nn-obsidian);
+  color: var(--nn-white);
+}
+
+.nn-form-control {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-sm);
+  color: var(--nn-charcoal);
+  font-size: 0.92rem;
+  padding: 0.62rem 0.85rem;
+}
+
+.nn-form-control:focus {
+  background-color: var(--nn-white);
+  border-color: var(--nn-obsidian);
+  box-shadow: 0 0 0 2px rgba(20, 17, 15, 0.12);
+}
+
+.nn-field-error {
+  color: var(--nn-danger);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.nn-field-error.visible {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   6. Product Cards (Home, Shop, Related Scents)
+   -------------------------------------------------------------------------- */
+.nn-product-card {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-taupe);
+  border-radius: var(--nn-radius-md);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--nn-transition), box-shadow var(--nn-transition);
+}
+
+.nn-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(20, 17, 15, 0.08);
+}
+
+.nn-product-card-img {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--nn-cream-soft);
+  position: relative;
+}
+
+.nn-product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.nn-product-card:hover .nn-product-card-img img {
+  transform: scale(1.03);
+}
+
+.nn-product-card-body {
+  padding: 1.15rem 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nn-filter-pill {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--nn-taupe);
+  background-color: var(--nn-white);
+  color: var(--nn-charcoal);
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: all var(--nn-transition);
+}
+
+.nn-filter-pill:hover,
+.nn-filter-pill.active {
+  background-color: var(--nn-obsidian);
+  border-color: var(--nn-obsidian);
+  color: var(--nn-white);
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer (#14110F)
+   -------------------------------------------------------------------------- */
+.nn-footer {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+  padding: 3.5rem 0 2.75rem;
+  margin-top: auto;
+}
+
+.nn-footer .nn-brand-title {
+  color: var(--nn-white);
+}
+
+.nn-footer .nn-brand-sub {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.nn-footer-heading {
+  font-family: var(--nn-font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nn-white);
+  margin-bottom: 1rem;
+}
+
+.nn-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nn-footer-links li {
+  margin-bottom: 0.45rem;
+}
+
+.nn-footer-links a {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.87rem;
+}
+
+.nn-footer-links a:hover {
+  color: var(--nn-white);
+}
+
+.nn-social-links {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.nn-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nn-white);
+  transition: background-color var(--nn-transition), border-color var(--nn-transition);
+}
+
+.nn-social-icon:hover {
+  background-color: var(--nn-white);
+  border-color: var(--nn-white);
+  color: var(--nn-obsidian);
+}
+
+.nn-footer-right {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: 1.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Offcanvas Drawers, Modals & Toasts
+   -------------------------------------------------------------------------- */
+.nn-offcanvas {
+  background-color: var(--nn-cream);
+  color: var(--nn-charcoal);
+}
+
+.nn-offcanvas .offcanvas-header {
+  border-bottom: 1px solid var(--nn-taupe);
+}
+
+.nn-progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: var(--nn-taupe);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.nn-progress-fill {
+  height: 100%;
+  background-color: var(--nn-obsidian);
+  transition: width 0.3s ease;
+}
+
+.nn-toast-container {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1090;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 360px;
+}
+
+.nn-toast {
+  background-color: var(--nn-obsidian);
+  color: var(--nn-white);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--nn-radius-md);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.86rem;
+  box-shadow: 0 12px 28px rgba(20, 17, 15, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .nn-footer-right {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .nn-editorial-tagline {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nn-topbar-promo {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+
+  .nn-topbar-utils {
+    justify-content: center;
+    width: 100%;
+    gap: 0.9rem;
+  }
+
+  .nn-gallery-wrap {
+    flex-direction: column-reverse;
+  }
+
+  .nn-thumbs-col {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nn-thumb-btn {
+    width: calc(25% - 0.55rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .nn-tab-card {
+    padding: 1.35rem 1.15rem;
+  }
+}
