@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Notes & Noir Fragrances — Shop by Fragrance Notes (notes_i263084.css)
+   ========================================================================== */
+
+:root {
+  --nn-cream: #F7F3EE;
+  --nn-note-bar: #E8DFD5;
+  --nn-charcoal: #141414;
+  --nn-ink: #1A1A1A;
+  --nn-muted: #5B534B;
+  --nn-border: #DFD6CA;
+  --nn-font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --nn-font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nn-transition: 0.25s ease;
+}
+
+body.nn-notes-page {
+  background-color: var(--nn-cream);
+  color: var(--nn-ink);
+  font-family: var(--nn-font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main#main-content {
+  flex: 1 0 auto;
+}
+
+/* ==========================================================================
+   Top Bar & Navbar
+   ========================================================================== */
+.nn-top-bar {
+  background-color: var(--nn-charcoal);
+  color: #EAE4DC;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+.nn-top-link {
+  color: #EAE4DC;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: opacity var(--nn-transition);
+}
+
+.nn-top-link:hover {
+  color: #FFFFFF;
+  opacity: 0.85;
+}
+
+.nn-header {
+  background-color: var(--nn-cream);
+  border-bottom: 1px solid var(--nn-border);
+}
+
+.nn-navbar {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.nn-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  text-decoration: none;
+  color: var(--nn-ink);
+}
+
+.nn-brand-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nn-brand-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--nn-muted);
+  margin-top: 2px;
+}
+
+.nn-nav-links .nav-link {
+  color: var(--nn-ink);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  transition: color var(--nn-transition);
+}
+
+.nn-nav-links .nav-link:hover,
+.nn-nav-links .nav-link.active {
+  color: #7D644B;
+}
+
+.nn-nav-links .dropdown-toggle::after {
+  display: none;
+}
+
+.nn-dropdown-menu {
+  background-color: var(--nn-cream);
+  border: 1px solid var(--nn-border);
+  border-radius: 8px;
+}
+
+.nn-dropdown-menu .dropdown-item {
+  font-size: 0.88rem;
+  color: var(--nn-ink);
+}
+
+.nn-dropdown-menu .dropdown-item.active,
+.nn-dropdown-menu .dropdown-item:active {
+  background-color: var(--nn-charcoal);
+  color: var(--nn-cream);
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+.nn-notes-hero {
+  background: linear-gradient(110deg, #F1EAE0 0%, #E7DDD0 55%, #DED1C1 100%);
+  border-bottom: 1px solid var(--nn-border);
+  overflow: hidden;
+}
+
+.nn-hero-row {
+  min-height: 340px;
+}
+
+.nn-hero-copy {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.nn-hero-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.55rem);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--nn-ink);
+  margin-bottom: 0.9rem;
+}
+
+.nn-hero-subtitle {
+  font-size: clamp(0.98rem, 1.3vw, 1.1rem);
+  color: var(--nn-muted);
+  margin-bottom: 1.35rem;
+}
+
+.nn-hero-divider {
+  width: 56px;
+  height: 1px;
+  background-color: var(--nn-ink);
+}
+
+.nn-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.nn-hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: 295px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(20, 20, 20, 0.08);
+}
+
+/* ==========================================================================
+   9 Fragrance Note Cards Row
+   ========================================================================== */
+.nn-notes-section {
+  background-color: var(--nn-cream);
+  padding-top: 2.75rem;
+  padding-bottom: 3.75rem;
+}
+
+.nn-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.nn-note-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--nn-note-bar);
+  border: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 14px rgba(20, 20, 20, 0.06);
+  transition:
+    transform var(--nn-transition),
+    box-shadow var(--nn-transition),
+    border-color var(--nn-transition);
+}
+
+.nn-note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(20, 20, 20, 0.12);
+}
+
+.nn-note-card:focus-visible {
+  outline: 3px solid var(--nn-ink);
+  outline-offset: 3px;
+}
+
+.nn-note-card.is-active {
+  border-color: var(--nn-ink);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(20, 20, 20, 0.16);
+}
+
+.nn-note-media {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #DED4C8;
+}
+
+.nn-note-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.nn-note-card:hover .nn-note-img,
+.nn-note-card.is-active .nn-note-img {
+  transform: scale(1.05);
+}
+
+.nn-note-label-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(232, 223, 213, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem 0.35rem;
+  text-align: center;
+  border-top: 1px solid rgba(26, 26, 26, 0.08);
+  transition: background-color var(--nn-transition);
+}
+
+.nn-note-card.is-active .nn-note-label-bar {
+  background-color: var(--nn-ink);
+}
+
+.nn-note-name {
+  display: block;
+  font-family: var(--nn-font-serif);
+  font-size: 0.94rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--nn-ink);
+  transition: color var(--nn-transition);
+}
+
+.nn-note-card.is-active .nn-note-name {
+  color: var(--nn-cream);
+}
+
+/* ==========================================================================
+   Charcoal 4-Column Footer
+   ========================================================================== */
+.nn-footer {
+  background-color: var(--nn-charcoal);
+  color: #D6CFC7;
+  padding-top: 3.25rem;
+  padding-bottom: 2rem;
+  font-size: 0.88rem;
+}
+
+.nn-footer-tagline {
+  color: #B6AFA7;
+  font-size: 0.9rem;
+}
+
+.nn-footer-heading {
+  font-family: var(--nn-font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 0.9rem;
+}
+
+.nn-footer-links li {
+  margin-bottom: 0.45rem;
+}
+
+.nn-footer-links a,
+.nn-footer-socials a {
+  color: #B6AFA7;
+  text-decoration: none;
+  transition: color var(--nn-transition);
+}
+
+.nn-footer-links a:hover,
+.nn-footer-socials a:hover {
+  color: #FFFFFF;
+}
+
+.nn-footer-col-divided {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  padding-left: 2rem;
+}
+
+.nn-footer-bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #8E877E;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.nn-ai-disclosure {
+  color: #787169;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1199.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px) {
+  .nn-hero-row {
+    min-height: auto;
+  }
+
+  .nn-hero-copy {
+    padding-top: 2.4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .nn-hero-visual {
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 2.25rem;
+  }
+
+  .nn-footer-col-divided {
+    border-left: 0;
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nn-hero-image {
+    height: 230px;
+  }
+}
