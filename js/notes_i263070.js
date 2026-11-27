@@ -13,63 +13,63 @@
       id: 'citrus',
       name: 'Citrus',
       image: '../images/notes/citrus.jpg',
-      alt: 'Close-up macro photograph of fresh sliced oranges',
+      alt: 'Close-up macro photograph of fresh sliced citrus oranges and lemon halves for the Citrus fragrance note',
       fallbackColors: ['#F9D98C', '#E07A28']
     },
     {
       id: 'floral',
       name: 'Floral',
       image: '../images/notes/floral.jpg',
-      alt: 'Close-up macro photograph of soft pink roses in bloom',
+      alt: 'Close-up macro photograph of soft blush pink roses in full bloom for the Floral fragrance note',
       fallbackColors: ['#F3D0D7', '#C96B84']
     },
     {
       id: 'woody',
       name: 'Woody',
       image: '../images/notes/woody.jpg',
-      alt: 'Close-up macro photograph of textured natural tree bark',
+      alt: 'Close-up macro photograph of rich textured natural wood bark and oud chips for the Woody fragrance note',
       fallbackColors: ['#B38B67', '#5E3F28']
     },
     {
       id: 'vanilla',
       name: 'Vanilla',
       image: '../images/notes/vanilla.jpg',
-      alt: 'Close-up macro photograph of vanilla orchid blossoms and dark vanilla pods',
+      alt: 'Close-up macro photograph of creamy vanilla orchid blossoms beside dark vanilla bean pods for the Vanilla fragrance note',
       fallbackColors: ['#F4E6CE', '#8B623D']
     },
     {
       id: 'spicy',
       name: 'Spicy',
       image: '../images/notes/spicy.jpg',
-      alt: 'Close-up macro photograph of rolled cinnamon sticks and star anise',
+      alt: 'Close-up macro photograph of rolled cinnamon sticks and star anise on warm linen for the Spicy fragrance note',
       fallbackColors: ['#CD8258', '#75331E']
     },
     {
       id: 'amber',
       name: 'Amber',
       image: '../images/notes/amber.jpg',
-      alt: 'Close-up macro photograph of glowing golden amber resin',
+      alt: 'Close-up macro photograph of glowing translucent golden amber resin pieces for the Amber fragrance note',
       fallbackColors: ['#F0B35B', '#8E4316']
     },
     {
       id: 'musk',
       name: 'Musk',
       image: '../images/notes/musk.jpg',
-      alt: 'Close-up macro photograph of soft white fleece texture',
+      alt: 'Close-up macro photograph of soft velvety white fabric texture representing the Musk fragrance note',
       fallbackColors: ['#F6F3EE', '#C7BFB5']
     },
     {
       id: 'fresh',
       name: 'Fresh',
       image: '../images/notes/fresh.jpg',
-      alt: 'Close-up macro photograph of crisp green mint leaves',
+      alt: 'Close-up macro photograph of crisp dewy green mint and eucalyptus leaves for the Fresh fragrance note',
       fallbackColors: ['#C5E2CE', '#3E7B56']
     },
     {
       id: 'gourmand',
       name: 'Gourmand',
       image: '../images/notes/gourmand.jpg',
-      alt: 'Close-up macro photograph of dark chocolate pralines',
+      alt: 'Close-up macro photograph of rich dark chocolate pralines and caramel for the Gourmand fragrance note',
       fallbackColors: ['#9A6C4C', '#3F2316']
     }
   ];
