@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Notes & Noir Fragrances — Bestsellers Page (bestsellers_i263070.css)
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Banner (Dark Espresso / Bronze Draped Silk)
+   ========================================================================== */
+.nn-bestsellers-hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 78% 58%, rgba(145, 98, 62, 0.42) 0%, rgba(77, 49, 32, 0.25) 38%, transparent 72%),
+    linear-gradient(125deg, #1E130D 0%, #342116 38%, #4F3524 68%, #261810 100%);
+  color: #FFFFFF;
+  overflow: visible;
+  z-index: 12;
+}
+
+/* Subtle draped silk fold highlights */
+.nn-bestsellers-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 95%, rgba(176, 128, 86, 0.14) 0%, transparent 55%),
+    linear-gradient(155deg, transparent 35%, rgba(212, 165, 118, 0.08) 50%, transparent 66%),
+    linear-gradient(25deg, rgba(16, 10, 7, 0.45) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.nn-hero-row {
+  min-height: 290px;
+}
+
+.nn-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.nn-hero-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.08;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.nn-hero-subtitle {
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 1.25rem;
+}
+
+.nn-hero-divider {
+  width: 64px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.nn-hero-visual {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: stretch;
+}
+
+.nn-hero-bottle-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nn-hero-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 22%;
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 90%, transparent 100%);
+}
+
+/* ==========================================================================
+   6 Bestseller Product Cards Row
+   ========================================================================== */
+.nn-bestsellers-section {
+  background-color: var(--nn-cream);
+  padding-top: 2.75rem;
+  padding-bottom: 3.75rem;
+}
+
+.nn-bestsellers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.nn-product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--nn-card-beige);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(20, 20, 20, 0.06);
+  transition: transform var(--nn-transition), box-shadow var(--nn-transition);
+}
+
+.nn-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(20, 20, 20, 0.11);
+}
+
+.nn-product-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #E5D9CC;
+}
+
+.nn-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.nn-product-card:hover .nn-product-img {
+  transform: scale(1.04);
+}
+
+.nn-product-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.9rem 0.75rem 1rem;
+  flex: 1 1 auto;
+}
+
+.nn-product-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--nn-ink);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.nn-product-rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  font-size: 0.76rem;
+  color: var(--nn-muted);
+  margin-bottom: 0.45rem;
+  line-height: 1.2;
+}
+
+.nn-stars {
+  color: var(--nn-gold);
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+}
+
+.nn-rating-text {
+  font-weight: 500;
+  color: var(--nn-muted);
+}
+
+.nn-product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--nn-ink);
+  margin-bottom: 0.75rem;
+}
+
+.nn-add-cart-btn {
+  margin-top: auto;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  background-color: var(--nn-btn-charcoal);
+  color: #FFFFFF;
+  border: 1.5px solid var(--nn-btn-charcoal);
+  border-radius: 999px;
+  padding: 0.52rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background-color var(--nn-transition),
+    border-color var(--nn-transition),
+    transform 0.15s ease;
+}
+
+.nn-add-cart-btn:hover {
+  background-color: #312B27;
+  border-color: #312B27;
+}
+
+.nn-add-cart-btn:active {
+  transform: scale(0.98);
+}
+
+.nn-add-cart-btn:focus-visible {
+  outline: 3px solid var(--nn-ink);
+  outline-offset: 2px;
+}
+
+.nn-add-cart-btn.is-added {
+  background-color: #3A5A40;
+  border-color: #3A5A40;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1199.98px) {
+  .nn-bestsellers-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .nn-hero-row {
+    min-height: auto;
+  }
+
+  .nn-hero-copy {
+    padding-top: 2.35rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .nn-hero-visual {
+    justify-content: center;
+    padding-bottom: 1.75rem;
+  }
+
+  .nn-hero-bottle-wrap {
+    margin-top: 0;
+    max-width: 440px;
+    justify-content: center;
+  }
+
+  .nn-hero-image {
+    height: 260px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nn-bestsellers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.95rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .nn-bestsellers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nn-hero-image {
+    height: 220px;
+  }
+}
