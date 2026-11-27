@@ -12,10 +12,18 @@
   const PRODUCTS = [
     {
       id: "noir-oud",
+      name: "Noir Oud",
       title: "Noir Oud",
       subtitle: "Eau de Parfum",
       category: "Woody & Oud",
+      family: "Woody",
       familyTags: "Woody • Amber • Spicy",
+      occasion: ["evening", "cozy", "formal"],
+      price: 45,
+      pricePKR: "Rs. 8,500",
+      image: "images/noir-oud-main.svg",
+      description:
+        "A bold and luxurious fragrance for those who seek elegance in every detail.",
       shortDescription:
         "A bold and luxurious fragrance for those who seek elegance in every detail.",
       editorialDescription:
@@ -77,10 +85,18 @@
     },
     {
       id: "velvet-rose",
+      name: "Velvet Rose",
       title: "Velvet Rose",
       subtitle: "Eau de Parfum",
       category: "Floral & Musk",
+      family: "Floral",
       familyTags: "Floral • Powdery • Musky",
+      occasion: ["evening", "cozy", "daily"],
+      price: 39,
+      pricePKR: "Rs. 7,500",
+      image: "images/velvet-rose-main.svg",
+      description:
+        "Velvety crimson petals layered over cashmere woods and soft white musk.",
       shortDescription:
         "Velvety crimson petals layered over cashmere woods and soft white musk.",
       editorialDescription:
@@ -134,10 +150,18 @@
     },
     {
       id: "amber-solstice",
+      name: "Amber Solstice",
       title: "Amber Solstice",
       subtitle: "Eau de Parfum",
       category: "Amber & Spice",
+      family: "Sweet",
       familyTags: "Amber • Gourmand • Resin",
+      occasion: ["cozy", "evening", "daily"],
+      price: 42,
+      pricePKR: "Rs. 8,000",
+      image: "images/amber-solstice-main.svg",
+      description:
+        "Golden benzoin resin, roasted vanilla bean, and spiced labdanum warmth.",
       shortDescription:
         "Golden benzoin resin, roasted vanilla bean, and spiced labdanum warmth.",
       editorialDescription:
@@ -191,10 +215,18 @@
     },
     {
       id: "neroli-blanc",
+      name: "Neroli Blanc",
       title: "Neroli Blanc",
       subtitle: "Eau de Parfum",
       category: "Floral & Musk",
+      family: "Fresh",
       familyTags: "Citrus • White Floral • Clean",
+      occasion: ["daily", "outdoor"],
+      price: 38,
+      pricePKR: "Rs. 7,200",
+      image: "images/neroli-blanc-main.svg",
+      description:
+        "Sun-drenched Mediterranean neroli, crisp petitgrain, and creamy cedar.",
       shortDescription:
         "Sun-drenched Mediterranean neroli, crisp petitgrain, and creamy cedar.",
       editorialDescription:
@@ -248,10 +280,18 @@
     },
     {
       id: "santal-fumee",
+      name: "Santal Fumée",
       title: "Santal Fumée",
       subtitle: "Eau de Parfum",
       category: "Woody & Oud",
+      family: "Woody",
       familyTags: "Woody • Smoky • Earthy",
+      occasion: ["daily", "evening", "cozy", "outdoor"],
+      price: 44,
+      pricePKR: "Rs. 8,200",
+      image: "images/santal-fumee-main.svg",
+      description:
+        "Creamy Mysore sandalwood warmed by dry papyrus, vetiver, and black tea.",
       shortDescription:
         "Creamy Mysore sandalwood warmed by dry papyrus, vetiver, and black tea.",
       editorialDescription:
@@ -338,6 +378,137 @@
     }
   ];
 
+  /* =========================================================================
+     Scent Finder Quiz Data
+     ========================================================================= */
+  const QUIZ_QUESTIONS = [
+    {
+      id: "family",
+      step: 1,
+      question: "Which scent family do you enjoy?",
+      options: [
+        {
+          value: "Floral",
+          label: "Floral",
+          image: "images/quiz-floral.svg",
+          alt: "Pink roses in soft bloom — floral scent family",
+          description: "Fresh roses, jasmine & soft petals"
+        },
+        {
+          value: "Woody",
+          label: "Woody",
+          image: "images/quiz-woody.svg",
+          alt: "Textured dark wood bark — woody scent family",
+          description: "Oud, sandalwood & smoky woods"
+        },
+        {
+          value: "Fresh",
+          label: "Fresh",
+          image: "images/quiz-fresh.svg",
+          alt: "Vibrant green botanical leaves — fresh scent family",
+          description: "Citrus, neroli & green herbs"
+        },
+        {
+          value: "Sweet",
+          label: "Sweet",
+          image: "images/quiz-sweet.svg",
+          alt: "Vanilla flower and vanilla beans — sweet scent family",
+          description: "Vanilla, amber & golden resins"
+        }
+      ]
+    },
+    {
+      id: "occasion",
+      step: 2,
+      question: "When do you plan to wear this fragrance?",
+      options: [
+        {
+          value: "daily",
+          label: "Daily & Office",
+          image: "images/quiz-daily.svg",
+          alt: "Bright minimalist office desk — everyday wear",
+          description: "Light, fresh & professional"
+        },
+        {
+          value: "evening",
+          label: "Evening & Formal",
+          image: "images/quiz-evening.svg",
+          alt: "Candlelit elegant dinner table — evening wear",
+          description: "Bold, luxurious & lasting"
+        },
+        {
+          value: "outdoor",
+          label: "Warm & Sunny Days",
+          image: "images/quiz-outdoor.svg",
+          alt: "Sunlit garden with warm golden light — outdoor wear",
+          description: "Airy, vibrant & uplifting"
+        },
+        {
+          value: "cozy",
+          label: "Cozy Nights",
+          image: "images/quiz-cozy.svg",
+          alt: "Warm blanket and candle glow — intimate evenings",
+          description: "Warm, comforting & intimate"
+        }
+      ]
+    }
+  ];
+
+  /* =========================================================================
+     Scent Finder Match Matrix
+     Maps [family][occasion] → product id + score
+     ========================================================================= */
+  const SCENT_MATCH_MATRIX = {
+    Floral: {
+      daily:   { primaryId: "neroli-blanc",   score: 96, runnerId: "velvet-rose",    runnerScore: 82 },
+      evening: { primaryId: "velvet-rose",    score: 94, runnerId: "neroli-blanc",   runnerScore: 78 },
+      outdoor: { primaryId: "neroli-blanc",   score: 92, runnerId: "velvet-rose",    runnerScore: 80 },
+      cozy:    { primaryId: "velvet-rose",    score: 90, runnerId: "amber-solstice", runnerScore: 76 }
+    },
+    Woody: {
+      daily:   { primaryId: "santal-fumee",   score: 94, runnerId: "noir-oud",       runnerScore: 80 },
+      evening: { primaryId: "noir-oud",       score: 97, runnerId: "santal-fumee",   runnerScore: 84 },
+      outdoor: { primaryId: "santal-fumee",   score: 88, runnerId: "noir-oud",       runnerScore: 74 },
+      cozy:    { primaryId: "noir-oud",       score: 93, runnerId: "santal-fumee",   runnerScore: 85 }
+    },
+    Fresh: {
+      daily:   { primaryId: "neroli-blanc",   score: 97, runnerId: "velvet-rose",    runnerScore: 76 },
+      evening: { primaryId: "neroli-blanc",   score: 86, runnerId: "santal-fumee",   runnerScore: 72 },
+      outdoor: { primaryId: "neroli-blanc",   score: 98, runnerId: "velvet-rose",    runnerScore: 79 },
+      cozy:    { primaryId: "santal-fumee",   score: 85, runnerId: "neroli-blanc",   runnerScore: 77 }
+    },
+    Sweet: {
+      daily:   { primaryId: "amber-solstice", score: 91, runnerId: "velvet-rose",    runnerScore: 78 },
+      evening: { primaryId: "amber-solstice", score: 96, runnerId: "noir-oud",       runnerScore: 82 },
+      outdoor: { primaryId: "velvet-rose",    score: 87, runnerId: "amber-solstice", runnerScore: 80 },
+      cozy:    { primaryId: "amber-solstice", score: 98, runnerId: "noir-oud",       runnerScore: 83 }
+    }
+  };
+
+  /* Match reason templates */
+  const MATCH_REASONS = {
+    "neroli-blanc-daily":   "Neroli Blanc's crisp citrus neroli and clean linen musk make it your ideal daily companion — fresh, polished, and effortlessly professional.",
+    "neroli-blanc-evening": "Neroli Blanc's white florals and serene cedar lend a sophisticated airiness that elevates any evening occasion.",
+    "neroli-blanc-outdoor": "Sun-drenched Tunisian neroli and sparkling Amalfi lemon are made for open skies and warm breezes.",
+    "neroli-blanc-cozy":    "The creamy cedar and musk base of Neroli Blanc wrap you in quiet elegance on cool, intimate evenings.",
+    "velvet-rose-daily":    "Velvet Rose's soft Damascus petals and clean white musk create a modern, polished signature for everyday moments.",
+    "velvet-rose-evening":  "Velvety crimson rose over cashmere woods — a romantic, enveloping presence for evenings that deserve more.",
+    "velvet-rose-outdoor":  "Pink peppercorn and bright bergamot lift Velvet Rose into a joyful, vivacious outdoor fragrance.",
+    "velvet-rose-cozy":     "Velvet Rose's powdery musk and warm cashmere base are the perfect cozy night-in companion.",
+    "noir-oud-daily":       "Noir Oud's dry-down sandalwood and amber make a surprisingly refined daily statement for confident wearers.",
+    "noir-oud-evening":     "Rich agarwood, warm amber, and spicy saffron — Noir Oud is the definitive evening fragrance for bold elegance.",
+    "noir-oud-outdoor":     "Noir Oud's woody depth provides grounding warmth even in outdoor settings with cooler air.",
+    "noir-oud-cozy":        "Enveloping warm amber and velvety oud wrap you in luxurious comfort on quiet, cozy evenings.",
+    "santal-fumee-daily":   "Santal Fumée's dry black tea and creamy sandalwood offer a refined, meditative aura for focused days.",
+    "santal-fumee-evening": "Smoky papyrus and iris root give Santal Fumée a sophisticated, architectural presence for evening wear.",
+    "santal-fumee-outdoor": "Earthy vetiver and sandalwood echo the natural world — a grounded fragrance for outdoor explorations.",
+    "santal-fumee-cozy":    "Mysore sandalwood shavings and smoky vetiver create the ultimate cozy, contemplative evening scent.",
+    "amber-solstice-daily": "Amber Solstice's golden benzoin and orange peel bring warmth and approachability to your daily routine.",
+    "amber-solstice-evening": "Golden amber and smoked cedar create a luminous, enveloping presence that commands any formal occasion.",
+    "amber-solstice-outdoor": "Bright cinnamon bark and bitter orange peel bring joyful warmth to sun-soaked outdoor adventures.",
+    "amber-solstice-cozy":  "Roasted vanilla bean and labdanum resin — the ultimate comfort fragrance for wrapped-up winter nights."
+  };
+
   global.NN_CONFIG = {
     FREE_SHIPPING_THRESHOLD: FREE_SHIPPING_THRESHOLD,
     CURRENCY_SYMBOL: CURRENCY_SYMBOL,
@@ -345,4 +516,7 @@
   };
   global.NN_PRODUCTS = PRODUCTS;
   global.NN_BLOG_POSTS = BLOG_POSTS;
+  global.NN_QUIZ_QUESTIONS = QUIZ_QUESTIONS;
+  global.NN_SCENT_MATCH_MATRIX = SCENT_MATCH_MATRIX;
+  global.NN_MATCH_REASONS = MATCH_REASONS;
 })(window);
