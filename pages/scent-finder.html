@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Your Signature Scent — Notes &amp; Noir Fragrances</title>
-  <meta name="description" content="Discover your signature perfume at Notes &amp; Noir Fragrances. Explore our curated fragrance matches, artisanal extraits, and bespoke scent recommendations.">
+  <title>Scent Finder — Notes &amp; Noir Fragrances</title>
+  <meta name="description" content="Find your signature perfume at Notes &amp; Noir Fragrances. Explore our visual scent families and discover your bespoke extrait de parfum.">
 
   <!-- Google Fonts: Cormorant Garamond & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,30 +130,81 @@
           <div class="col-lg-8">
             <p class="text-uppercase small mb-1" style="letter-spacing: 0.2em; color: var(--nn-muted);">Notes &amp; Noir Atelier</p>
             <h1 id="hero-page-title" class="nn-hero-title">Find Your Signature Scent</h1>
-            <p class="nn-hero-subtitle">Discover your bespoke fragrance match crafted with rare raw botanicals and lasting elegance.</p>
+            <p class="nn-hero-subtitle">Select your preferred scent family to discover the perfect fragrance for you.</p>
             <div class="nn-hero-accent" aria-hidden="true"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Scent Finder Section -->
-    <section class="nn-sf-section" aria-label="Curated signature scent match">
+    <!-- Scent Finder Selection Section -->
+    <section class="nn-sf-section py-5" aria-labelledby="sf-grid-heading">
       <div class="container">
 
-        <!-- Scent Family Visual Selector (Quick 1-Click Exploration) -->
-        <div class="mb-5 text-center">
-          <p class="text-uppercase small fw-semibold mb-2" style="letter-spacing: 0.15em; color: var(--nn-muted);">Explore by Scent Family</p>
-          <div class="d-flex flex-wrap justify-content-center gap-2" id="nn-sf-family-pills" role="tablist" aria-label="Select Scent Family">
-            <button type="button" class="nn-filter-pill active" data-family="Woody" role="tab" aria-selected="true">Woody &amp; Oud</button>
-            <button type="button" class="nn-filter-pill" data-family="Floral" role="tab" aria-selected="false">Floral &amp; Rose</button>
-            <button type="button" class="nn-filter-pill" data-family="Fresh" role="tab" aria-selected="false">Fresh &amp; Neroli</button>
-            <button type="button" class="nn-filter-pill" data-family="Sweet" role="tab" aria-selected="false">Sweet &amp; Amber</button>
-          </div>
+        <!-- Visual Scent Family Selection Heading -->
+        <div class="text-center mb-4">
+          <p class="text-uppercase small fw-semibold mb-1" style="letter-spacing: 0.18em; color: var(--nn-muted);">Step 1 &bull; Scent Family</p>
+          <h2 id="sf-grid-heading" class="nn-serif display-6 mb-2">Choose Your Scent Family</h2>
+          <p class="text-muted small mb-0">Click any card to reveal your matched signature fragrance.</p>
         </div>
 
-        <!-- Personalized Signature Result View -->
-        <div id="nn-sf-result-panel" class="nn-sf-result-panel" tabindex="-1" aria-labelledby="nn-result-title">
+        <!-- 4-Column Visual Selection Card Grid -->
+        <div class="nn-sf-card-grid mb-5" role="radiogroup" aria-labelledby="sf-grid-heading" id="nn-sf-family-grid">
+          <!-- Card 1: Floral -->
+          <label class="nn-sf-card" for="nn-fam-floral" data-family="Floral">
+            <input type="radio" id="nn-fam-floral" name="scent-family" value="Floral" class="visually-hidden">
+            <div class="nn-sf-card-img-wrap">
+              <img src="../images/quiz-floral.svg" alt="Pink roses in soft bloom — floral scent family" class="nn-sf-card-img" loading="lazy">
+            </div>
+            <div class="nn-sf-card-label">
+              <span class="nn-sf-card-radio-dot" aria-hidden="true"></span>
+              <span class="nn-sf-card-name">Floral</span>
+              <span class="nn-sf-card-desc">Fresh roses, jasmine &amp; soft petals</span>
+            </div>
+          </label>
+
+          <!-- Card 2: Woody (Default Selected) -->
+          <label class="nn-sf-card selected" for="nn-fam-woody" data-family="Woody">
+            <input type="radio" id="nn-fam-woody" name="scent-family" value="Woody" class="visually-hidden" checked>
+            <div class="nn-sf-card-img-wrap">
+              <img src="../images/quiz-woody.svg" alt="Textured dark wood bark — woody scent family" class="nn-sf-card-img" loading="lazy">
+            </div>
+            <div class="nn-sf-card-label">
+              <span class="nn-sf-card-radio-dot" aria-hidden="true"></span>
+              <span class="nn-sf-card-name">Woody</span>
+              <span class="nn-sf-card-desc">Oud, sandalwood &amp; smoky woods</span>
+            </div>
+          </label>
+
+          <!-- Card 3: Fresh -->
+          <label class="nn-sf-card" for="nn-fam-fresh" data-family="Fresh">
+            <input type="radio" id="nn-fam-fresh" name="scent-family" value="Fresh" class="visually-hidden">
+            <div class="nn-sf-card-img-wrap">
+              <img src="../images/quiz-fresh.svg" alt="Vibrant green botanical leaves — fresh scent family" class="nn-sf-card-img" loading="lazy">
+            </div>
+            <div class="nn-sf-card-label">
+              <span class="nn-sf-card-radio-dot" aria-hidden="true"></span>
+              <span class="nn-sf-card-name">Fresh</span>
+              <span class="nn-sf-card-desc">Citrus, neroli &amp; green herbs</span>
+            </div>
+          </label>
+
+          <!-- Card 4: Sweet -->
+          <label class="nn-sf-card" for="nn-fam-sweet" data-family="Sweet">
+            <input type="radio" id="nn-fam-sweet" name="scent-family" value="Sweet" class="visually-hidden">
+            <div class="nn-sf-card-img-wrap">
+              <img src="../images/quiz-sweet.svg" alt="Vanilla flower and vanilla beans — sweet scent family" class="nn-sf-card-img" loading="lazy">
+            </div>
+            <div class="nn-sf-card-label">
+              <span class="nn-sf-card-radio-dot" aria-hidden="true"></span>
+              <span class="nn-sf-card-name">Sweet</span>
+              <span class="nn-sf-card-desc">Vanilla, amber &amp; golden resins</span>
+            </div>
+          </label>
+        </div>
+
+        <!-- Matched Signature Scent Card (Dynamic based on selected card) -->
+        <div id="nn-sf-match-result" class="nn-sf-match-container" aria-live="polite">
           <!-- Populated dynamically by scent-finder_i263085.js -->
         </div>
 
