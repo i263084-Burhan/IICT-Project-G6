@@ -1,0 +1,793 @@
+/* ==========================================================================
+   Notes & Noir Fragrances — Shop by Fragrance Notes Page (notes_i263084.css)
+   ========================================================================== */
+
+:root {
+  --nn-bg-cream: #F7F3EE;
+  --nn-bg-beige: #EDE5DC;
+  --nn-label-cream: #E8DFD5;
+  --nn-ink: #1A1A1A;
+  --nn-ink-muted: #5C554E;
+  --nn-border: #DDD3C7;
+  --nn-accent: #8B6F52;
+  --nn-white: #FFFFFF;
+  --nn-danger: #9B2C2C;
+  --nn-font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --nn-font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nn-radius-card: 12px;
+  --nn-transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Base Page Defaults (harmonizes with style_i263084.css) */
+body.nn-notes-page {
+  background-color: var(--nn-bg-cream);
+  color: var(--nn-ink);
+  font-family: var(--nn-font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header, Announcement Bar & Footer Fallback Styling
+   (Preserves existing layout tokens if style_i263084.css is loaded or standalone) */
+.nn-announcement-bar {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nn-header {
+  background-color: rgba(247, 243, 238, 0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--nn-border);
+}
+
+.nn-navbar {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.nn-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  text-decoration: none;
+  color: var(--nn-ink);
+}
+
+.nn-brand-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nn-brand-sub {
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--nn-ink-muted);
+  margin-top: 2px;
+}
+
+.nn-nav-links .nav-link {
+  color: var(--nn-ink);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 1rem;
+  transition: color var(--nn-transition);
+}
+
+.nn-nav-links .nav-link:hover,
+.nn-nav-links .nav-link.active {
+  color: var(--nn-accent);
+}
+
+.nn-icon-link {
+  color: var(--nn-ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.nn-counter-badge {
+  position: absolute;
+  top: -4px;
+  right: -7px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background-color: var(--nn-ink);
+  color: var(--nn-white);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Hero Banner
+   ========================================================================== */
+.nn-notes-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(115deg, #F3ECE3 0%, #E7DDD0 52%, #DFD3C4 100%);
+  border-bottom: 1px solid var(--nn-border);
+}
+
+.nn-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 78% 45%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0) 56%),
+    radial-gradient(circle at 18% 72%, rgba(212, 198, 181, 0.35) 0%, rgba(212, 198, 181, 0) 55%);
+  pointer-events: none;
+}
+
+.min-vh-hero {
+  min-height: 360px;
+}
+
+.nn-hero-copy {
+  padding-top: 3.25rem;
+  padding-bottom: 3.25rem;
+  z-index: 1;
+}
+
+.nn-hero-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(2.25rem, 4.4vw, 3.65rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--nn-ink);
+  margin-bottom: 0.95rem;
+}
+
+.nn-hero-subtitle {
+  font-family: var(--nn-font-sans);
+  font-size: clamp(0.98rem, 1.3vw, 1.125rem);
+  color: var(--nn-ink-muted);
+  max-width: 28rem;
+  margin-bottom: 1.4rem;
+}
+
+.nn-hero-divider {
+  width: 56px;
+  height: 1px;
+  background-color: var(--nn-ink);
+}
+
+.nn-hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  z-index: 1;
+}
+
+.nn-hero-figure {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(26, 26, 26, 0.08);
+}
+
+.nn-hero-image {
+  display: block;
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   9 Fragrance Note Cards Row
+   ========================================================================== */
+.nn-notes-grid-section {
+  padding-top: 2.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.nn-section-eyebrow {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nn-ink-muted);
+}
+
+.nn-reset-link {
+  color: var(--nn-ink);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  border: none;
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+}
+
+.nn-reset-link:hover {
+  color: var(--nn-accent);
+}
+
+.nn-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.nn-note-card {
+  position: relative;
+  border-radius: var(--nn-radius-card);
+  overflow: hidden;
+  background-color: var(--nn-label-cream);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform var(--nn-transition),
+    box-shadow var(--nn-transition),
+    border-color var(--nn-transition);
+  box-shadow: 0 4px 14px rgba(26, 26, 26, 0.06);
+  user-select: none;
+}
+
+.nn-note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(26, 26, 26, 0.12);
+}
+
+.nn-note-card:focus-visible {
+  outline: 3px solid var(--nn-ink);
+  outline-offset: 3px;
+}
+
+.nn-note-card.is-active {
+  border-color: var(--nn-ink);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(26, 26, 26, 0.16);
+}
+
+.nn-note-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: #DFD5C9;
+}
+
+.nn-note-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.nn-note-card:hover .nn-note-img,
+.nn-note-card.is-active .nn-note-img {
+  transform: scale(1.05);
+}
+
+.nn-note-label-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(232, 223, 213, 0.92);
+  backdrop-filter: blur(4px);
+  padding: 0.52rem 0.4rem;
+  text-align: center;
+  border-top: 1px solid rgba(26, 26, 26, 0.08);
+  transition: background-color var(--nn-transition), color var(--nn-transition);
+}
+
+.nn-note-card.is-active .nn-note-label-bar {
+  background-color: var(--nn-ink);
+}
+
+.nn-note-name {
+  display: block;
+  font-family: var(--nn-font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--nn-ink);
+}
+
+.nn-note-card.is-active .nn-note-name {
+  color: var(--nn-bg-cream);
+}
+
+/* ==========================================================================
+   Sensory Description Banner & Perfume Catalog Grid
+   ========================================================================== */
+.nn-catalog-section {
+  padding-top: 0.75rem;
+  padding-bottom: 3.5rem;
+}
+
+.nn-note-banner {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius-card);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nn-note-banner-content {
+  max-width: 44rem;
+}
+
+.nn-banner-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nn-accent);
+}
+
+.nn-banner-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  font-weight: 500;
+  color: var(--nn-ink);
+  margin: 0.2rem 0 0.45rem;
+}
+
+.nn-banner-desc {
+  font-size: 0.95rem;
+  color: var(--nn-ink-muted);
+}
+
+.nn-note-banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nn-count-pill {
+  background-color: var(--nn-label-cream);
+  color: var(--nn-ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+}
+
+.nn-action-feedback {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Perfume Product Cards */
+.nn-perfume-card {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius-card);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--nn-transition), box-shadow var(--nn-transition);
+}
+
+.nn-perfume-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(26, 26, 26, 0.08);
+}
+
+.nn-perfume-media {
+  position: relative;
+  background-color: var(--nn-bg-beige);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.nn-perfume-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nn-perfume-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: rgba(247, 243, 238, 0.94);
+  color: var(--nn-ink);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+}
+
+.nn-perfume-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.nn-perfume-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.nn-perfume-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--nn-ink);
+  margin: 0;
+}
+
+.nn-perfume-price {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--nn-ink);
+  white-space: nowrap;
+}
+
+.nn-perfume-specs {
+  font-size: 0.8rem;
+  color: var(--nn-ink-muted);
+  margin-bottom: 0.65rem;
+}
+
+.nn-perfume-desc {
+  font-size: 0.89rem;
+  color: var(--nn-ink-muted);
+  margin-bottom: 0.9rem;
+  flex-grow: 1;
+}
+
+.nn-perfume-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.nn-note-chip {
+  font-size: 0.72rem;
+  font-weight: 500;
+  background-color: var(--nn-bg-cream);
+  color: var(--nn-ink);
+  border: 1px solid var(--nn-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+
+.nn-note-chip.is-highlighted {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+  border-color: var(--nn-ink);
+}
+
+.nn-perfume-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.55rem;
+}
+
+.nn-btn-dark {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+  border: 1px solid var(--nn-ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0.58rem 1rem;
+  border-radius: 8px;
+  transition: background-color var(--nn-transition), color var(--nn-transition);
+}
+
+.nn-btn-dark:hover,
+.nn-btn-dark:focus-visible {
+  background-color: #332E29;
+  border-color: #332E29;
+  color: var(--nn-white);
+}
+
+.nn-btn-outline-dark {
+  background-color: transparent;
+  color: var(--nn-ink);
+  border: 1px solid var(--nn-ink);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  transition: background-color var(--nn-transition), color var(--nn-transition);
+}
+
+.nn-btn-outline-dark:hover,
+.nn-btn-outline-dark:focus-visible,
+.nn-btn-outline-dark.is-wishlisted {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+}
+
+/* Empty State */
+.nn-empty-state {
+  background-color: var(--nn-white);
+  border: 1px dashed var(--nn-border);
+  border-radius: var(--nn-radius-card);
+  padding: 3rem 1.5rem;
+}
+
+.nn-empty-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nn-accent);
+}
+
+.nn-empty-title {
+  font-family: var(--nn-font-serif);
+  font-size: 1.55rem;
+  color: var(--nn-ink);
+}
+
+.nn-empty-text {
+  color: var(--nn-ink-muted);
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   Scent Pairing / Note Finder Form
+   ========================================================================== */
+.nn-finder-section {
+  padding-top: 0.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.nn-finder-card {
+  background-color: var(--nn-label-cream);
+  border: 1px solid var(--nn-border);
+  border-radius: var(--nn-radius-card);
+  padding: 2.25rem;
+}
+
+.nn-finder-title {
+  font-family: var(--nn-font-serif);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  color: var(--nn-ink);
+}
+
+.nn-finder-copy {
+  font-size: 0.93rem;
+  color: var(--nn-ink-muted);
+  margin-bottom: 1rem;
+}
+
+.nn-finder-hint {
+  font-size: 0.85rem;
+  color: var(--nn-ink);
+}
+
+.nn-intensity-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.nn-form-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--nn-ink);
+  margin-bottom: 0.5rem;
+}
+
+.nn-intensity-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.nn-intensity-pill {
+  position: relative;
+  cursor: pointer;
+}
+
+.nn-intensity-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.nn-intensity-pill span {
+  display: inline-block;
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-border);
+  color: var(--nn-ink);
+  border-radius: 999px;
+  padding: 0.48rem 0.95rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  transition: all var(--nn-transition);
+}
+
+.nn-intensity-pill input:checked + span {
+  background-color: var(--nn-ink);
+  color: var(--nn-bg-cream);
+  border-color: var(--nn-ink);
+}
+
+.nn-intensity-pill input:focus-visible + span {
+  outline: 3px solid var(--nn-ink);
+  outline-offset: 2px;
+}
+
+.nn-form-input {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-border);
+  border-radius: 8px;
+  padding: 0.58rem 0.85rem;
+  font-size: 0.92rem;
+  color: var(--nn-ink);
+}
+
+.nn-form-input:focus {
+  border-color: var(--nn-ink);
+  box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.12);
+}
+
+.nn-form-input.is-invalid {
+  border-color: var(--nn-danger);
+}
+
+.nn-field-error {
+  color: var(--nn-danger);
+  font-size: 0.8rem;
+  font-weight: 500;
+  min-height: 1.15rem;
+  margin: 0.3rem 0 0;
+}
+
+.nn-submit-btn {
+  margin-bottom: 1.45rem;
+}
+
+.nn-finder-result {
+  background-color: var(--nn-white);
+  border: 1px solid var(--nn-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+/* ==========================================================================
+   Dark 4-Column Footer
+   ========================================================================== */
+.nn-footer {
+  background-color: #161514;
+  color: #D8D1C7;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  font-size: 0.88rem;
+}
+
+.nn-footer-about {
+  color: #B4ACA1;
+  max-width: 20rem;
+}
+
+.nn-footer-heading {
+  font-family: var(--nn-font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--nn-white);
+  margin-bottom: 0.9rem;
+}
+
+.nn-footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.nn-footer-links a,
+.nn-footer-socials a,
+.nn-footer-bottom a {
+  color: #B4ACA1;
+  text-decoration: none;
+  transition: color var(--nn-transition);
+}
+
+.nn-footer-links a:hover,
+.nn-footer-socials a:hover,
+.nn-footer-bottom a:hover {
+  color: var(--nn-white);
+}
+
+.nn-footer-hours {
+  color: #8E877E;
+  font-size: 0.82rem;
+}
+
+.nn-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #8E877E;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1199.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px) {
+  .min-vh-hero {
+    min-height: auto;
+  }
+
+  .nn-hero-copy {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .nn-hero-visual {
+    justify-content: flex-start;
+    padding-top: 0;
+    padding-bottom: 2.25rem;
+  }
+
+  .nn-submit-btn {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .nn-note-banner {
+    padding: 1.25rem;
+  }
+
+  .nn-finder-card {
+    padding: 1.4rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .nn-notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .nn-hero-image {
+    height: 240px;
+  }
+}

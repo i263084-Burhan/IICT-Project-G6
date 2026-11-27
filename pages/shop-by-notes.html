@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop by Fragrance Notes | Notes &amp; Noir Fragrances</title>
+  <meta
+    name="description"
+    content="Explore Notes &amp; Noir Fragrances by signature scent notes—Citrus, Floral, Woody, Vanilla, Spicy, Amber, Musk, Fresh, and Gourmand."
+  />
+
+  <!-- Google Fonts: Editorial Serif & Clean Sans-Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Shared & Page Stylesheets (with roll number suffix _i263084) -->
+  <link rel="stylesheet" href="../css/style_i263084.css" />
+  <link rel="stylesheet" href="../css/notes_i263084.css" />
+</head>
+<body class="nn-notes-page">
+  <!-- Existing Top Announcement Bar -->
+  <div class="nn-announcement-bar text-center py-2 px-3">
+    <p class="mb-0 small tracking-wide">
+      COMPLIMENTARY SHIPPING ON ORDERS OVER $120 &bull; HAND-BLENDED SMALL-BATCH PERFUMERY
+    </p>
+  </div>
+
+  <!-- Existing Header & Navigation Bar -->
+  <header class="nn-header sticky-top">
+    <nav class="navbar navbar-expand-lg nn-navbar" aria-label="Primary Navigation">
+      <div class="container">
+        <a class="navbar-brand nn-brand" href="../index.html">
+          <span class="nn-brand-title">Notes &amp; Noir</span>
+          <span class="nn-brand-sub">FRAGRANCES</span>
+        </a>
+
+        <button
+          class="navbar-toggler nn-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0 nn-nav-links">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="shop-by-notes.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <div class="nn-nav-actions d-flex align-items-center gap-3">
+            <a
+              href="wishlist.html"
+              class="nn-icon-link position-relative"
+              aria-label="Wishlist"
+              title="Wishlist"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span
+                id="wishlist-count"
+                class="nn-counter-badge wishlist-count"
+                data-wishlist-count
+                aria-label="Wishlist items count"
+              >0</span>
+            </a>
+
+            <a
+              href="cart.html"
+              class="nn-icon-link position-relative"
+              aria-label="Shopping Bag"
+              title="Shopping Bag"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span
+                id="cart-count"
+                class="nn-counter-badge cart-count"
+                data-cart-count
+                aria-label="Shopping bag items count"
+              >0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Banner -->
+    <section class="nn-notes-hero" aria-labelledby="notes-hero-heading">
+      <div class="nn-hero-backdrop" aria-hidden="true"></div>
+      <div class="container position-relative">
+        <div class="row align-items-center min-vh-hero">
+          <div class="col-lg-6 col-md-7 nn-hero-copy">
+            <h1 id="notes-hero-heading" class="nn-hero-title">
+              Shop by<br />Fragrance Notes
+            </h1>
+            <p class="nn-hero-subtitle">
+              Find your perfect scent by what you love.
+            </p>
+            <div class="nn-hero-divider" aria-hidden="true"></div>
+          </div>
+
+          <div class="col-lg-6 col-md-5 nn-hero-visual">
+            <figure class="nn-hero-figure mb-0">
+              <img
+                src="../images/hero-notes-noir.jpg"
+                alt="Notes &amp; Noir minimalist glass perfume bottle resting on warm beige silk surrounded by fresh white jasmine blossoms"
+                class="nn-hero-image img-fluid"
+                data-fallback-type="hero"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 Fragrance Note Cards Row -->
+    <section class="nn-notes-grid-section" aria-labelledby="note-cards-heading">
+      <div class="container">
+        <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-3">
+          <div>
+            <h2 id="note-cards-heading" class="visually-hidden">Fragrance Note Categories</h2>
+            <p class="nn-section-eyebrow mb-0">Explore Nine Signature Families</p>
+          </div>
+          <button
+            type="button"
+            id="reset-note-filter-btn"
+            class="btn btn-sm nn-reset-link d-none"
+          >
+            Show All Notes
+          </button>
+        </div>
+
+        <div
+          id="fragrance-notes-grid"
+          class="nn-notes-grid"
+          role="group"
+          aria-label="Filter fragrances by note"
+        >
+          <!-- Dynamically populated by js/notes_i263084.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sensory Description Banner & Filtered Perfumes -->
+    <section class="nn-catalog-section" aria-labelledby="filtered-results-heading">
+      <div class="container">
+        <!-- Sensory Note Profile Banner -->
+        <article
+          id="note-profile-banner"
+          class="nn-note-banner"
+          aria-live="polite"
+        >
+          <div class="nn-note-banner-content">
+            <span id="note-banner-kicker" class="nn-banner-kicker">Signature Collection</span>
+            <h2 id="filtered-results-heading" class="nn-banner-title">All Notes &amp; Noir Creations</h2>
+            <p id="note-banner-description" class="nn-banner-desc mb-0">
+              Select any fragrance note above to explore its botanical origin, olfactory character, and curated eau de parfum pairings.
+            </p>
+          </div>
+          <div class="nn-note-banner-meta">
+            <span id="results-count-pill" class="nn-count-pill">12 Fragrances</span>
+            <button
+              type="button"
+              id="banner-reset-btn"
+              class="btn nn-btn-outline-dark btn-sm d-none"
+            >
+              Reset Filter
+            </button>
+          </div>
+        </article>
+
+        <!-- Toast / Live Action Feedback -->
+        <div
+          id="action-feedback"
+          class="nn-action-feedback visually-hidden"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <!-- Filtered Perfume Cards Grid -->
+        <div id="perfumes-grid" class="row g-4 mt-1">
+          <!-- Dynamically populated by js/notes_i263084.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="perfumes-empty-state" class="nn-empty-state text-center d-none" role="status">
+          <p class="nn-empty-eyebrow mb-2">No Matching Creations</p>
+          <h3 class="nn-empty-title mb-2">No fragrances matched that selection</h3>
+          <p class="nn-empty-text mb-4">
+            Reset the active note filter to browse our complete small-batch fragrance archive.
+          </p>
+          <button type="button" id="empty-reset-btn" class="btn nn-btn-dark">
+            Reset Filter
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scent Pairing / Note Finder Form -->
+    <section class="nn-finder-section" aria-labelledby="scent-finder-heading">
+      <div class="container">
+        <div class="nn-finder-card">
+          <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+              <span class="nn-banner-kicker">Bespoke Pairing</span>
+              <h2 id="scent-finder-heading" class="nn-finder-title mt-1">
+                Scent Pairing &amp; Note Finder
+              </h2>
+              <p class="nn-finder-copy">
+                Choose your preferred sillage intensity and enter your email to receive a tailored Notes &amp; Noir bottle recommendation based on your olfactory profile.
+              </p>
+              <p class="nn-finder-hint mb-0" id="finder-active-note-hint">
+                Active focus: <strong>All Note Families</strong>
+              </p>
+            </div>
+
+            <div class="col-lg-7">
+              <form id="scent-finder-form" class="nn-finder-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-12">
+                    <fieldset class="nn-intensity-fieldset">
+                      <legend class="nn-form-label">Preferred Note Intensity <span aria-hidden="true">*</span></legend>
+                      <div class="nn-intensity-options" role="radiogroup" aria-describedby="intensity-error">
+                        <label class="nn-intensity-pill">
+                          <input type="radio" name="intensity" value="subtle" />
+                          <span>Subtle &amp; Skin-Close</span>
+                        </label>
+                        <label class="nn-intensity-pill">
+                          <input type="radio" name="intensity" value="balanced" />
+                          <span>Balanced &amp; Everyday</span>
+                        </label>
+                        <label class="nn-intensity-pill">
+                          <input type="radio" name="intensity" value="bold" />
+                          <span>Bold &amp; Long-Lasting</span>
+                        </label>
+                      </div>
+                      <p id="intensity-error" class="nn-field-error" role="alert" aria-live="polite"></p>
+                    </fieldset>
+                  </div>
+
+                  <div class="col-md-7">
+                    <label for="finder-email" class="nn-form-label">
+                      Email Address <span aria-hidden="true">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="finder-email"
+                      name="email"
+                      class="form-control nn-form-input"
+                      placeholder="you@example.com"
+                      autocomplete="email"
+                      aria-describedby="email-error"
+                      required
+                    />
+                    <p id="email-error" class="nn-field-error" role="alert" aria-live="polite"></p>
+                  </div>
+
+                  <div class="col-md-5 d-flex align-items-md-end">
+                    <button type="submit" class="btn nn-btn-dark w-100 nn-submit-btn">
+                      Get My Recommendation
+                    </button>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Dynamic Recommendation Output -->
+              <div
+                id="finder-recommendation-result"
+                class="nn-finder-result d-none mt-4"
+                aria-live="polite"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Existing Dark 4-Column Footer -->
+  <footer class="nn-footer">
+    <div class="container">
+      <div class="row g-4 pb-4 nn-footer-grid">
+        <div class="col-lg-4 col-md-6">
+          <div class="nn-footer-brand">
+            <span class="nn-brand-title text-white">Notes &amp; Noir</span>
+            <span class="nn-brand-sub text-white-50">FRAGRANCES</span>
+          </div>
+          <p class="nn-footer-about mt-3 mb-3">
+            Modern artisanal perfumery crafted with botanical absolutes, rare woods, and warm resins in small numbered batches.
+          </p>
+          <div class="d-flex gap-3 nn-footer-socials">
+            <a href="#" aria-label="Notes &amp; Noir on Instagram">Instagram</a>
+            <a href="#" aria-label="Notes &amp; Noir on Pinterest">Pinterest</a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6">
+          <h3 class="nn-footer-heading">Shop</h3>
+          <ul class="list-unstyled nn-footer-links">
+            <li><a href="shop.html">All Fragrances</a></li>
+            <li><a href="shop-by-notes.html">Shop by Notes</a></li>
+            <li><a href="discovery.html">Discovery Sets</a></li>
+            <li><a href="bestsellers.html">Bestsellers</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-6">
+          <h3 class="nn-footer-heading">Maison</h3>
+          <ul class="list-unstyled nn-footer-links">
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="blog.html">Scent Journal</a></li>
+            <li><a href="ingredients.html">Raw Ingredients</a></li>
+            <li><a href="contact.html">Contact Atelier</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h3 class="nn-footer-heading">Client Care</h3>
+          <ul class="list-unstyled nn-footer-links">
+            <li><a href="shipping.html">Shipping &amp; Returns</a></li>
+            <li><a href="faq.html">Fragrance FAQ</a></li>
+            <li><a href="mailto:concierge@notesandnoir.com">concierge@notesandnoir.com</a></li>
+            <li class="nn-footer-hours">Mon–Fri &middot; 9am–6pm EST</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="nn-footer-bottom pt-3 d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+        <p class="mb-0">&copy; 2026 Notes &amp; Noir Fragrances. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Shared & Page Scripts (with roll number suffix _i263084) -->
+  <script src="../js/data_i263084.js"></script>
+  <script src="../js/shared_i263084.js"></script>
+  <script src="../js/notes_i263084.js"></script>
+</body>
+</html>
