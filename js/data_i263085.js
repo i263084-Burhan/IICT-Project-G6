@@ -5,8 +5,8 @@
 (function (global) {
   "use strict";
 
-  const FREE_SHIPPING_THRESHOLD = 15000;
-  const CURRENCY_SYMBOL = "Rs. ";
+  const FREE_SHIPPING_THRESHOLD = 75;
+  const CURRENCY_SYMBOL = "$";
   const MAX_STOCK_PER_ITEM = 10;
 
   const PRODUCTS = [
@@ -26,8 +26,8 @@
       sillage: "Intimate to Enveloping",
       stockLimit: 10,
       variants: [
-        { size: "50 ml", price: 8500 },
-        { size: "100 ml", price: 14500 }
+        { size: "50 ml", price: 45 },
+        { size: "100 ml", price: 72 }
       ],
       gallery: [
         {
@@ -91,8 +91,8 @@
       sillage: "Moderate",
       stockLimit: 10,
       variants: [
-        { size: "50 ml", price: 7800 },
-        { size: "100 ml", price: 13200 }
+        { size: "50 ml", price: 39 },
+        { size: "100 ml", price: 66 }
       ],
       gallery: [
         {
@@ -148,8 +148,8 @@
       sillage: "Moderate to Strong",
       stockLimit: 10,
       variants: [
-        { size: "50 ml", price: 8200 },
-        { size: "100 ml", price: 13900 }
+        { size: "50 ml", price: 42 },
+        { size: "100 ml", price: 70 }
       ],
       gallery: [
         {
@@ -205,8 +205,8 @@
       sillage: "Airy & Fresh",
       stockLimit: 10,
       variants: [
-        { size: "50 ml", price: 7500 },
-        { size: "100 ml", price: 12600 }
+        { size: "50 ml", price: 38 },
+        { size: "100 ml", price: 64 }
       ],
       gallery: [
         {
@@ -262,8 +262,8 @@
       sillage: "Moderate",
       stockLimit: 10,
       variants: [
-        { size: "50 ml", price: 8400 },
-        { size: "100 ml", price: 14200 }
+        { size: "50 ml", price: 44 },
+        { size: "100 ml", price: 71 }
       ],
       gallery: [
         {

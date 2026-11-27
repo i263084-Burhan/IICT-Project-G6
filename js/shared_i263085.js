@@ -53,8 +53,8 @@
   }
 
   function formatPrice(amount) {
-    const prefix = (global.NN_CONFIG && global.NN_CONFIG.CURRENCY_SYMBOL) || "Rs. ";
-    return prefix + Number(amount || 0).toLocaleString("en-PK");
+    const prefix = (global.NN_CONFIG && global.NN_CONFIG.CURRENCY_SYMBOL) || "$";
+    return prefix + Number(amount || 0).toLocaleString("en-US");
   }
 
   function escapeHTML(str) {
@@ -71,7 +71,13 @@
      ------------------------------------------------------------------------ */
   function getCart() {
     const items = safeReadJSON(STORAGE_KEYS.CART, []);
-    return Array.isArray(items) ? items : [];
+    if (!Array.isArray(items)) return [];
+    const products = global.NN_PRODUCTS || [];
+    return items.map(function (item) {
+      const prod = products.find(function (p) { return p.id === item.id; });
+      const variant = prod && prod.variants.find(function (v) { return v.size === item.size; });
+      return variant ? Object.assign({}, item, { unitPrice: variant.price }) : item;
+    });
   }
 
   function saveCart(items) {
@@ -269,7 +275,7 @@
     const cart = getCart();
     const subtotal = getCartSubtotal();
     const threshold =
-      (global.NN_CONFIG && global.NN_CONFIG.FREE_SHIPPING_THRESHOLD) || 15000;
+      (global.NN_CONFIG && global.NN_CONFIG.FREE_SHIPPING_THRESHOLD) || 75;
     const progress = Math.min(100, Math.round((subtotal / threshold) * 100));
     const remaining = Math.max(0, threshold - subtotal);
 
@@ -367,7 +373,7 @@
 
     bodyEl.innerHTML = shippingHtml + itemsHtml;
 
-    const shippingCost = remaining === 0 ? 0 : 450;
+    const shippingCost = remaining === 0 ? 0 : 8;
     const orderTotal = subtotal + shippingCost;
 
     footerEl.innerHTML =

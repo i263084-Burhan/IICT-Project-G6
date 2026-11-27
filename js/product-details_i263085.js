@@ -188,7 +188,7 @@
       const unitPrice = variant.price;
       const itemTotal = unitPrice * state.quantity;
       const threshold =
-        (window.NN_CONFIG && window.NN_CONFIG.FREE_SHIPPING_THRESHOLD) || 15000;
+        (window.NN_CONFIG && window.NN_CONFIG.FREE_SHIPPING_THRESHOLD) || 75;
 
       priceEl.textContent = store.formatPrice(unitPrice);
       if (state.quantity > 1) {
