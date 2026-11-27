@@ -53,9 +53,6 @@
   }
 
   function formatPrice(amount) {
-    if (typeof amount === "number" && amount >= 500) {
-      return "Rs. " + amount.toLocaleString("en-US");
-    }
     const prefix = (global.NN_CONFIG && global.NN_CONFIG.CURRENCY_SYMBOL) || "$";
     return prefix + Number(amount || 0).toLocaleString("en-US");
   }
@@ -79,9 +76,10 @@
     return items.map(function (item) {
       const prod = products.find(function (p) { return p.id === item.id; });
       const variant = prod && prod.variants.find(function (v) { return v.size === item.size; });
-      return (variant && (typeof item.unitPrice === "undefined" || item.unitPrice === null))
-        ? Object.assign({}, item, { unitPrice: variant.price })
-        : item;
+      const price = (item.unitPrice && Number(item.unitPrice) < 500)
+        ? item.unitPrice
+        : (variant ? variant.price : (item.id === "rose-mist" ? 22 : 45));
+      return Object.assign({}, item, { unitPrice: price });
     });
   }
 

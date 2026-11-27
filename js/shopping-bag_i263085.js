@@ -13,8 +13,8 @@
   };
 
   const SHIPPING_CONFIG = {
-    FLAT_RATE_PKR: 250,
-    FREE_THRESHOLD_PKR: 15000,
+    FLAT_RATE: 8,
+    FREE_THRESHOLD: 75,
     MAX_QTY_PER_ITEM: 10
   };
 
@@ -31,7 +31,7 @@
       title: "Noir Oud",
       scentFamily: "Woody • Amber • Spicy",
       size: "50 ml",
-      unitPrice: 8500,
+      unitPrice: 45,
       quantity: 1,
       image: "images/noir-oud-main.svg"
     },
@@ -40,7 +40,7 @@
       title: "Rose Mist",
       scentFamily: "Floral • Fresh • Elegant",
       size: "50 ml",
-      unitPrice: 4200,
+      unitPrice: 22,
       quantity: 1,
       image: "images/rose-mist-main.svg"
     }
@@ -55,9 +55,12 @@
   /* ------------------------------------------------------------------------
      Format & Path Utilities
      ------------------------------------------------------------------------ */
-  function formatPKR(amount) {
-    const num = Math.round(Number(amount) || 0);
-    return "Rs. " + num.toLocaleString("en-US");
+  function formatPrice(amount) {
+    const num = Number(amount) || 0;
+    if (Number.isInteger(num)) {
+      return "$" + num.toLocaleString("en-US");
+    }
+    return "$" + num.toFixed(2);
   }
 
   function escapeHTML(str) {
@@ -97,7 +100,15 @@
     } else {
       try {
         const parsed = JSON.parse(raw);
-        state.cart = Array.isArray(parsed) ? parsed : [];
+        const list = Array.isArray(parsed) ? parsed : [];
+        // Normalize any prior PKR test amounts to clean dollar amounts
+        state.cart = list.map(function (item) {
+          if (item.unitPrice && Number(item.unitPrice) >= 500) {
+            const dollarPrice = item.id === "noir-oud" ? 45 : (item.id === "rose-mist" ? 22 : 39);
+            return Object.assign({}, item, { unitPrice: dollarPrice });
+          }
+          return item;
+        });
       } catch (err) {
         state.cart = [];
       }
@@ -155,11 +166,11 @@
     if (subtotal === 0) {
       delivery = 0;
       isFreeDelivery = true;
-    } else if (subtotal >= SHIPPING_CONFIG.FREE_THRESHOLD_PKR) {
+    } else if (subtotal >= SHIPPING_CONFIG.FREE_THRESHOLD) {
       delivery = 0;
       isFreeDelivery = true;
     } else {
-      delivery = SHIPPING_CONFIG.FLAT_RATE_PKR;
+      delivery = SHIPPING_CONFIG.FLAT_RATE;
       isFreeDelivery = false;
     }
 
@@ -235,7 +246,7 @@
             // Unit Price
             '<div class="nn-cart-price-cell">' +
               '<span class="d-md-none text-muted small me-1">Unit Price: </span>' +
-              '<span class="fw-medium">' + formatPKR(unitPrice) + '</span>' +
+              '<span class="fw-medium">' + formatPrice(unitPrice) + '</span>' +
             '</div>' +
 
             // Pill Quantity Stepper
@@ -250,7 +261,7 @@
             // Line Total
             '<div class="nn-cart-total-cell">' +
               '<span class="d-md-none text-muted small me-1">Total: </span>' +
-              '<span class="fw-semibold">' + formatPKR(lineTotal) + '</span>' +
+              '<span class="fw-semibold">' + formatPrice(lineTotal) + '</span>' +
             '</div>' +
 
             // Remove/Delete Action
@@ -321,15 +332,15 @@
     const modalTotalAmountEl = document.getElementById("nn-modal-total-amount");
     const submitOrderLabelEl = document.getElementById("nn-submit-order-label");
 
-    if (subtotalEl) subtotalEl.textContent = formatPKR(summary.subtotal);
+    if (subtotalEl) subtotalEl.textContent = formatPrice(summary.subtotal);
 
     if (deliveryEl) {
       if (summary.subtotal === 0) {
-        deliveryEl.textContent = "Rs. 0";
+        deliveryEl.textContent = "$0";
       } else if (summary.isFreeDelivery) {
         deliveryEl.innerHTML = '<span class="text-success fw-semibold">Free</span>';
       } else {
-        deliveryEl.textContent = formatPKR(summary.delivery);
+        deliveryEl.textContent = formatPrice(summary.delivery);
       }
     }
 
@@ -338,28 +349,28 @@
       if (summary.discount > 0 && state.appliedPromo) {
         discountRowEl.classList.remove("d-none");
         if (codeLabelEl) codeLabelEl.textContent = state.appliedPromo.code;
-        discountValEl.textContent = "-" + formatPKR(summary.discount);
+        discountValEl.textContent = "-" + formatPrice(summary.discount);
       } else {
         discountRowEl.classList.add("d-none");
       }
     }
 
-    if (totalEl) totalEl.textContent = formatPKR(summary.grandTotal);
+    if (totalEl) totalEl.textContent = formatPrice(summary.grandTotal);
 
     // Free Shipping Progress
     if (shippingProgressEl && hintTextEl && percentTextEl && progressFillEl) {
       if (summary.subtotal === 0) {
-        hintTextEl.textContent = "Add fragrances to unlock free delivery.";
+        hintTextEl.textContent = "Add fragrances to unlock free shipping.";
         percentTextEl.textContent = "0%";
         progressFillEl.style.width = "0%";
       } else if (summary.isFreeDelivery) {
-        hintTextEl.innerHTML = '<span class="text-success">Complimentary Nationwide Delivery Unlocked!</span>';
+        hintTextEl.innerHTML = '<span class="text-success">Complimentary Nationwide Shipping Unlocked!</span>';
         percentTextEl.textContent = "100%";
         progressFillEl.style.width = "100%";
       } else {
-        const remaining = SHIPPING_CONFIG.FREE_THRESHOLD_PKR - summary.subtotal;
-        const percent = Math.min(100, Math.round((summary.subtotal / SHIPPING_CONFIG.FREE_THRESHOLD_PKR) * 100));
-        hintTextEl.innerHTML = 'Add <strong>' + formatPKR(remaining) + '</strong> more for free delivery';
+        const remaining = SHIPPING_CONFIG.FREE_THRESHOLD - summary.subtotal;
+        const percent = Math.min(100, Math.round((summary.subtotal / SHIPPING_CONFIG.FREE_THRESHOLD) * 100));
+        hintTextEl.innerHTML = 'Add <strong>' + formatPrice(remaining) + '</strong> more for free shipping';
         percentTextEl.textContent = percent + "%";
         progressFillEl.style.width = percent + "%";
       }
@@ -370,10 +381,10 @@
       modalItemsCountEl.textContent = summary.itemCount + (summary.itemCount === 1 ? " fragrance" : " fragrances");
     }
     if (modalTotalAmountEl) {
-      modalTotalAmountEl.textContent = formatPKR(summary.grandTotal);
+      modalTotalAmountEl.textContent = formatPrice(summary.grandTotal);
     }
     if (submitOrderLabelEl) {
-      submitOrderLabelEl.textContent = "Place Order • " + formatPKR(summary.grandTotal);
+      submitOrderLabelEl.textContent = "Place Order • " + formatPrice(summary.grandTotal);
     }
   }
 
@@ -614,7 +625,7 @@
       document.getElementById("nn-confirm-customer").textContent = customerName;
       document.getElementById("nn-confirm-address").textContent = customerAddress;
       document.getElementById("nn-confirm-payment").textContent = paymentMethod;
-      document.getElementById("nn-confirm-total").textContent = formatPKR(orderSummary.grandTotal);
+      document.getElementById("nn-confirm-total").textContent = formatPrice(orderSummary.grandTotal);
 
       // Switch View
       formContainer.classList.add("d-none");
