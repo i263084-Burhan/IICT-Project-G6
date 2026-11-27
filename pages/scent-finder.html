@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Find Your Signature Scent — Notes &amp; Noir Fragrances</title>
-  <meta name="description" content="Discover your signature perfume through our bespoke scent finder quiz. Answer quick questions to match with small-batch luxury extraits crafted for your unique style.">
+  <meta name="description" content="Discover your signature perfume at Notes &amp; Noir Fragrances. Explore our curated fragrance matches, artisanal extraits, and bespoke scent recommendations.">
 
   <!-- Google Fonts: Cormorant Garamond & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,82 +130,30 @@
           <div class="col-lg-8">
             <p class="text-uppercase small mb-1" style="letter-spacing: 0.2em; color: var(--nn-muted);">Notes &amp; Noir Atelier</p>
             <h1 id="hero-page-title" class="nn-hero-title">Find Your Signature Scent</h1>
-            <p class="nn-hero-subtitle">Answer a few quick questions to discover the perfect fragrance for you.</p>
+            <p class="nn-hero-subtitle">Discover your bespoke fragrance match crafted with rare raw botanicals and lasting elegance.</p>
             <div class="nn-hero-accent" aria-hidden="true"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Scent Finder Content Section -->
-    <section class="nn-sf-section" aria-label="Signature scent quiz">
+    <!-- Scent Finder Section -->
+    <section class="nn-sf-section" aria-label="Curated signature scent match">
       <div class="container">
 
-        <!-- 3-Step Horizontal Progress Stepper -->
-        <nav class="nn-sf-stepper" aria-label="Quiz progress">
-          <ol class="nn-stepper-list">
-            <li class="nn-stepper-item active" id="nn-step-indicator-1" data-step="1">
-              <div class="nn-stepper-badge" aria-hidden="true">
-                <span class="nn-stepper-num">1</span>
-                <span class="nn-stepper-check d-none">&#10003;</span>
-              </div>
-              <span class="nn-stepper-label">Question 1</span>
-            </li>
-            <li class="nn-stepper-connector" id="nn-connector-1" aria-hidden="true"></li>
-            <li class="nn-stepper-item" id="nn-step-indicator-2" data-step="2">
-              <div class="nn-stepper-badge" aria-hidden="true">
-                <span class="nn-stepper-num">2</span>
-                <span class="nn-stepper-check d-none">&#10003;</span>
-              </div>
-              <span class="nn-stepper-label">Question 2</span>
-            </li>
-            <li class="nn-stepper-connector" id="nn-connector-2" aria-hidden="true"></li>
-            <li class="nn-stepper-item" id="nn-step-indicator-3" data-step="3">
-              <div class="nn-stepper-badge" aria-hidden="true">
-                <span class="nn-stepper-num">3</span>
-                <span class="nn-stepper-check d-none">&#10003;</span>
-              </div>
-              <span class="nn-stepper-label">Your Result</span>
-            </li>
-          </ol>
-        </nav>
-
-        <!-- Inline Validation Alert (Accessible role="alert") -->
-        <div id="nn-sf-alert" class="nn-sf-alert d-none" role="alert" aria-live="assertive">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
-          </svg>
-          <span id="nn-sf-alert-msg">Please select a scent option before continuing.</span>
+        <!-- Scent Family Visual Selector (Quick 1-Click Exploration) -->
+        <div class="mb-5 text-center">
+          <p class="text-uppercase small fw-semibold mb-2" style="letter-spacing: 0.15em; color: var(--nn-muted);">Explore by Scent Family</p>
+          <div class="d-flex flex-wrap justify-content-center gap-2" id="nn-sf-family-pills" role="tablist" aria-label="Select Scent Family">
+            <button type="button" class="nn-filter-pill active" data-family="Woody" role="tab" aria-selected="true">Woody &amp; Oud</button>
+            <button type="button" class="nn-filter-pill" data-family="Floral" role="tab" aria-selected="false">Floral &amp; Rose</button>
+            <button type="button" class="nn-filter-pill" data-family="Fresh" role="tab" aria-selected="false">Fresh &amp; Neroli</button>
+            <button type="button" class="nn-filter-pill" data-family="Sweet" role="tab" aria-selected="false">Sweet &amp; Amber</button>
+          </div>
         </div>
 
-        <!-- Dynamic Question & Selection View (Step 1 & Step 2) -->
-        <div id="nn-sf-quiz-panel" class="nn-sf-panel" tabindex="-1">
-          <!-- Populated dynamically by scent-finder_i263085.js -->
-        </div>
-
-        <!-- Bottom Navigation Bar -->
-        <div id="nn-sf-nav-bar" class="nn-sf-nav-bar">
-          <button type="button" id="nn-sf-back-btn" class="nn-sf-back-btn" aria-label="Go back to previous step">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="19" y1="12" x2="5" y2="12"></line>
-              <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
-            <span>Back</span>
-          </button>
-
-          <button type="button" id="nn-sf-next-btn" class="nn-sf-next-btn" aria-label="Proceed to next step">
-            <span id="nn-sf-next-text">Next</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Step 3: Personalized Result View -->
-        <div id="nn-sf-result-panel" class="nn-sf-result-panel d-none" tabindex="-1" aria-labelledby="nn-result-title">
+        <!-- Personalized Signature Result View -->
+        <div id="nn-sf-result-panel" class="nn-sf-result-panel" tabindex="-1" aria-labelledby="nn-result-title">
           <!-- Populated dynamically by scent-finder_i263085.js -->
         </div>
 
@@ -291,7 +239,7 @@
   <!-- Bootstrap 5.3 JS Bundle via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-  <!-- Data, Shared State, and Scent Finder Quiz Logic (Roll Number: i263085) -->
+  <!-- Data, Shared State, and Scent Finder Controller (Roll Number: i263085) -->
   <script src="../js/data_i263085.js"></script>
   <script src="../js/shared_i263085.js"></script>
   <script src="../js/scent-finder_i263085.js"></script>
