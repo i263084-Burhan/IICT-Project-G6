@@ -99,7 +99,6 @@
                 <li><a class="dropdown-item" href="shop.html?category=Floral%20%26%20Musk">Floral &amp; Musk</a></li>
                 <li><a class="dropdown-item" href="shop.html?category=Amber%20%26%20Spice">Amber &amp; Spice</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="product-details.html?id=noir-oud">Featured: Noir Oud</a></li>
                 <li><a class="dropdown-item" href="product-details.html">Product Details</a></li>
               </ul>
             </li>
@@ -143,13 +142,13 @@
 
         <!-- Visual Scent Family Selection Heading -->
         <div class="text-center mb-4">
-          <p class="text-uppercase small fw-semibold mb-1" style="letter-spacing: 0.18em; color: var(--nn-muted);">Step 1 &bull; Scent Family</p>
+          <p class="text-uppercase small fw-semibold mb-1" style="letter-spacing: 0.18em; color: var(--nn-muted);">Scent Family</p>
           <h2 id="sf-grid-heading" class="nn-serif display-6 mb-2">Choose Your Scent Family</h2>
-          <p class="text-muted small mb-0">Click any card to reveal your matched signature fragrance.</p>
+          <p class="text-muted small mb-0">Select a family card below to highlight your preferred fragrance profile.</p>
         </div>
 
         <!-- 4-Column Visual Selection Card Grid -->
-        <div class="nn-sf-card-grid mb-5" role="radiogroup" aria-labelledby="sf-grid-heading" id="nn-sf-family-grid">
+        <div class="nn-sf-card-grid mb-4" role="radiogroup" aria-labelledby="sf-grid-heading" id="nn-sf-family-grid">
           <!-- Card 1: Floral -->
           <label class="nn-sf-card" for="nn-fam-floral" data-family="Floral">
             <input type="radio" id="nn-fam-floral" name="scent-family" value="Floral" class="visually-hidden">
@@ -203,9 +202,14 @@
           </label>
         </div>
 
-        <!-- Matched Signature Scent Card (Dynamic based on selected card) -->
-        <div id="nn-sf-match-result" class="nn-sf-match-container" aria-live="polite">
-          <!-- Populated dynamically by scent-finder_i263085.js -->
+        <!-- Bottom Navigation Bar -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 pt-3 border-top" style="border-color: var(--nn-taupe) !important;">
+          <a href="shop.html" class="nn-sf-back-btn">
+            &larr; Back to Shop
+          </a>
+          <a href="shop.html" class="nn-sf-next-btn" id="nn-sf-explore-btn">
+            <span>Explore Collection &rarr;</span>
+          </a>
         </div>
 
       </div>
@@ -230,7 +234,7 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="shop.html">Shop</a></li>
             <li><a href="scent-finder.html">Scent Finder</a></li>
-            <li><a href="product-details.html?id=noir-oud">Featured Product</a></li>
+            <li><a href="product-details.html">Product Details</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
