@@ -1,3 +1,4 @@
+const NN_IMG_PREFIX = window.location.pathname.includes("/pages/") ? "../" : "";
 /**
  * Notes & Noir — Shared Catalog, Persistent Cart & Page Interactions
  * Script: js/main_i263087.js
