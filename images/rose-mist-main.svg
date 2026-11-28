@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720">
+  <defs>
+    <linearGradient id="bgRoseStone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBF6F3"/>
+      <stop offset="100%" stop-color="#EEDFD9"/>
+    </linearGradient>
+    <linearGradient id="glassRose" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#843946"/>
+      <stop offset="35%" stop-color="#B85D6C"/>
+      <stop offset="70%" stop-color="#93414F"/>
+      <stop offset="100%" stop-color="#642430"/>
+    </linearGradient>
+    <linearGradient id="roseGoldCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B88A6E"/>
+      <stop offset="40%" stop-color="#F2D3C4"/>
+      <stop offset="75%" stop-color="#D9A891"/>
+      <stop offset="100%" stop-color="#9E6E54"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#bgRoseStone)"/>
+  <!-- Travertine Stone Plinth -->
+  <ellipse cx="300" cy="585" rx="185" ry="26" fill="#D8C7C0" opacity="0.5"/>
+  <rect x="135" y="535" width="330" height="55" rx="6" fill="#F0E5E0" stroke="#DFCFC8" stroke-width="1.5"/>
+  <!-- Bottle Shadow -->
+  <ellipse cx="300" cy="534" rx="108" ry="12" fill="#4A1E26" opacity="0.22"/>
+  <!-- Perfume Bottle Body -->
+  <rect x="195" y="255" width="210" height="275" rx="20" fill="url(#glassRose)" stroke="#A65866" stroke-width="2"/>
+  <!-- Inner glass reflection -->
+  <rect x="210" y="270" width="16" height="245" rx="8" fill="#FFFFFF" opacity="0.18"/>
+  <!-- Gold Collar & Cap -->
+  <rect x="262" y="220" width="76" height="36" rx="4" fill="url(#roseGoldCap)"/>
+  <rect x="248" y="142" width="104" height="78" rx="8" fill="url(#roseGoldCap)" stroke="#9E6E54" stroke-width="1"/>
+  <rect x="260" y="150" width="12" height="62" rx="4" fill="#FFF2EB" opacity="0.4"/>
+  <!-- Front Label -->
+  <rect x="228" y="315" width="144" height="162" rx="4" fill="#FAF6F0" stroke="#D9A891" stroke-width="1.5"/>
+  <rect x="234" y="321" width="132" height="150" rx="2" fill="none" stroke="#DCD4C8" stroke-width="0.8"/>
+  <text x="300" y="362" text-anchor="middle" font-family="Georgia, serif" font-size="13" letter-spacing="3" fill="#5C554F">NOTES &amp; NOIR</text>
+  <line x1="265" y1="374" x2="335" y2="374" stroke="#D9A891" stroke-width="1"/>
+  <text x="300" y="408" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#1A1715">Rose Mist</text>
+  <text x="300" y="434" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" letter-spacing="2.5" fill="#5C554F">EAU DE PARFUM</text>
+  <text x="300" y="458" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" letter-spacing="1.5" fill="#9E6E54">50 ML / 1.7 FL OZ</text>
+</svg>

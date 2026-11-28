@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720">
+  <defs>
+    <linearGradient id="santalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECE6DC"/>
+      <stop offset="100%" stop-color="#D2C7B7"/>
+    </linearGradient>
+    <linearGradient id="santalGlass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A3D34"/>
+      <stop offset="50%" stop-color="#69584C"/>
+      <stop offset="100%" stop-color="#352B24"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="720" fill="url(#santalBg)"/>
+  <ellipse cx="300" cy="545" rx="110" ry="14" fill="#352B24" opacity="0.2"/>
+  <rect x="198" y="255" width="204" height="285" rx="18" fill="url(#santalGlass)" stroke="#8B7768" stroke-width="2"/>
+  <rect x="266" y="220" width="68" height="35" rx="4" fill="#C6A774"/>
+  <rect x="252" y="148" width="96" height="72" rx="8" fill="#14110F"/>
+  <rect x="232" y="325" width="136" height="155" rx="4" fill="#FAF6F0" stroke="#C6A774" stroke-width="1.5"/>
+  <text x="300" y="366" text-anchor="middle" font-family="Georgia, serif" font-size="12" letter-spacing="3" fill="#5C554F">NOTES &amp; NOIR</text>
+  <text x="300" y="405" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#1A1715">Santal Fumée</text>
+  <text x="300" y="434" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" letter-spacing="2" fill="#5C554F">EAU DE PARFUM</text>
+</svg>

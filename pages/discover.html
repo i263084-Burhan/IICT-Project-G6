@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Your Scent — Notes &amp; Noir | Mobile Fragrance Experience</title>
+  <meta name="description" content="Discover your signature scent with Notes &amp; Noir's interactive mobile scent finder. Browse by mood, occasion, and intensity — real perfume bottle photos." />
+
+  <!-- Google Fonts: Playfair Display, Cinzel & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Shared Base Stylesheet (i263087) -->
+  <link rel="stylesheet" href="../css/style_i263087.css" />
+  <!-- Discover Page Dedicated Stylesheet (i263087) -->
+  <link rel="stylesheet" href="../css/discover_i263087.css" />
+</head>
+<body class="discover-body">
+
+  <!-- ==================== DESKTOP HELPER BAR (> 600px) ==================== -->
+  <div class="dsk-helper-bar" aria-label="Desktop navigation helper">
+    <div class="dsk-helper-inner">
+      <span class="dsk-helper-label">Viewing Mobile Discover Experience</span>
+      <a href="../index.html" class="dsk-back-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- ==================== MOBILE STOREFRONT WRAPPER ==================== -->
+  <div class="mobile-storefront" id="mobileStorefront">
+
+    <!-- ==================== COMPACT MOBILE HEADER ==================== -->
+    <header class="disc-header" id="discHeader">
+      <button
+        type="button"
+        class="disc-hamburger"
+        id="discHamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="discDrawer"
+      >
+        <span class="disc-ham-line"></span>
+        <span class="disc-ham-line"></span>
+        <span class="disc-ham-line"></span>
+      </button>
+
+      <a href="home.html" class="disc-wordmark" aria-label="Notes &amp; Noir — Home">
+        NOTES <span class="disc-wm-amp">&amp;</span> NOIR
+      </a>
+
+      <div class="disc-header-actions">
+        <button
+          type="button"
+          class="disc-icon-btn"
+          id="discSearchToggle"
+          aria-label="Toggle search"
+          aria-expanded="false"
+          aria-controls="discSearchBar"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M20 20L16.2 16.2" stroke-linecap="round"/>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          class="disc-icon-btn disc-cart-btn"
+          id="discCartBtn"
+          aria-label="Shopping cart"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M3 4H5.4L7.6 15.2C7.8 16.2 8.7 17 9.8 17H18.4C19.4 17 20.3 16.3 20.6 15.3L22 8.5H6.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20.5" r="1.4"/>
+            <circle cx="18" cy="20.5" r="1.4"/>
+          </svg>
+          <span class="disc-cart-badge" id="discCartBadge">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== COLLAPSIBLE SEARCH BAR ==================== -->
+    <div class="disc-search-bar" id="discSearchBar" hidden>
+      <form class="disc-search-form" role="search" id="discSearchForm">
+        <svg class="disc-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/>
+          <path d="M20 20L16.2 16.2" stroke-linecap="round"/>
+        </svg>
+        <label for="discSearchInput" class="sr-only">Search fragrances</label>
+        <input
+          id="discSearchInput"
+          type="search"
+          class="disc-search-input"
+          placeholder="Search fragrances..."
+          autocomplete="off"
+        />
+        <button type="button" class="disc-search-close" id="discSearchClose" aria-label="Close search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- ==================== DRAWER OVERLAY ==================== -->
+    <div class="disc-drawer-overlay" id="discDrawerOverlay" aria-hidden="true"></div>
+
+    <!-- ==================== COLLAPSIBLE DRAWER ==================== -->
+    <nav
+      class="disc-drawer"
+      id="discDrawer"
+      aria-label="Mobile navigation drawer"
+      aria-hidden="true"
+    >
+      <div class="disc-drawer-header">
+        <span class="disc-drawer-brand">NOTES <span class="disc-wm-amp">&amp;</span> NOIR</span>
+        <button type="button" class="disc-drawer-close" id="discDrawerClose" aria-label="Close navigation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <ul class="disc-drawer-nav">
+        <li><a href="home.html" class="disc-drawer-link">Home</a></li>
+        <li><a href="shop-all.html" class="disc-drawer-link">Shop All</a></li>
+        <li><a href="mens.html" class="disc-drawer-link">Men's Collection</a></li>
+        <li><a href="shop-all.html?category=women" class="disc-drawer-link">Women</a></li>
+        <li><a href="shop-all.html?category=unisex" class="disc-drawer-link">Unisex</a></li>
+        <li><a href="shop-all.html?category=kids" class="disc-drawer-link">Kids</a></li>
+        <li><a href="discover.html" class="disc-drawer-link active" aria-current="page">Discover</a></li>
+        <li><a href="shop-all.html?category=gift-sets" class="disc-drawer-link">Gift Sets</a></li>
+      </ul>
+      <div class="disc-drawer-footer">
+        <span class="disc-drawer-tagline">— stylish, mysterious and memorable. —</span>
+      </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="disc-main" id="discMain">
+
+      <!-- ========== SECTION 1: VERTICAL HERO BANNER ========== -->
+      <section class="disc-hero" aria-labelledby="discHeroHeading">
+        <div class="disc-hero-img-wrap">
+          <img
+            src="../images/4.png"
+            alt="Notes &amp; Noir Signature Perfume Bottle — Discover Your Scent"
+            class="disc-hero-img bottle-photo--amber"
+          />
+          <div class="disc-hero-gradient" aria-hidden="true"></div>
+        </div>
+        <div class="disc-hero-content">
+          <span class="disc-hero-eyebrow">SIGNATURE DISCOVERY</span>
+          <h1 id="discHeroHeading" class="disc-hero-title">Discover Your<br/>Signature Scent</h1>
+          <a href="shop-all.html" class="disc-btn-gold">Explore All Fragrances</a>
+        </div>
+      </section>
+
+      <!-- ========== SECTION 2: HORIZONTAL SCENT-CATEGORY CHIPS ========== -->
+      <section class="disc-chips-section" aria-label="Filter fragrances by category">
+        <div class="disc-chips-scroll" role="group" aria-label="Scent category filter chips">
+          <button class="disc-chip active" data-chip="all" type="button" aria-pressed="true">All</button>
+          <button class="disc-chip" data-chip="men" type="button" aria-pressed="false">Men</button>
+          <button class="disc-chip" data-chip="women" type="button" aria-pressed="false">Women</button>
+          <button class="disc-chip" data-chip="unisex" type="button" aria-pressed="false">Unisex</button>
+          <button class="disc-chip" data-chip="kids" type="button" aria-pressed="false">Kids</button>
+          <button class="disc-chip" data-chip="oud-woods" type="button" aria-pressed="false">Oud <span class="disc-chip-amp">&amp;</span> Woods</button>
+          <button class="disc-chip" data-chip="amber-rose" type="button" aria-pressed="false">Amber <span class="disc-chip-amp">&amp;</span> Rose</button>
+        </div>
+      </section>
+
+      <!-- ========== SECTION 3: RANDOM PERFUME GENERATOR ========== -->
+      <section class="disc-generator-section" aria-labelledby="discGenHeading">
+        <div class="disc-generator-header">
+          <span class="disc-section-eyebrow">Interactive Discovery</span>
+          <h2 id="discGenHeading" class="disc-section-title">Random Perfume Generator</h2>
+          <p class="disc-generator-subtitle">Select a category and let chance unveil your next signature extrait de parfum.</p>
+        </div>
+
+        <div class="disc-generator-card">
+          <!-- Category Selector Pills (Default: All) -->
+          <div class="disc-gen-pills-label">Select Category</div>
+          <div class="disc-gen-pills" role="radiogroup" aria-label="Fragrance Category">
+            <button class="disc-gen-pill active" data-category="all" type="button" aria-checked="true" role="radio">All</button>
+            <button class="disc-gen-pill" data-category="men" type="button" aria-checked="false" role="radio">Men</button>
+            <button class="disc-gen-pill" data-category="women" type="button" aria-checked="false" role="radio">Women</button>
+            <button class="disc-gen-pill" data-category="unisex" type="button" aria-checked="false" role="radio">Unisex</button>
+            <button class="disc-gen-pill" data-category="kids" type="button" aria-checked="false" role="radio">Kids</button>
+            <button class="disc-gen-pill" data-category="oud-woods" type="button" aria-checked="false" role="radio">Oud <span class="disc-chip-amp">&amp;</span> Woods</button>
+            <button class="disc-gen-pill" data-category="amber-rose" type="button" aria-checked="false" role="radio">Amber <span class="disc-chip-amp">&amp;</span> Rose</button>
+          </div>
+
+          <!-- "Discover Random Scent" Action Button -->
+          <button type="button" class="disc-gen-action-btn" id="discGenActionBtn" aria-label="Discover Random Scent">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round"/>
+            </svg>
+            <span>Discover Random Scent</span>
+          </button>
+
+          <!-- Generated Result Card -->
+          <div class="disc-gen-result-card" id="discGenResultCard" aria-live="polite">
+            <div class="disc-gen-media">
+              <span class="disc-gen-category-badge" id="genCategoryBadge">Unisex &bull; Fresh &amp; Citrus</span>
+              <img
+                id="genBottleImg"
+                src="../images/3.png"
+                alt="Midnight Bergamot Perfume Bottle"
+                class="disc-gen-bottle-img"
+              />
+              <!-- Notes & Noir Brand Plaque (retained for images/3.png) -->
+              <div class="disc-card-brand-mask" id="genBrandMask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="disc-gen-body">
+              <h3 class="disc-gen-title" id="genPerfumeTitle">Midnight Bergamot</h3>
+              <p class="disc-gen-notes" id="genPerfumeNotes">Calabrian Bergamot &bull; Black Pepper &bull; Cedarwood</p>
+              <div class="disc-gen-price" id="genPerfumePrice">$150.00</div>
+
+              <div class="disc-gen-actions">
+                <button type="button" class="disc-gen-btn-try" id="genTryAnotherBtn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="margin-right: 5px; vertical-align: -2px;">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Try Another
+                </button>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart disc-gen-btn-add"
+                  id="genAddBagBtn"
+                  data-id="nn-03"
+                  data-product="Midnight Bergamot"
+                  data-price="150"
+                  data-image="images/3.png"
+                >Add to Bag</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SECTION 4: VERTICAL PRODUCT DISCOVERY FEED ========== -->
+      <section class="disc-feed-section" aria-labelledby="discFeedHeading">
+        <div class="disc-feed-header">
+          <span class="disc-section-eyebrow">Artisan Collection</span>
+          <h2 id="discFeedHeading" class="disc-section-title">Product Discovery Feed</h2>
+        </div>
+
+        <!-- Product Feed (filtered by chips) -->
+        <div class="disc-feed" id="discFeed" role="list" aria-label="Fragrance discovery feed">
+
+          <!-- Card 1 — Midnight Bergamot / images/3.png (deep blue — keep dark N&N bottom gradient mask) -->
+          <article class="disc-card" data-category="unisex men" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Unisex</span>
+              <img
+                src="../images/3.png"
+                alt="Midnight Bergamot Perfume Bottle"
+                class="disc-card-img bottle-photo--blue"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <!-- Dark N&N Gold Gradient Mask — preserved as requested for images/3.png -->
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Midnight Bergamot</h3>
+              <p class="disc-card-notes">Calabrian Bergamot • Black Pepper • Cedarwood</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$150.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-03"
+                  data-product="Midnight Bergamot"
+                  data-price="150"
+                  data-image="images/3.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 — Noir Oud Elixir / images/4.png -->
+          <article class="disc-card" data-category="men oud-woods" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Bestseller</span>
+              <img
+                src="../images/4.png"
+                alt="Noir Oud Elixir Perfume Bottle"
+                class="disc-card-img bottle-photo--amber"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-bottom-fade" aria-hidden="true"></div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Noir Oud Elixir</h3>
+              <p class="disc-card-notes">Smoky Agarwood • Black Amber • Roasted Tonka</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$185.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-01"
+                  data-product="Noir Oud Elixir"
+                  data-price="185"
+                  data-image="images/4.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 — Gilded Amber Vanilla / images/5.png -->
+          <article class="disc-card" data-category="women amber-rose" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Atelier</span>
+              <img
+                src="../images/5.png"
+                alt="Gilded Amber Vanilla Perfume Bottles"
+                class="disc-card-img bottle-photo--story"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Gilded Amber Vanilla</h3>
+              <p class="disc-card-notes">Madagascar Vanilla • Warm Amber • White Orchid</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$175.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-06"
+                  data-product="Gilded Amber Vanilla"
+                  data-price="175"
+                  data-image="images/5.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 — Imperial Falcon Oud / images/6.png -->
+          <article class="disc-card" data-category="men oud-woods" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Signature</span>
+              <img
+                src="../images/6.png"
+                alt="Imperial Falcon Oud Perfume Bottle"
+                class="disc-card-img bottle-photo--falcon"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Imperial Falcon Oud</h3>
+              <p class="disc-card-notes">Black Cardamom • Aged Oud • Smoked Leather</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$225.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-05"
+                  data-product="Imperial Falcon Oud"
+                  data-price="225"
+                  data-image="images/6.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 — Velvet Amber Rose / images/7.png (light bg — strong vignette) -->
+          <article class="disc-card" data-category="women amber-rose" role="listitem">
+            <div class="disc-card-media disc-card-media--light-blend">
+              <span class="disc-card-badge">Iconic</span>
+              <img
+                src="../images/7.png"
+                alt="Velvet Amber Rose Perfume Bottle"
+                class="disc-card-img bottle-photo--light-blend"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette disc-card-vignette--strong" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Velvet Amber Rose</h3>
+              <p class="disc-card-notes">Damask Rose • Golden Saffron • Cashmere Musk</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$165.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-02"
+                  data-product="Velvet Amber Rose"
+                  data-price="165"
+                  data-image="images/7.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 — Saffron & Smoke / images/8.png -->
+          <article class="disc-card" data-category="men unisex oud-woods" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Reserve</span>
+              <img
+                src="../images/8.png"
+                alt="Saffron &amp; Smoke Perfume Bottle"
+                class="disc-card-img bottle-photo--saffron"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-bottom-fade" aria-hidden="true"></div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Saffron <span class="disc-chip-amp">&amp;</span> Smoke</h3>
+              <p class="disc-card-notes">Red Saffron • Incense Resin • Smoked Vetiver</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$210.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-04"
+                  data-product="Saffron &amp; Smoke"
+                  data-price="210"
+                  data-image="images/8.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7 — Velvet Honey Reserve / images/9.jpeg -->
+          <article class="disc-card" data-category="unisex amber-rose" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Extrait</span>
+              <img
+                src="../images/9.jpeg"
+                alt="Velvet Honey Reserve Perfume Bottle"
+                class="disc-card-img bottle-photo--honey"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Velvet Honey Reserve</h3>
+              <p class="disc-card-notes">Wildflower Honey • Benzoin Resin • Roasted Almond</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$195.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-09"
+                  data-product="Velvet Honey Reserve"
+                  data-price="195"
+                  data-image="images/9.jpeg"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8 — Obsidian Cedar / images/10.png -->
+          <article class="disc-card" data-category="men oud-woods" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Nocturne</span>
+              <img
+                src="../images/10.png"
+                alt="Obsidian Cedar Perfume Bottle"
+                class="disc-card-img bottle-photo--obsidian"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-bottom-fade" aria-hidden="true"></div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Obsidian Cedar</h3>
+              <p class="disc-card-notes">Atlas Cedar • Vetiver Root • Mineral Musk</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$160.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-07"
+                  data-product="Obsidian Cedar"
+                  data-price="160"
+                  data-image="images/10.png"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 9 — Petit Citrus Cloud / images/11.jpeg -->
+          <article class="disc-card" data-category="kids" role="listitem">
+            <div class="disc-card-media disc-card-media--light-blend">
+              <span class="disc-card-badge">Kids</span>
+              <img
+                src="../images/11.jpeg"
+                alt="Petit Citrus Cloud Perfume Bottle"
+                class="disc-card-img bottle-photo--pink-blend"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette disc-card-vignette--strong" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Petit Citrus Cloud</h3>
+              <p class="disc-card-notes">Sweet Mandarin • Orange Blossom • Cotton Musk</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$78.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-10"
+                  data-product="Petit Citrus Cloud"
+                  data-price="78"
+                  data-image="images/11.jpeg"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 10 — Rose Nocturne / images/12.jpeg -->
+          <article class="disc-card" data-category="women amber-rose" role="listitem">
+            <div class="disc-card-media">
+              <span class="disc-card-badge">Limited</span>
+              <img
+                src="../images/12.jpeg"
+                alt="Rose Nocturne Perfume Bottle"
+                class="disc-card-img bottle-photo--ruby"
+                loading="lazy"
+              />
+              <div class="disc-card-vignette" aria-hidden="true"></div>
+              <div class="disc-card-brand-mask" aria-hidden="true">
+                <div class="disc-card-brand-plaque">
+                  <span class="disc-plaque-name">Notes <span class="disc-chip-amp">&amp;</span> Noir</span>
+                </div>
+              </div>
+            </div>
+            <div class="disc-card-body">
+              <h3 class="disc-card-title">Rose Nocturne</h3>
+              <p class="disc-card-notes">Midnight Rose • Pink Pepper • Creamy Sandalwood</p>
+              <div class="disc-card-footer">
+                <span class="disc-card-price">$190.00</span>
+                <button
+                  type="button"
+                  class="btn-add-cart disc-btn-add-cart"
+                  data-id="nn-08"
+                  data-product="Rose Nocturne"
+                  data-price="190"
+                  data-image="images/12.jpeg"
+                >Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Empty state -->
+          <div class="disc-feed-empty" id="discFeedEmpty" hidden>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35" stroke-linecap="round"/>
+            </svg>
+            <p>No fragrances in this category</p>
+            <button type="button" class="disc-btn-gold" id="feedResetBtn">Show All</button>
+          </div>
+
+        </div>
+        <!-- /disc-feed -->
+      </section>
+
+    </main>
+    <!-- /disc-main -->
+
+    <!-- ==================== STICKY BOTTOM NAVIGATION BAR ==================== -->
+    <nav class="disc-bottom-nav" aria-label="Bottom mobile navigation">
+      <a href="home.html" class="disc-bottom-nav-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M3 12L12 3l9 9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 21V12h6v9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Home</span>
+      </a>
+      <a href="shop-all.html" class="disc-bottom-nav-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M3 4H5.4L7.6 15.2C7.8 16.2 8.7 17 9.8 17H18.4C19.4 17 20.3 16.3 20.6 15.3L22 8.5H6.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="20.5" r="1.4"/>
+          <circle cx="18" cy="20.5" r="1.4"/>
+        </svg>
+        <span>Shop All</span>
+      </a>
+      <a href="mens.html" class="disc-bottom-nav-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <rect x="9" y="3" width="6" height="4" rx="1"/>
+          <path d="M10 7V9.5H14V7"/>
+          <rect x="6" y="9.5" width="12" height="11.5" rx="2"/>
+          <rect x="8.5" y="12" width="7" height="5" rx="1"/>
+        </svg>
+        <span>Men</span>
+      </a>
+      <a href="discover.html" class="disc-bottom-nav-item disc-bottom-nav-item--active" aria-current="page">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M15.5 8.5l-5 2.5-2.5 5 5-2.5 2.5-5z"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>Discover</span>
+      </a>
+    </nav>
+
+  </div>
+  <!-- /mobile-storefront -->
+
+  <!-- Toast Notification -->
+  <div class="disc-toast" id="discToast" role="status" aria-live="polite"></div>
+
+  <!-- Shared Script (i263087) — cart localStorage sync -->
+  <script src="../js/main_i263087.js"></script>
+  <!-- Discover Page Script (inline, embedded) -->
+  <script>
+    (() => {
+      /* =========================================================
+         CART DRAWER & BADGE INTEGRATION
+         Uses shared Notes & Noir cart state (localStorage: nn_cart_items_i263087)
+         ========================================================= */
+      const discCartBtn = document.getElementById('discCartBtn');
+      const discCartBadge = document.getElementById('discCartBadge');
+
+      function syncCartBadge() {
+        if (window.NotesAndNoir && typeof window.NotesAndNoir.updateCartBadge === 'function') {
+          window.NotesAndNoir.updateCartBadge();
+        } else {
+          try {
+            const raw = localStorage.getItem('nn_cart_items_i263087') || '[]';
+            const items = JSON.parse(raw);
+            const total = Array.isArray(items) ? items.reduce((s, i) => s + Number(i.quantity || 0), 0) : 0;
+            if (discCartBadge) discCartBadge.textContent = String(total);
+          } catch {}
+        }
+      }
+
+      if (discCartBtn) {
+        discCartBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (window.NotesAndNoir && typeof window.NotesAndNoir.openCartDrawer === 'function') {
+            window.NotesAndNoir.openCartDrawer();
+          }
+        });
+      }
+
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'nn_cart_items_i263087') {
+          syncCartBadge();
+          if (window.NotesAndNoir && typeof window.NotesAndNoir.renderCartDrawer === 'function') {
+            window.NotesAndNoir.renderCartDrawer();
+          }
+        }
+      });
+
+      syncCartBadge();
+
+      /* =========================================================
+         HAMBURGER NAVIGATION DRAWER
+         ========================================================= */
+      const hamburger = document.getElementById('discHamburger');
+      const drawer    = document.getElementById('discDrawer');
+      const overlay   = document.getElementById('discDrawerOverlay');
+      const closeBtn  = document.getElementById('discDrawerClose');
+
+      function openDrawer() {
+        drawer.removeAttribute('aria-hidden');
+        drawer.classList.add('disc-drawer--open');
+        overlay.classList.add('disc-drawer-overlay--visible');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('disc-drawer-locked');
+      }
+      function closeDrawer() {
+        drawer.setAttribute('aria-hidden', 'true');
+        drawer.classList.remove('disc-drawer--open');
+        overlay.classList.remove('disc-drawer-overlay--visible');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('disc-drawer-locked');
+      }
+
+      if (hamburger) hamburger.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+      /* =========================================================
+         COLLAPSIBLE SEARCH BAR & LIVE FILTERING
+         ========================================================= */
+      const searchToggle = document.getElementById('discSearchToggle');
+      const searchBar    = document.getElementById('discSearchBar');
+      const searchClose  = document.getElementById('discSearchClose');
+      const searchInput  = document.getElementById('discSearchInput');
+
+      if (searchToggle && searchBar) {
+        searchToggle.addEventListener('click', () => {
+          const isOpen = !searchBar.hidden;
+          searchBar.hidden = isOpen;
+          searchToggle.setAttribute('aria-expanded', String(!isOpen));
+          if (!isOpen && searchInput) setTimeout(() => searchInput.focus(), 60);
+        });
+      }
+      if (searchClose && searchBar) {
+        searchClose.addEventListener('click', () => {
+          searchBar.hidden = true;
+          if (searchToggle) searchToggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const q = searchInput.value.trim().toLowerCase();
+          document.querySelectorAll('.disc-card').forEach(card => {
+            const title = card.querySelector('.disc-card-title')?.textContent.toLowerCase() || '';
+            const notes = card.querySelector('.disc-card-notes')?.textContent.toLowerCase() || '';
+            card.hidden = q && !title.includes(q) && !notes.includes(q);
+          });
+          checkFeedEmpty();
+        });
+      }
+
+      /* =========================================================
+         PRODUCT FEED CATEGORY CHIPS
+         ========================================================= */
+      const chips = document.querySelectorAll('.disc-chip');
+      const cards = document.querySelectorAll('.disc-card');
+
+      function filterFeed(chip) {
+        const val = chip.dataset.chip;
+        chips.forEach(c => {
+          c.classList.toggle('active', c === chip);
+          c.setAttribute('aria-pressed', String(c === chip));
+        });
+        cards.forEach(card => {
+          const cats = card.dataset.category || '';
+          card.hidden = val !== 'all' && !cats.split(' ').includes(val);
+        });
+        checkFeedEmpty();
+      }
+
+      function checkFeedEmpty() {
+        const empty = document.getElementById('discFeedEmpty');
+        const visible = [...cards].filter(c => !c.hidden);
+        if (empty) empty.hidden = visible.length > 0;
+      }
+
+      chips.forEach(chip => chip.addEventListener('click', () => filterFeed(chip)));
+      document.getElementById('feedResetBtn')?.addEventListener('click', () => {
+        const allChip = document.querySelector('.disc-chip[data-chip="all"]');
+        if (allChip) filterFeed(allChip);
+        if (searchInput) searchInput.value = '';
+      });
+
+      /* =========================================================
+         RANDOM PERFUME GENERATOR (Interactive & Luxury Reveal)
+         ========================================================= */
+      const GENERATOR_CATALOG = [
+        {
+          id: 'nn-03',
+          name: 'Midnight Bergamot',
+          nameHtml: 'Midnight Bergamot',
+          categoryBadgeHtml: 'Unisex &bull; Fresh &amp; Citrus',
+          categories: ['all', 'men', 'unisex'],
+          notes: 'Calabrian Bergamot • Black Pepper • Smoked Cedarwood',
+          price: 150,
+          image: 'images/3.png',
+          imageSrc: '../images/3.png',
+          hasBrandMask: true
+        },
+        {
+          id: 'nn-01',
+          name: 'Noir Oud Elixir',
+          nameHtml: 'Noir Oud Elixir',
+          categoryBadgeHtml: 'Men &bull; Oud &amp; Woods',
+          categories: ['all', 'men', 'oud-woods'],
+          notes: 'Smoky Agarwood • Black Amber • Roasted Tonka',
+          price: 185,
+          image: 'images/4.png',
+          imageSrc: '../images/4.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-06',
+          name: 'Gilded Amber Vanilla',
+          nameHtml: 'Gilded Amber Vanilla',
+          categoryBadgeHtml: 'Women &bull; Amber &amp; Rose',
+          categories: ['all', 'women', 'amber-rose'],
+          notes: 'Madagascar Vanilla • Warm Amber • White Orchid',
+          price: 175,
+          image: 'images/5.png',
+          imageSrc: '../images/5.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-05',
+          name: 'Imperial Falcon Oud',
+          nameHtml: 'Imperial Falcon Oud',
+          categoryBadgeHtml: 'Men &bull; Oud &amp; Woods',
+          categories: ['all', 'men', 'oud-woods'],
+          notes: 'Black Cardamom • Aged Oud • Smoked Leather',
+          price: 225,
+          image: 'images/6.png',
+          imageSrc: '../images/6.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-02',
+          name: 'Velvet Amber Rose',
+          nameHtml: 'Velvet Amber Rose',
+          categoryBadgeHtml: 'Women &bull; Amber &amp; Rose',
+          categories: ['all', 'women', 'amber-rose'],
+          notes: 'Damask Rose • Golden Saffron • Cashmere Musk',
+          price: 165,
+          image: 'images/7.png',
+          imageSrc: '../images/7.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-04',
+          name: 'Saffron & Smoke',
+          nameHtml: 'Saffron <span class="disc-chip-amp">&amp;</span> Smoke',
+          categoryBadgeHtml: 'Unisex &bull; Oud &amp; Woods',
+          categories: ['all', 'men', 'unisex', 'oud-woods'],
+          notes: 'Red Saffron • Incense Resin • Smoked Vetiver',
+          price: 210,
+          image: 'images/8.png',
+          imageSrc: '../images/8.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-09',
+          name: 'Velvet Honey Reserve',
+          nameHtml: 'Velvet Honey Reserve',
+          categoryBadgeHtml: 'Unisex &bull; Amber &amp; Rose',
+          categories: ['all', 'unisex', 'amber-rose'],
+          notes: 'Wildflower Honey • Benzoin Resin • Roasted Almond',
+          price: 195,
+          image: 'images/9.jpeg',
+          imageSrc: '../images/9.jpeg',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-07',
+          name: 'Obsidian Cedar',
+          nameHtml: 'Obsidian Cedar',
+          categoryBadgeHtml: 'Men &bull; Oud &amp; Woods',
+          categories: ['all', 'men', 'oud-woods'],
+          notes: 'Atlas Cedar • Vetiver Root • Mineral Musk',
+          price: 160,
+          image: 'images/10.png',
+          imageSrc: '../images/10.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-10',
+          name: 'Petit Citrus Cloud',
+          nameHtml: 'Petit Citrus Cloud',
+          categoryBadgeHtml: 'Kids &bull; Gentle Mist',
+          categories: ['all', 'kids'],
+          notes: 'Sweet Mandarin • Orange Blossom • Cotton Musk',
+          price: 78,
+          image: 'images/11.jpeg',
+          imageSrc: '../images/11.jpeg',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-08',
+          name: 'Rose Nocturne',
+          nameHtml: 'Rose Nocturne',
+          categoryBadgeHtml: 'Women &bull; Amber &amp; Rose',
+          categories: ['all', 'women', 'amber-rose'],
+          notes: 'Midnight Rose • Pink Pepper • Creamy Sandalwood',
+          price: 190,
+          image: 'images/12.jpeg',
+          imageSrc: '../images/12.jpeg',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-11',
+          name: 'Little Starlight Dew',
+          nameHtml: 'Little Starlight Dew',
+          categoryBadgeHtml: 'Kids &bull; Delicate Floral',
+          categories: ['all', 'kids'],
+          notes: 'White Peach • Chamomile Mist • Soft Vanilla',
+          price: 72,
+          image: 'images/7.png',
+          imageSrc: '../images/7.png',
+          hasBrandMask: false
+        },
+        {
+          id: 'nn-12',
+          name: 'Junior Meadow Breeze',
+          nameHtml: 'Junior Meadow Breeze',
+          categoryBadgeHtml: 'Kids &bull; Fresh Green',
+          categories: ['all', 'kids'],
+          notes: 'Crisp Pear • Neroli Blossom • Clean Cedar',
+          price: 75,
+          image: 'images/9.jpeg',
+          imageSrc: '../images/9.jpeg',
+          hasBrandMask: false
+        }
+      ];
+
+      let currentGenCategory = 'all';
+      let lastPickedId = 'nn-03';
+
+      const genPills = document.querySelectorAll('.disc-gen-pill');
+      const genActionBtn = document.getElementById('discGenActionBtn');
+      const genTryAnotherBtn = document.getElementById('genTryAnotherBtn');
+      const genResultCard = document.getElementById('discGenResultCard');
+      const genBottleImg = document.getElementById('genBottleImg');
+      const genBrandMask = document.getElementById('genBrandMask');
+      const genCategoryBadge = document.getElementById('genCategoryBadge');
+      const genPerfumeTitle = document.getElementById('genPerfumeTitle');
+      const genPerfumeNotes = document.getElementById('genPerfumeNotes');
+      const genPerfumePrice = document.getElementById('genPerfumePrice');
+      const genAddBagBtn = document.getElementById('genAddBagBtn');
+
+      function pickRandomPerfume(category, forceNew = true) {
+        const pool = GENERATOR_CATALOG.filter(item => item.categories.includes(category));
+        if (!pool.length) return;
+
+        let available = pool;
+        if (forceNew && pool.length > 1) {
+          available = pool.filter(item => item.id !== lastPickedId);
+          if (!available.length) available = pool;
+        }
+
+        const picked = available[Math.floor(Math.random() * available.length)];
+        lastPickedId = picked.id;
+
+        // Render picked fragrance with crisp contain photo and metadata
+        if (genBottleImg) {
+          genBottleImg.src = picked.imageSrc;
+          genBottleImg.alt = `${picked.name} Perfume Bottle`;
+        }
+
+        // Show brand mask plaque only for images/3.png
+        if (genBrandMask) {
+          genBrandMask.style.display = picked.hasBrandMask ? 'flex' : 'none';
+        }
+
+        if (genCategoryBadge) genCategoryBadge.innerHTML = picked.categoryBadgeHtml;
+        if (genPerfumeTitle) genPerfumeTitle.innerHTML = picked.nameHtml;
+        if (genPerfumeNotes) genPerfumeNotes.textContent = picked.notes;
+        if (genPerfumePrice) genPerfumePrice.textContent = `$${picked.price.toFixed(2)}`;
+
+        if (genAddBagBtn) {
+          genAddBagBtn.setAttribute('data-id', picked.id);
+          genAddBagBtn.setAttribute('data-product', picked.name);
+          genAddBagBtn.setAttribute('data-price', String(picked.price));
+          genAddBagBtn.setAttribute('data-image', picked.image);
+          genAddBagBtn.setAttribute('data-label', 'Add to Bag');
+          genAddBagBtn.textContent = 'Add to Bag';
+          genAddBagBtn.classList.remove('added');
+        }
+
+        // Trigger smooth luxury reveal transition
+        if (genResultCard) {
+          genResultCard.classList.remove('reveal');
+          // Force layout reflow
+          void genResultCard.offsetWidth;
+          genResultCard.classList.add('reveal');
+        }
+      }
+
+      genPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const cat = pill.getAttribute('data-category') || 'all';
+          currentGenCategory = cat;
+
+          genPills.forEach(p => {
+            const isActive = p === pill;
+            p.classList.toggle('active', isActive);
+            p.setAttribute('aria-checked', String(isActive));
+          });
+
+          pickRandomPerfume(currentGenCategory, true);
+        });
+      });
+
+      if (genActionBtn) {
+        genActionBtn.addEventListener('click', () => {
+          pickRandomPerfume(currentGenCategory, true);
+        });
+      }
+
+      if (genTryAnotherBtn) {
+        genTryAnotherBtn.addEventListener('click', () => {
+          pickRandomPerfume(currentGenCategory, true);
+        });
+      }
+
+      // Initial reveal on load
+      pickRandomPerfume('all', false);
+
+      /* =========================================================
+         HEADER SCROLL SHADOW
+         ========================================================= */
+      const header = document.getElementById('discHeader');
+      if (header) {
+        window.addEventListener('scroll', () => {
+          header.classList.toggle('disc-header--scrolled', window.scrollY > 10);
+        }, { passive: true });
+      }
+    })();
+  </script>
+
+</body>
+</html>
