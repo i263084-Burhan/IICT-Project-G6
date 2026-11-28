@@ -356,6 +356,31 @@
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.7), 0 0 24px rgba(216, 180, 128, 0.14);
 }
 
+/* Bottle framing & high-contrast display for Shop All catalog */
+.catalog-grid .product-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse 70% 70% at 50% 50%, #1a1617 0%, #0B090A 100%);
+}
+
+.catalog-grid .bottle-photo,
+.catalog-grid .bottle-photo--card {
+  object-fit: contain;
+  object-position: center 18%;
+  padding: 12px 10px 0;
+  transition: transform 0.5s ease;
+}
+
+.catalog-grid .bottle-photo--light-blend {
+  object-position: center 14%;
+  padding: 10px 8px 0;
+}
+
+.catalog-grid .product-card:hover .bottle-photo {
+  transform: scale(1.03);
+}
+
 /* Product-meta row: badge + size */
 .product-meta-row {
   display: flex;

@@ -379,10 +379,11 @@ const NN_IMG_PREFIX = window.location.pathname.includes("/pages/") ? "../" : "";
   };
 
   const updateCartBadge = () => {
-    const cartBadge = document.getElementById('cartBadgeCount');
-    if (!cartBadge) return;
     const totalCount = loadCart().reduce((sum, item) => sum + Number(item.quantity || 0), 0);
-    cartBadge.textContent = String(totalCount);
+    const badges = document.querySelectorAll('#cartBadgeCount, #discCartBadge, .cart-badge, .disc-cart-badge');
+    badges.forEach((b) => {
+      b.textContent = String(totalCount);
+    });
   };
 
   const ensureCartDrawer = () => {
@@ -614,6 +615,9 @@ const NN_IMG_PREFIX = window.location.pathname.includes("/pages/") ? "../" : "";
     updateItemQuantity,
     openCartDrawer,
     closeCartDrawer,
+    updateCartBadge,
+    ensureCartDrawer,
+    renderCartDrawer,
     showToast,
     resolveAssetPath,
     initShopAllCatalog: () => typeof initShopAllCatalog === 'function' && initShopAllCatalog(),
@@ -1121,9 +1125,9 @@ const NN_IMG_PREFIX = window.location.pathname.includes("/pages/") ? "../" : "";
     initShopAllCatalog();
     initMensCatalog();
 
-    // Event delegation supports both static cards and dynamically rendered catalog cards
+    // Event delegation supports both static cards, generator buttons, and dynamically rendered catalog cards
     document.addEventListener('click', (event) => {
-      const button = event.target.closest('.btn-add-cart');
+      const button = event.target.closest('.btn-add-cart, .disc-btn-add-cart');
       if (!button) return;
 
       const productId = button.getAttribute('data-id');
@@ -1148,11 +1152,13 @@ const NN_IMG_PREFIX = window.location.pathname.includes("/pages/") ? "../" : "";
       }, 1100);
     });
 
-    if (headerCartBtn) {
-      headerCartBtn.addEventListener('click', () => {
+    const cartOpenTriggers = document.querySelectorAll('#headerCartBtn, #discCartBtn, .disc-cart-btn, [data-cart-toggle]');
+    cartOpenTriggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         openCartDrawer();
       });
-    }
+    });
 
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
