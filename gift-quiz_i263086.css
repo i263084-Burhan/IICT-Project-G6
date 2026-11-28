@@ -1,0 +1,429 @@
+/* ==========================================================================
+   Notes & Noir — Perfume Finder Quiz Stylesheet (i263086)
+   Complements unisex_i263086.css with the black, champagne-gold & cream theme
+   ========================================================================== */
+
+/* Stack Hero Action Buttons Vertically */
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.hero-actions .hero-btn {
+  margin-top: 0;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--gold-antique);
+  background: rgba(17, 15, 12, 0.78);
+  color: var(--gold-light);
+  font-family: var(--font-serif);
+  font-size: 1.04rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(245, 225, 182, 0.16);
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-outline-gold:hover,
+.btn-outline-gold:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(200, 159, 86, 0.16);
+  border-color: var(--gold-light);
+  color: var(--ivory-bg);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(245, 225, 182, 0.28);
+}
+
+.btn-outline-gold:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Quiz Modal Shell
+   ========================================================================== */
+
+.quiz-modal[hidden] {
+  display: none;
+}
+
+.quiz-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.quiz-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 6, 5, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.quiz-modal-panel {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 560px;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  border: 1.5px solid var(--gold-antique);
+  outline: 1px solid rgba(245, 225, 182, 0.18);
+  background: linear-gradient(180deg, #15120e 0%, #090806 100%);
+  color: var(--cream-text);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65);
+}
+
+.quiz-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(200, 159, 86, 0.32);
+}
+
+.quiz-brand-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-champagne);
+}
+
+.quiz-brand-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--gold-champagne);
+}
+
+.quiz-close-btn {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 159, 86, 0.35);
+  background: transparent;
+  color: var(--cream-text);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.quiz-close-btn:hover,
+.quiz-close-btn:focus-visible {
+  background-color: rgba(200, 159, 86, 0.16);
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+}
+
+.quiz-progress-bar {
+  width: 100%;
+  height: 3px;
+  background-color: rgba(200, 159, 86, 0.16);
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, var(--gold-antique), var(--gold-light));
+  transition: width 0.3s ease;
+}
+
+.quiz-body {
+  padding: 28px 26px 26px;
+}
+
+/* ==========================================================================
+   Quiz Screens
+   ========================================================================== */
+
+.quiz-screen[hidden] {
+  display: none;
+}
+
+.quiz-screen {
+  text-align: center;
+  animation: quizFadeIn 0.26s ease;
+}
+
+@keyframes quizFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quiz-step-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-champagne);
+}
+
+.quiz-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: var(--ivory-bg);
+  line-height: 1.2;
+}
+
+.quiz-subtext {
+  margin-top: 8px;
+  font-size: 1.06rem;
+  font-style: italic;
+  color: var(--cream-muted);
+}
+
+/* Option Cards */
+.quiz-options {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.quiz-options--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quiz-options--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.quiz-option-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 159, 86, 0.55);
+  background: linear-gradient(180deg, rgba(247, 239, 228, 0.98) 0%, rgba(239, 227, 210, 0.96) 100%);
+  color: var(--ink-dark);
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.quiz-option-card:hover,
+.quiz-option-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--gold-light);
+  background: linear-gradient(180deg, #fbf4e9 0%, #f5e6cf 100%);
+  box-shadow: 0 12px 26px rgba(200, 159, 86, 0.26);
+}
+
+.quiz-option-icon {
+  font-size: 1.15rem;
+  color: var(--gold-bronze);
+  line-height: 1;
+}
+
+.quiz-option-title {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+}
+
+.quiz-option-desc {
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--ink-muted);
+}
+
+/* Navigation Links inside Quiz */
+.quiz-nav-row {
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-text-btn {
+  border: none;
+  background: transparent;
+  color: var(--cream-muted);
+  font-size: 0.98rem;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.quiz-text-btn:hover,
+.quiz-text-btn:focus-visible {
+  color: var(--gold-champagne);
+  border-bottom-color: var(--gold-antique);
+}
+
+/* ==========================================================================
+   Screen 3: Recommendation Card
+   ========================================================================== */
+
+.quiz-choice-summary {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 159, 86, 0.42);
+  background-color: rgba(255, 248, 235, 0.05);
+  font-size: 0.88rem;
+  color: var(--gold-champagne);
+}
+
+.quiz-result-card {
+  margin: 20px auto 0;
+  max-width: 340px;
+  padding: 18px 18px 22px;
+  border-radius: 14px;
+  border: 1px solid rgba(200, 159, 86, 0.85);
+  background: linear-gradient(180deg, #f8f1e6 0%, var(--beige-card) 100%);
+  color: var(--ink-dark);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+
+.quiz-result-image-wrap {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 14px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 159, 86, 0.4);
+  background-color: #ede0ce;
+}
+
+.quiz-result-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quiz-result-name {
+  font-family: var(--font-display);
+  font-size: 1.42rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+}
+
+.quiz-result-notes {
+  margin-top: 4px;
+  font-size: 0.96rem;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+.quiz-result-price {
+  margin: 10px 0 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink-dark);
+}
+
+.quiz-add-btn {
+  width: 100%;
+  padding: 10px 22px;
+  font-size: 1.02rem;
+}
+
+/* ==========================================================================
+   Screen 4: Confirmation Screen
+   ========================================================================== */
+
+.quiz-confirm-icon {
+  width: 64px;
+  height: 64px;
+  margin: 6px auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--gold-antique);
+  background: radial-gradient(circle, rgba(212, 175, 106, 0.22) 0%, rgba(17, 15, 12, 0.9) 100%);
+  color: var(--gold-light);
+  font-size: 1.75rem;
+  box-shadow: 0 8px 22px rgba(200, 159, 86, 0.22);
+}
+
+.quiz-confirm-item {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: var(--cream-text);
+}
+
+.quiz-confirm-item strong {
+  color: var(--gold-champagne);
+}
+
+.quiz-confirm-bag {
+  margin-top: 6px;
+  font-size: 0.96rem;
+  font-style: italic;
+  color: var(--cream-muted);
+}
+
+.quiz-confirm-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.quiz-confirm-actions .btn-gold {
+  padding: 10px 24px;
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 620px) {
+  .quiz-body {
+    padding: 22px 18px 22px;
+  }
+
+  .quiz-options--two,
+  .quiz-options--three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

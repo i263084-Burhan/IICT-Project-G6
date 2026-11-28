@@ -13,6 +13,7 @@
 
   <!-- Reused External Stylesheet (i263086) -->
   <link rel="stylesheet" href="unisex_i263086.css">
+  <link rel="stylesheet" href="gift-quiz_i263086.css">
 </head>
 <body>
 
@@ -104,10 +105,15 @@
           <span class="hero-eyebrow">Curated Gift Editions</span>
           <h1>Make Every Moment<br>Memorable</h1>
           <p class="hero-subtitle">The perfect fragrance is the perfect gift</p>
-          <a href="#collection" class="btn-gold hero-btn">
-            <span>Shop Gift Scents</span>
-            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-          </a>
+          <div class="hero-actions">
+            <a href="#collection" class="btn-gold hero-btn">
+              <span>Shop Gift Scents</span>
+              <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" class="btn-outline-gold" id="openQuizBtn">
+              <span>Find Your Perfect Scent</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -348,7 +354,120 @@
   <!-- Subtle Notification Toast -->
   <div class="toast-banner" id="toastBanner" role="status" aria-live="polite"></div>
 
+  <!-- Perfume Finder Quiz Modal -->
+  <div class="quiz-modal" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizModalHeading" hidden>
+    <div class="quiz-modal-backdrop" id="quizBackdrop"></div>
+    <div class="quiz-modal-panel">
+      <div class="quiz-modal-header">
+        <span class="quiz-brand-pill">Perfume Finder Quiz</span>
+        <button type="button" class="quiz-close-btn" id="closeQuizBtn" aria-label="Close Perfume Finder Quiz">&times;</button>
+      </div>
+      <div class="quiz-progress-bar" aria-hidden="true">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+
+      <div class="quiz-body">
+
+        <!-- Step 1: Select Your Category -->
+        <section class="quiz-screen" id="quizStepCategory">
+          <span class="quiz-step-label">Step 1 of 2</span>
+          <h2 class="quiz-heading" id="quizModalHeading">Select Your Category</h2>
+          <p class="quiz-subtext">Choose who you are selecting this unforgettable gift for.</p>
+
+          <div class="quiz-options quiz-options--two">
+            <button type="button" class="quiz-option-card" data-quiz-category="women">
+              <span class="quiz-option-icon" aria-hidden="true">&#10022;</span>
+              <span class="quiz-option-title">Women's Perfumes</span>
+              <span class="quiz-option-desc">Graceful florals, luminous musks &amp; romantic warmth</span>
+            </button>
+
+            <button type="button" class="quiz-option-card" data-quiz-category="unisex">
+              <span class="quiz-option-icon" aria-hidden="true">&#10022;</span>
+              <span class="quiz-option-title">Unisex</span>
+              <span class="quiz-option-desc">Bold woods, crisp citrus &amp; contemporary depth</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Step 2: Select Fragrance Type -->
+        <section class="quiz-screen" id="quizStepType" hidden>
+          <span class="quiz-step-label">Step 2 of 2</span>
+          <h2 class="quiz-heading">Select Fragrance Type</h2>
+          <p class="quiz-subtext">Pick the scent profile that best captures the moment.</p>
+
+          <div class="quiz-options quiz-options--three">
+            <button type="button" class="quiz-option-card" data-quiz-type="floral">
+              <span class="quiz-option-icon" aria-hidden="true">&#10047;</span>
+              <span class="quiz-option-title">Floral</span>
+              <span class="quiz-option-desc">Velvet rose, white iris &amp; soft petals</span>
+            </button>
+
+            <button type="button" class="quiz-option-card" data-quiz-type="fruity">
+              <span class="quiz-option-icon" aria-hidden="true">&#10023;</span>
+              <span class="quiz-option-title">Fruity</span>
+              <span class="quiz-option-desc">Sunlit citrus, pear blossom &amp; nectar</span>
+            </button>
+
+            <button type="button" class="quiz-option-card" data-quiz-type="woody">
+              <span class="quiz-option-icon" aria-hidden="true">&#9670;</span>
+              <span class="quiz-option-title">Woody</span>
+              <span class="quiz-option-desc">Smoked cedar, warm amber &amp; dusk musk</span>
+            </button>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button type="button" class="quiz-text-btn" id="quizBackToCategoryBtn">&larr; Back to Category</button>
+          </div>
+        </section>
+
+        <!-- Step 3: Your Perfect Scent -->
+        <section class="quiz-screen" id="quizStepResult" hidden>
+          <span class="quiz-step-label">Curated Recommendation</span>
+          <h2 class="quiz-heading">Your Perfect Scent</h2>
+          <p class="quiz-choice-summary" id="quizChoiceSummary"></p>
+
+          <div class="quiz-result-card">
+            <div class="quiz-result-image-wrap">
+              <img id="quizResultImg" src="images/rose-eternelle-i263086.jpg" alt="Recommended Notes &amp; Noir perfume">
+            </div>
+            <h3 class="quiz-result-name" id="quizResultName">Rose Eternelle</h3>
+            <p class="quiz-result-notes" id="quizResultNotes"></p>
+            <div class="product-rating" aria-label="Rated 5 out of 5 stars">
+              <span class="star" aria-hidden="true">&#9733;</span>
+              <span class="star" aria-hidden="true">&#9733;</span>
+              <span class="star" aria-hidden="true">&#9733;</span>
+              <span class="star" aria-hidden="true">&#9733;</span>
+              <span class="star" aria-hidden="true">&#9733;</span>
+            </div>
+            <p class="quiz-result-price" id="quizResultPrice">Rs 4,500</p>
+            <button type="button" class="btn-gold quiz-add-btn" id="quizAddToCartBtn">Add to Cart</button>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button type="button" class="quiz-text-btn" id="quizRetakeBtn">&larr; Retake Quiz</button>
+          </div>
+        </section>
+
+        <!-- Step 4: Added to Cart Confirmation -->
+        <section class="quiz-screen" id="quizStepConfirm" hidden>
+          <div class="quiz-confirm-icon" aria-hidden="true">&#10003;</div>
+          <span class="quiz-step-label">Scent Bag Updated</span>
+          <h2 class="quiz-heading">Added to Cart Successfully!</h2>
+          <p class="quiz-confirm-item" id="quizConfirmItem"></p>
+          <p class="quiz-confirm-bag" id="quizConfirmBag"></p>
+
+          <div class="quiz-confirm-actions">
+            <button type="button" class="btn-gold" id="quizViewBagBtn">View Scent Bag</button>
+            <button type="button" class="btn-outline-gold" id="quizContinueBtn">Continue Shopping</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Reused External JavaScript (i263086) -->
   <script src="unisex_i263086.js"></script>
+  <script src="gift-quiz_i263086.js"></script>
 </body>
 </html>
