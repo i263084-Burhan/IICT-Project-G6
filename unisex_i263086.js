@@ -117,6 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.addEventListener("notesnoir:add-to-cart", (event) => {
+    const detail = event.detail || {};
+    if (!detail.name) return;
+    addToCart(detail.name, detail.type || "Gift Edition", detail.price || 0, null);
+  });
+
   if (cartItemsContainer) {
     cartItemsContainer.addEventListener("click", (event) => {
       const target = event.target.closest("[data-remove-index]");
