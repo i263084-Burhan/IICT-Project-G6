@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgSweet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#26170A" />
+      <stop offset="60%" stop-color="#1A0F05" />
+      <stop offset="100%" stop-color="#100802" />
+    </linearGradient>
+    <linearGradient id="beanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D2211" />
+      <stop offset="50%" stop-color="#1A0D06" />
+      <stop offset="100%" stop-color="#0D0602" />
+    </linearGradient>
+    <linearGradient id="orchidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF7" />
+      <stop offset="50%" stop-color="#FEF3C7" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+    <radialGradient id="amberDrop" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="45%" stop-color="#F59E0B" />
+      <stop offset="85%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#78350F" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgSweet)" />
+  <!-- Madagascar Vanilla Bean Pods (Crossed) -->
+  <g transform="translate(180, 220)">
+    <!-- Bean 1 -->
+    <path d="M-130 90 Q-40 20 80 -130 Q100 -150 110 -140 Q100 -120 70 30 Q40 100 -120 110 Z" fill="url(#beanGrad)" stroke="#4A2B18" stroke-width="1.5" />
+    <path d="M-110 85 Q-30 20 75 -125" stroke="#63381E" stroke-width="2" fill="none" opacity="0.6" />
+    <!-- Bean 2 -->
+    <path d="M-140 -80 Q-20 0 110 90 Q125 105 115 115 Q95 110 10 20 Q-50 -40 -135 -65 Z" fill="url(#beanGrad)" stroke="#4A2B18" stroke-width="1.5" />
+    <path d="M-125 -65 Q-15 0 95 85" stroke="#63381E" stroke-width="2" fill="none" opacity="0.6" />
+  </g>
+  <!-- Creamy Vanilla Orchid Blossom Centerpiece -->
+  <g transform="translate(200, 160)">
+    <!-- Upper Petals -->
+    <ellipse cx="0" cy="-55" rx="30" ry="50" fill="url(#orchidGrad)" opacity="0.95" />
+    <ellipse cx="-45" cy="-25" rx="26" ry="46" fill="url(#orchidGrad)" transform="rotate(-40 -45 -25)" opacity="0.9" />
+    <ellipse cx="45" cy="-25" rx="26" ry="46" fill="url(#orchidGrad)" transform="rotate(40 45 -25)" opacity="0.9" />
+    <!-- Lower Petals -->
+    <ellipse cx="-32" cy="28" rx="24" ry="44" fill="url(#orchidGrad)" transform="rotate(25 -32 28)" opacity="0.92" />
+    <ellipse cx="32" cy="28" rx="24" ry="44" fill="url(#orchidGrad)" transform="rotate(-25 32 28)" opacity="0.92" />
+    <!-- Lip / Center Trumpet -->
+    <path d="M-22 -5 Q0 -25 22 -5 Q28 35 0 45 Q-28 35 -22 -5 Z" fill="#FBBF24" opacity="0.95" />
+    <circle cx="0" cy="12" r="10" fill="#D97706" />
+    <circle cx="0" cy="8" r="4" fill="#78350F" />
+  </g>
+  <!-- Glowing Honey Amber Resin Teardrop -->
+  <g transform="translate(260, 270)">
+    <path d="M0 -30 C15 -10 25 10 25 25 C25 40 12 50 0 50 C-12 50 -25 40 -25 25 C-25 10 -15 -10 0 -30 Z" fill="url(#amberDrop)" />
+    <ellipse cx="-7" cy="18" rx="5" ry="12" fill="#FFFFFF" opacity="0.6" transform="rotate(-20 -7 18)" />
+  </g>
+</svg>

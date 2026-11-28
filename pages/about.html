@@ -1,532 +1,192 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover the story behind Notes &amp; Noir Fragrances — our passion for crafting luxury perfumes with the finest ingredients from around the world.">
-  <title>About Us — Notes &amp; Noir Fragrances</title>
+  <title>About Our Atelier â€” Notes &amp; Noir Fragrances</title>
+  <meta name="description" content="Learn about the Notes &amp; Noir Fragrances house philosophy, sustainable botanical sourcing, and small-batch maceration.">
 
-  <!-- Google Fonts: Playfair Display (Luxury Serif) & Plus Jakarta Sans (Clean UI Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Roll-number suffixed Stylesheet -->
-  <link rel="stylesheet" href="../css/about_i263083.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style_i263085.css">
 </head>
 <body>
-  <!-- Skip Link for Keyboard Accessibility -->
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a href="#main-content" class="nn-skip-link">Skip to main content</a>
 
-  <!-- =========================================================
-       SITE HEADER (Utility Announcement Bar + Main Navigation)
-       ========================================================= -->
-  <header class="site-header">
-    <!-- Top Announcement & Utility Bar -->
-    <div class="utility-bar">
-      <div class="container utility-bar__inner">
-        <p class="utility-bar__promo">
-          <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="1" y="3" width="15" height="13" rx="1"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-          </svg>
-          <span>Free shipping on orders over $75</span>
-        </p>
-
-        <div class="utility-bar__actions" role="region" aria-label="Store utilities">
-          <button type="button" class="utility-btn" id="open-search-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="search-overlay">
-            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <span>Search</span>
-          </button>
-
-          <button type="button" class="utility-btn" id="open-account-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="account-modal">
-            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            <span>Account</span>
-          </button>
-
-          <button type="button" class="utility-btn" id="open-wishlist-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="wishlist-modal">
-            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-            <span>Wishlist (<span id="header-wishlist-count">0</span>)</span>
-          </button>
-
-          <a href="checkout.html" class="utility-btn utility-btn--cart" id="header-cart-link" aria-label="View Cart">
-            <svg class="icon icon--sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-            <span>Cart (<span id="header-cart-count">0</span>)</span>
-          </a>
+  <header>
+    <div class="nn-topbar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="nn-topbar-promo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <span>Free shipping on orders over $75</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="nn-topbar-utils">
+              <button type="button" class="nn-util-btn" data-bs-toggle="modal" data-bs-target="#nn-search-modal">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search</span>
+              </button>
+              <button type="button" class="nn-util-btn" data-bs-toggle="modal" data-bs-target="#nn-account-modal">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Account</span>
+              </button>
+              <button type="button" class="nn-util-btn" data-bs-toggle="offcanvas" data-bs-target="#nn-wishlist-offcanvas" aria-controls="nn-wishlist-offcanvas">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>Wishlist (<span id="nn-wishlist-count">0</span>)</span>
+              </button>
+              <button type="button" class="nn-util-btn" data-bs-toggle="offcanvas" data-bs-target="#nn-cart-offcanvas" aria-controls="nn-cart-offcanvas">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span>Cart (<span id="nn-cart-count">0</span>)</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Main Navigation Bar -->
-    <nav class="main-nav" aria-label="Main navigation">
-      <div class="container main-nav__inner">
-        <a href="../index.html" class="brand-logo" aria-label="Notes and Noir Fragrances Home">
-          <span class="brand-logo__title">Notes &amp; Noir</span>
-          <span class="brand-logo__subtitle">FRAGRANCES</span>
+    <nav class="navbar navbar-expand-lg nn-navbar" aria-label="Primary navigation">
+      <div class="container">
+        <a class="navbar-brand nn-brand" href="../index.html">
+          <span class="nn-brand-title">Notes &amp; Noir</span>
+          <span class="nn-brand-sub">FRAGRANCES</span>
         </a>
-
-        <button type="button" class="nav-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav-menu">
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nnPrimaryNav" aria-controls="nnPrimaryNav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span class="navbar-toggler-icon"></span>
         </button>
-
-        <ul class="nav-links" id="primary-nav-menu">
-          <li class="nav-links__item">
-            <a href="../index.html" class="nav-links__link">Home</a>
-          </li>
-          <li class="nav-links__item nav-links__item--dropdown">
-            <button type="button" class="nav-links__link nav-links__dropdown-btn" id="shop-dropdown-btn" aria-expanded="false" aria-controls="shop-dropdown-menu">
-              <span>Shop</span>
-              <svg class="icon icon--xs nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </button>
-            <div class="dropdown-menu" id="shop-dropdown-menu" hidden>
-              <a href="shop.html" class="dropdown-menu__link">All Fragrances</a>
-              <a href="shop.html#bestsellers" class="dropdown-menu__link">Signature Bestsellers</a>
-              <a href="shop.html#oud-amber" class="dropdown-menu__link">Oud &amp; Amber Collection</a>
-              <a href="shop.html#floral-musk" class="dropdown-menu__link">Floral &amp; Velvet Musk</a>
-              <button type="button" class="dropdown-menu__link dropdown-menu__action" id="dropdown-quick-browse">Quick Add to Bag</button>
-            </div>
-          </li>
-          <li class="nav-links__item">
-            <a href="about.html" class="nav-links__link nav-links__link--active" aria-current="page">About</a>
-          </li>
-          <li class="nav-links__item">
-            <a href="blog.html" class="nav-links__link">Blog</a>
-          </li>
-          <li class="nav-links__item">
-            <a href="contact.html" class="nav-links__link">Contact</a>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="nnPrimaryNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="shop.html" id="nnShopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+              <ul class="dropdown-menu" aria-labelledby="nnShopDropdown">
+                <li><a class="dropdown-item" href="shop.html">All Fragrances</a></li>
+                <li><a class="dropdown-item" href="shop.html?category=Woody%20%26%20Oud">Woody &amp; Oud</a></li>
+                <li><a class="dropdown-item" href="shop.html?category=Floral%20%26%20Musk">Floral &amp; Musk</a></li>
+                <li><a class="dropdown-item" href="shop.html?category=Amber%20%26%20Spice">Amber &amp; Spice</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="product-details.html?id=noir-oud">Featured: Noir Oud</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="scent-finder.html">Scent Finder</a>
+            </li>
+          </ul>
+          <div class="d-none d-lg-block" style="width: 120px;" aria-hidden="true"></div>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- =========================================================
-       SEARCH OVERLAY (Live Catalog Filter)
-       ========================================================= -->
-  <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-overlay-title" hidden>
-    <div class="search-overlay__backdrop" data-close-overlay="search-overlay"></div>
-    <div class="search-overlay__panel">
+  <main id="main-content">
+    <section class="nn-hero-banner" aria-labelledby="about-hero-title">
       <div class="container">
-        <div class="search-overlay__header">
-          <h2 id="search-overlay-title" class="sr-only">Search Fragrances</h2>
-          <div class="search-input-wrap">
-            <svg class="icon icon--md search-input-wrap__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input type="search" id="catalog-search-input" class="search-overlay__input" placeholder="Search Noir Essence, Oud, Amber, Floral..." autocomplete="off" aria-label="Search Notes and Noir fragrances">
-          </div>
-          <button type="button" class="icon-close-btn" id="close-search-btn" aria-label="Close search overlay">
-            <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-
-        <div class="search-results" id="search-results" aria-live="polite"></div>
+        <p class="text-uppercase small mb-1" style="letter-spacing: 0.2em; color: var(--nn-muted);">Our Heritage</p>
+        <h1 id="about-hero-title" class="nn-hero-title">About Notes &amp; Noir</h1>
+        <p class="nn-hero-subtitle">Where quiet botanical memory meets architectural perfumery.</p>
+        <div class="nn-hero-accent" aria-hidden="true"></div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- =========================================================
-       HERO BANNER
-       ========================================================= -->
-  <section class="about-hero" aria-labelledby="about-hero-title">
-    <img
-      src="../images/hero-bestsellers-noir.jpg"
-      alt="Notes and Noir Fragrances amber glass perfume bottle resting on dark luxury silk with white jasmine blossoms"
-      class="about-hero__bg"
-      id="about-hero-img"
-    >
-    <div class="about-hero__scrim" aria-hidden="true"></div>
-    <div class="container about-hero__content">
-      <h1 id="about-hero-title" class="about-hero__title">About Us</h1>
-      <p class="about-hero__subtitle">A story of elegance, passion and timeless scents.</p>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       MAIN CONTENT
-       ========================================================= -->
-  <main id="main-content" class="about-main">
-    <!-- Live region for screen-reader announcements -->
-    <div id="about-status-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-
-    <!-- =========================================================
-         OUR STORY — 48% / 52% Split Section
-         ========================================================= -->
-    <section class="story-section" aria-labelledby="story-heading">
+    <section class="py-5">
       <div class="container">
-        <div class="story-grid">
-          <!-- Left Column: Editorial Photograph -->
-          <div class="story-image-wrap">
-            <img
-              src="../images/about-story-bottle.jpg"
-              alt="Notes and Noir Fragrances amber glass perfume bottle resting on dark marble beside white jasmine blossoms"
-              class="story-image"
-              id="story-bottle-img"
-            >
-            <!-- CSS/SVG Fallback Placeholder (shown if image fails) -->
-            <div class="story-image-placeholder" id="story-image-placeholder" style="display:none;">
-              <svg viewBox="0 0 120 140" width="80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect x="46" y="10" width="28" height="16" rx="3" fill="#C5A059"/>
-                <rect x="52" y="26" width="16" height="8" fill="#8D7343"/>
-                <rect x="30" y="34" width="60" height="80" rx="10" fill="#2A2019" stroke="#C5A059" stroke-width="2"/>
-                <rect x="40" y="50" width="40" height="45" rx="4" fill="#FBF8F3"/>
-                <text x="60" y="72" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#14110F">Notes &amp; Noir</text>
-                <text x="60" y="84" text-anchor="middle" font-family="sans-serif" font-size="4.5" fill="#5C5248" letter-spacing="2">FRAGRANCES</text>
-              </svg>
-              <span class="story-image-placeholder__brand">Notes &amp; Noir</span>
-              <span class="story-image-placeholder__sub">FRAGRANCES</span>
-              <span class="story-image-placeholder__tagline">More than a fragrance. A feeling.</span>
-            </div>
+        <div class="row g-4 g-lg-5 align-items-center mb-5">
+          <div class="col-lg-6">
+            <img src="../images/about-atelier.svg" alt="The Notes &amp; Noir Atelier perfumery shelves" class="img-fluid rounded-3 border" style="border-color: var(--nn-taupe) !important;">
           </div>
-
-          <!-- Right Column: Our Story Content -->
-          <div class="story-content">
-            <p class="story-eyebrow">OUR STORY</p>
-            <h2 id="story-heading" class="story-heading">More than a fragrance. A feeling.</h2>
-            <p class="story-text">
-              At Notes &amp; Noir, we believe a fragrance is more than just a scent — it is a memory, a mood and a part of who you are. Our journey began with a simple idea: to create perfumes that feel luxurious, last longer and speak to your personality.
+          <div class="col-lg-6">
+            <h2 class="nn-serif display-6 mb-3">Crafted in Small Numbered Lots</h2>
+            <p class="text-muted">
+              Founded on the belief that scent should feel personal rather than loud, Notes &amp; Noir composes high-concentration Eau de Parfum and Extrait creations designed to evolve gracefully over ten to twelve hours on skin.
             </p>
-            <p class="story-text">
-              From timeless classics to modern favorites, every bottle is crafted with care, using the finest ingredients and inspired by the beauty of everyday moments.
+            <p class="text-muted mb-4">
+              Every bottle is filled, capped in brushed brass, and sealed in textured linen packagingâ€”protecting light-sensitive natural absolutes from our studio table to your dressing room.
             </p>
-            <p class="story-text">
-              Welcome to Notes &amp; Noir, where every fragrance tells a story.
-            </p>
+            <a href="product-details.html?id=noir-oud" class="nn-btn-primary">Experience Noir Oud</a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- =========================================================
-         SIGNATURE INGREDIENTS & CRAFTSMANSHIP PILLARS
-         ========================================================= -->
-    <section class="ingredients-section" aria-labelledby="ingredients-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow">CRAFTSMANSHIP</p>
-          <h2 id="ingredients-title" class="section-title">Signature Ingredients &amp; Heritage</h2>
-          <p class="section-subtitle">Every Notes &amp; Noir fragrance begins with the world's rarest botanicals, extracted using time-honoured artisan techniques.</p>
-        </div>
-
-        <!-- Dynamically rendered from JS data array -->
-        <div class="ingredients-grid" id="ingredients-grid" aria-label="Signature ingredient cards"></div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         FRAGRANCE PYRAMID — Interactive Tabs (Top / Heart / Base)
-         ========================================================= -->
-    <section class="pyramid-section" aria-labelledby="pyramid-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow">SCENT PHILOSOPHY</p>
-          <h2 id="pyramid-title" class="section-title">The Notes &amp; Noir Fragrance Pyramid</h2>
-          <p class="section-subtitle">Every composition is an olfactory journey through three evolving layers of aroma.</p>
-        </div>
-
-        <!-- Tab Buttons -->
-        <div class="pyramid-tabs" role="tablist" aria-label="Fragrance pyramid layers">
-          <button type="button" class="pyramid-tab is-active" role="tab" data-note-type="top" aria-selected="true" aria-controls="pyramid-panel-top" id="tab-top">
-            Top Notes
-          </button>
-          <button type="button" class="pyramid-tab" role="tab" data-note-type="heart" aria-selected="false" aria-controls="pyramid-panel-heart" id="tab-heart">
-            Heart Notes
-          </button>
-          <button type="button" class="pyramid-tab" role="tab" data-note-type="base" aria-selected="false" aria-controls="pyramid-panel-base" id="tab-base">
-            Base Notes
-          </button>
-        </div>
-
-        <!-- Tab Panels (populated by JS) -->
-        <div class="pyramid-panel is-visible" id="pyramid-panel-top" role="tabpanel" aria-labelledby="tab-top"></div>
-        <div class="pyramid-panel" id="pyramid-panel-heart" role="tabpanel" aria-labelledby="tab-heart"></div>
-        <div class="pyramid-panel" id="pyramid-panel-base" role="tabpanel" aria-labelledby="tab-base"></div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         SIGNATURE CONCENTRATION & LONGEVITY CALCULATOR
-         ========================================================= -->
-    <section class="calculator-section" aria-labelledby="calculator-title">
-      <div class="container">
-        <div class="section-header">
-          <p class="section-eyebrow">FIND YOUR SCENT</p>
-          <h2 id="calculator-title" class="section-title">Concentration &amp; Longevity Calculator</h2>
-          <p class="section-subtitle">Select your wear preferences and discover which Notes &amp; Noir fragrance is your ideal signature.</p>
-        </div>
-
-        <div class="calculator-card">
-          <div class="calculator-form">
-            <div class="calculator-group">
-              <label for="calc-duration" class="calculator-label">Preferred Wear Duration</label>
-              <select id="calc-duration" class="calculator-select" aria-label="Select how long you want your fragrance to last">
-                <option value="4-6">4–6 hours (Light Wear)</option>
-                <option value="8-10" selected>8–10 hours (All-Day)</option>
-                <option value="12+">12+ hours (Long-Lasting)</option>
-              </select>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="nn-note-tier-card">
+              <div class="nn-note-tier-label">01 â€¢ Sourcing</div>
+              <h3 class="nn-note-tier-title">Rare Botanicals</h3>
+              <p class="small text-muted mb-0">Ethical wild-harvested agarwood, Kashmiri saffron, and cold-pressed citrus oils selected at peak harvest.</p>
             </div>
-            <div class="calculator-group">
-              <label for="calc-occasion" class="calculator-label">Primary Occasion</label>
-              <select id="calc-occasion" class="calculator-select" aria-label="Select your primary occasion for wearing fragrance">
-                <option value="Daily Office">Daily Office</option>
-                <option value="Evening Gala" selected>Evening Gala</option>
-                <option value="Intimate Dinner">Intimate Dinner</option>
-              </select>
-            </div>
-            <button type="button" class="calculator-btn" id="calc-submit-btn">
-              Find My Signature Fragrance
-            </button>
           </div>
-
-          <div class="calculator-result" id="calculator-result" aria-live="polite"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         NEWSLETTER / BESPOKE SCENT CONSULTATION FORM
-         ========================================================= -->
-    <section class="newsletter-section" aria-labelledby="newsletter-title">
-      <div class="container">
-        <div class="newsletter-card">
-          <div class="section-header">
-            <p class="section-eyebrow">ATELIER INVITATIONS</p>
-            <h2 id="newsletter-title" class="section-title">Join the Notes &amp; Noir Circle</h2>
-            <p class="section-subtitle">Receive bespoke scent recommendations, early access to new launches, and exclusive atelier invitations.</p>
+          <div class="col-md-4">
+            <div class="nn-note-tier-card">
+              <div class="nn-note-tier-label">02 â€¢ Maceration</div>
+              <h3 class="nn-note-tier-title">Six-Week Rest</h3>
+              <p class="small text-muted mb-0">Each blend rests undisturbed in dark glass vessels so bright spice and smoky resinous bases marry smoothly.</p>
+            </div>
           </div>
-
-          <form id="newsletter-form" class="newsletter-form" novalidate>
-            <!-- Name -->
-            <div class="form-group">
-              <label for="newsletterName" class="form-label">Your Name</label>
-              <input
-                type="text"
-                id="newsletterName"
-                name="newsletterName"
-                class="form-input"
-                placeholder="Enter your name"
-                autocomplete="name"
-                required
-                aria-describedby="newsletterName-error"
-              >
-              <p id="newsletterName-error" class="form-error" role="alert"></p>
+          <div class="col-md-4">
+            <div class="nn-note-tier-card">
+              <div class="nn-note-tier-label">03 â€¢ Packaging</div>
+              <h3 class="nn-note-tier-title">Refillable Keepsakes</h3>
+              <p class="small text-muted mb-0">Heavy-base glass flacons and FSC-certified textured boxes designed to be cherished and reused.</p>
             </div>
-
-            <!-- Email -->
-            <div class="form-group">
-              <label for="newsletterEmail" class="form-label">Email Address</label>
-              <input
-                type="email"
-                id="newsletterEmail"
-                name="newsletterEmail"
-                class="form-input"
-                placeholder="you@example.com"
-                autocomplete="email"
-                required
-                aria-describedby="newsletterEmail-error"
-              >
-              <p id="newsletterEmail-error" class="form-error" role="alert"></p>
-            </div>
-
-            <!-- Preferred Scent Family -->
-            <div class="form-group">
-              <label for="newsletterScent" class="form-label">Preferred Scent Family</label>
-              <select
-                id="newsletterScent"
-                name="newsletterScent"
-                class="form-input form-select"
-                required
-                aria-describedby="newsletterScent-error"
-              >
-                <option value="">Select a scent family</option>
-                <option value="Floral">Floral</option>
-                <option value="Woody">Woody</option>
-                <option value="Oriental / Amber">Oriental / Amber</option>
-                <option value="Fresh Citrus">Fresh Citrus</option>
-              </select>
-              <p id="newsletterScent-error" class="form-error" role="alert"></p>
-            </div>
-
-            <button type="submit" class="btn-primary">
-              Subscribe &amp; Get Recommendations
-            </button>
-          </form>
-
-          <!-- Success Confirmation (shown after valid submit) -->
-          <div class="newsletter-success" id="newsletter-success" aria-live="polite">
-            <div class="newsletter-success__icon" aria-hidden="true">
-              <svg class="icon icon--lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </div>
-            <h3 class="newsletter-success__title">Welcome to the Circle</h3>
-            <p class="newsletter-success__text"></p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- =========================================================
-       WISHLIST & ACCOUNT MODALS
-       ========================================================= -->
-  <div class="modal" id="wishlist-modal" role="dialog" aria-modal="true" aria-labelledby="wishlist-modal-title" hidden>
-    <div class="modal__backdrop" data-close-modal="wishlist-modal"></div>
-    <div class="modal__dialog">
-      <div class="modal__header modal__header--row">
-        <h2 id="wishlist-modal-title" class="modal__title">Your Wishlist</h2>
-        <button type="button" class="icon-close-btn icon-close-btn--dark" data-close-modal="wishlist-modal" aria-label="Close wishlist">
-          <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body" id="wishlist-modal-body"></div>
-    </div>
-  </div>
-
-  <div class="modal" id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-modal-title" hidden>
-    <div class="modal__backdrop" data-close-modal="account-modal"></div>
-    <div class="modal__dialog">
-      <div class="modal__header modal__header--row">
-        <h2 id="account-modal-title" class="modal__title">Saved Orders &amp; Account</h2>
-        <button type="button" class="icon-close-btn icon-close-btn--dark" data-close-modal="account-modal" aria-label="Close account panel">
-          <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body" id="account-modal-body"></div>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       INGREDIENT DETAIL MODAL / LIGHTBOX
-       ========================================================= -->
-  <div class="modal" id="ingredient-modal" role="dialog" aria-modal="true" aria-labelledby="ingredient-modal-title" hidden>
-    <div class="modal__backdrop" data-close-modal="ingredient-modal"></div>
-    <div class="modal__dialog">
-      <div class="modal__header modal__header--row">
-        <div>
-          <h2 id="ingredient-modal-title" class="modal__title"></h2>
-          <p id="ingredient-modal-subtitle" class="modal__subtitle"></p>
-        </div>
-        <button type="button" class="icon-close-btn icon-close-btn--dark" data-close-modal="ingredient-modal" aria-label="Close ingredient details">
-          <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-      </div>
-      <div class="modal__body" id="ingredient-modal-body"></div>
-    </div>
-  </div>
-
-  <!-- =========================================================
-       SITE FOOTER (4 Columns — Identical to Checkout)
-       ========================================================= -->
-  <footer class="site-footer">
+  <footer class="nn-footer">
     <div class="container">
-      <div class="footer-grid">
-        <!-- Column 1: Brand & AI Image Disclosure -->
-        <div class="footer-col footer-col--brand">
-          <div class="brand-logo brand-logo--footer">
-            <span class="brand-logo__title">Notes &amp; Noir</span>
-            <span class="brand-logo__subtitle">FRAGRANCES</span>
-          </div>
-          <p class="footer-tagline">More than a fragrance. A feeling.</p>
-          <p class="footer-disclosure">Images on this website were generated using AI tools.</p>
+      <div class="row g-4 align-items-start">
+        <div class="col-lg-3 col-md-6">
+          <div class="nn-brand mb-2"><span class="nn-brand-title">Notes &amp; Noir</span><span class="nn-brand-sub">FRAGRANCES</span></div>
+          <p class="small mb-0" style="color: rgba(255, 255, 255, 0.72);">More than a fragrance. A feeling.</p>
         </div>
-
-        <!-- Column 2: Quick Links -->
-        <div class="footer-col">
-          <h3 class="footer-heading">Quick Links</h3>
-          <ul class="footer-list">
-            <li><a href="../index.html" class="footer-link">Home</a></li>
-            <li><a href="shop.html" class="footer-link">Shop</a></li>
-            <li><a href="about.html" class="footer-link">About</a></li>
-            <li><a href="blog.html" class="footer-link">Blog</a></li>
-            <li><a href="contact.html" class="footer-link">Contact</a></li>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h3 class="nn-footer-heading">Quick Links</h3>
+          <ul class="nn-footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-
-        <!-- Column 3: Customer Care -->
-        <div class="footer-col">
-          <h3 class="footer-heading">Customer Care</h3>
-          <ul class="footer-list">
-            <li><a href="contact.html#faq" class="footer-link">FAQs</a></li>
-            <li><a href="contact.html#shipping" class="footer-link">Shipping</a></li>
-            <li><a href="contact.html#returns" class="footer-link">Returns</a></li>
-            <li><button type="button" class="footer-link footer-link--btn" id="footer-track-order-btn">Track Order</button></li>
-            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+        <div class="col-lg-2 col-md-3 col-6">
+          <h3 class="nn-footer-heading">Customer Care</h3>
+          <ul class="nn-footer-links">
+            <li><a href="contact.html#faq">FAQs</a></li>
+            <li><a href="contact.html#shipping">Shipping</a></li>
+            <li><a href="contact.html#returns">Returns</a></li>
+            <li><a href="contact.html#track-order">Track Order</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-
-        <!-- Column 4: Follow Us & Copyright -->
-        <div class="footer-col footer-col--social">
-          <div>
-            <h3 class="footer-heading">Follow Us</h3>
-            <div class="social-links">
-              <a href="#instagram" class="social-link" aria-label="Follow Notes and Noir on Instagram">
-                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-              <a href="#tiktok" class="social-link" aria-label="Follow Notes and Noir on TikTok">
-                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-                </svg>
-              </a>
-              <a href="#youtube" class="social-link" aria-label="Subscribe to Notes and Noir on YouTube">
-                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-              </a>
-              <a href="#pinterest" class="social-link" aria-label="Follow Notes and Noir on Pinterest">
-                <svg class="icon icon--md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <path d="M8.5 14.5c-.5-2 .5-4.5 2.5-5.5 2.2-1.1 5 .2 5 2.8 0 2.2-1.5 3.7-3.2 3.7-.9 0-1.6-.6-1.4-1.5l.7-3"></path>
-                  <line x1="10.5" y1="15" x2="9" y2="20"></line>
-                </svg>
-              </a>
-            </div>
+        <div class="col-lg-2 col-md-6">
+          <h3 class="nn-footer-heading">Follow Us</h3>
+          <div class="nn-social-links">
+            <a href="#instagram" class="nn-social-icon" aria-label="Instagram" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            <a href="#tiktok" class="nn-social-icon" aria-label="TikTok" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg></a>
+            <a href="#youtube" class="nn-social-icon" aria-label="YouTube" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            <a href="#pinterest" class="nn-social-icon" aria-label="Pinterest" title="Pinterest"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M8 20l2.5-8.5"></path><path d="M10.5 11.5c.8-2 3.8-2.2 4.3 0 .4 1.8-1 4-2.8 4-1 0-1.6-.6-1.6-.6"></path></svg></a>
           </div>
-
-          <p class="footer-copyright">&copy; 2026 Notes &amp; Noir. All rights reserved.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 nn-footer-right">
+          <p class="mb-2 text-white">&copy; 2026 Notes &amp; Noir. All rights reserved.</p>
+          <p class="mb-0" style="color: rgba(255, 255, 255, 0.62);">Images on this website were generated using AI image generation tools.</p>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Roll-number suffixed Vanilla JavaScript -->
-  <script src="../js/about_i263083.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="../js/data_i263085.js"></script>
+  <script src="../js/shared_i263085.js"></script>
 </body>
 </html>
+
